@@ -2,5 +2,6 @@ package com.au.byteUX.Package;
 
 public class Sample {
 
-	public static String c2;
+	public static String c;
+
 }
