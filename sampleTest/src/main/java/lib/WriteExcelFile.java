@@ -36,10 +36,10 @@ public class WriteExcelFile {
 		return row;
 	}
 	
-	public String setData(int sheetnumber, int row, int column, int value){
+	public void setData(int sheetnumber, int row, int column, int value){
 		sheet = wb.getSheetAt(sheetnumber);
-		Int data = sheet.getRow(row).createCell(column).setCellValue(value);
-		return data;
+		sheet.getRow(row).createCell(column).setCellValue(value);
+		
 	}
 
 }

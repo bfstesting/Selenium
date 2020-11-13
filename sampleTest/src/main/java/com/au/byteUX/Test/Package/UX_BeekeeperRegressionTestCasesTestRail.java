@@ -3,9 +3,11 @@
  */
 package com.au.byteUX.Test.Package;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.au.byteUX.Page.Package.AddHiveBrand;
 import com.au.byteUX.Page.Package.AddHiveLocation;
 import com.au.byteUX.Page.Package.LoginPage;
@@ -14,12 +16,30 @@ import com.au.byteUX.Page.Package.MyAuthorisation;
 import com.au.byteUX.Page.Package.SelectSubject;
 import com.au.byteUX.Page.Package.UpdateAccountDetails;
 import com.au.byteUX.Page.Package.UpdatePrimaryLocation;
+import junit.framework.Assert;
+import lib.ReadProperties;
 
 /**
  * @author sarkah01
  *
  */
 public class UX_BeekeeperRegressionTestCasesTestRail extends HelperClass {
+	
+	String url;
+	String username;
+	String password;
+	@BeforeMethod
+	public void init() throws FileNotFoundException, IOException {
+		
+		url = ReadProperties.getObject("url");
+		username = ReadProperties.getObject("userName1");
+		password = ReadProperties.getObject("password");
+		
+		driver.get(url);
+		LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+		loginPage.LoginToUX(username, password);
+		
+	}
 	public UX_BeekeeperRegressionTestCasesTestRail() {
 	}
 
@@ -31,10 +51,10 @@ public class UX_BeekeeperRegressionTestCasesTestRail extends HelperClass {
 	public void UpdateAccountDetailsAndPrimaryLocation() {
 		try {
 			// login to UX
-			driver.get("https://train.bfs.dpi.nsw.gov.au/UXTrain/sso");
-			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-			loginPage.LoginToUX("test1121@test.com", "Happy!23");
-			Thread.sleep(5000);
+			//driver.get(url);
+			//LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+			//loginPage.LoginToUX(username, password);
+			//Thread.sleep(5000);
 			// Navigate to My Account
 			SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
 			subject.selectSubject("My Account");
@@ -85,10 +105,10 @@ public class UX_BeekeeperRegressionTestCasesTestRail extends HelperClass {
 	public void AddHiveBrandAndHiveLocation() {
 		try {
 			// login to UX
-			driver.get("https://train.bfs.dpi.nsw.gov.au/UXTrain/sso");
-			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-			loginPage.LoginToUX("test1121@test.com", "Happy!23");
-			Thread.sleep(5000);
+			//driver.get(url);
+			//LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+			//loginPage.LoginToUX(username, password);
+			//Thread.sleep(5000);
 			// Navigate to My Account
 			SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
 			subject.selectSubject("My Account");
@@ -114,11 +134,11 @@ public class UX_BeekeeperRegressionTestCasesTestRail extends HelperClass {
 	public void addHiveLocationAddress() {
 		try {
 			//login to UX
-			System.out.println(Thread.currentThread().getId());
-			driver.get("https://train.bfs.dpi.nsw.gov.au/UXTrain/sso");
-			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-			loginPage.LoginToUX("test1121@test.com", "Happy!23");
-			Thread.sleep(8000);
+			//System.out.println(Thread.currentThread().getId());
+			//driver.get(url);
+			//LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+			//loginPage.LoginToUX(username, password);
+			//Thread.sleep(8000);
 			//Select Authorisation Subject
 			SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
 			subject.selectSubject("My Authorisation");
@@ -140,11 +160,11 @@ public class UX_BeekeeperRegressionTestCasesTestRail extends HelperClass {
 	public void addHiveLocationLocality() {
 		try {
 			//login to UX
-			System.out.println(Thread.currentThread().getId());
-			driver.get("https://train.bfs.dpi.nsw.gov.au/UXTrain/sso");
-			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-			loginPage.LoginToUX("sushamakailash@gmail.com", "Happy!23");
-			Thread.sleep(8000);
+			//System.out.println(Thread.currentThread().getId());
+			//driver.get(url);
+			//LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+			//loginPage.LoginToUX("sushamakailash@gmail.com", "Happy!23");
+			//Thread.sleep(8000);
 			//Select Authorisation Subject
 			SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
 			subject.selectSubject("My Authorisation");
@@ -166,11 +186,9 @@ public class UX_BeekeeperRegressionTestCasesTestRail extends HelperClass {
 	public void addHiveBrand() {
 		try {
 			//login to UX
-			System.out.println(Thread.currentThread().getId());
-			driver.get("https://train.bfs.dpi.nsw.gov.au/UXTrain/sso");
-			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-			loginPage.LoginToUX("test1121@test.com", "Happy!23");
-			Thread.sleep(8000);
+			//System.out.println(Thread.currentThread().getId());
+			
+			//Thread.sleep(8000);
 			//Select Authorisation Subject
 			SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
 			subject.selectSubject("My Authorisation");
