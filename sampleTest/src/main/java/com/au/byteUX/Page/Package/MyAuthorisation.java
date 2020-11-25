@@ -53,13 +53,9 @@ public class MyAuthorisation {
 	}
 	
 	
-	public String date()
+	public String date() throws InterruptedException
 	{
-		try {
-			
-			return date1;
-		}
-		catch (InterruptedException e)		{			e.printStackTrace();		}		
+		return date1;		
 	}
 	
 	

@@ -40,7 +40,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 	public UX_BeekeeperRegressionTestCasesTestRail() {
 	}
 
-	@Test
+	//@Test
 
 	// C660 - Update Account Details
 	// C662 - Update Primary Location
@@ -166,7 +166,8 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 		}
 	}
 
-	@Test
+	//@Test
+
 	public void addHiveLocationAddress() {
 		try {
 			// login to UX
@@ -250,8 +251,9 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 
 		}
 	}
+	
+	@Test
 
-	// @Test
 	public void addHiveBrand() {
 		try {
 			// login to UX
@@ -273,8 +275,11 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			// Select Beekeeper Authorisation
 			MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
 			myAuth.multipleAuthorisation_select1();
-			myAuth.addHiveLocation();
-			// Add Hive Brand
+
+			myAuth.addHiveBrand();
+			//myAuth.addHiveLocation();
+			//Add Hive Brand
+
 			AddHiveBrand hiveBrand = PageFactory.initElements(driver, AddHiveBrand.class);
 			hiveBrand.addHiveBrand("TD12");
 			Thread.sleep(10000);
