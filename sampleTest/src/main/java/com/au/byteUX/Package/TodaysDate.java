@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class TodaysDate {
 	
-	public static void main(String[] args) {
+	public static String main() {
 		 
 		 // Create object of SimpleDateFormat class and decide the format
 		 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy ");
@@ -21,10 +21,12 @@ public class TodaysDate {
 		 Date date = new Date();
 		 
 		 // Now format the date
-		 String date1= dateFormat.format(date);
+		 String TodaysDate= dateFormat.format(date);
 		 
 		 // Print the Date
-		 System.out.println(date1);
+		 System.out.println(TodaysDate);
+		 
+		 return TodaysDate;
 		 
 		 }
 

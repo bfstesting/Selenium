@@ -31,6 +31,7 @@ WebDriver driver;
 		
 		//add checkpoint to verify that the details entered on the hive details form is reflected here
 		//submittedHiveDetails. .get(0).getText().compareTo(addAString);
+		addHiveDetails.click();
 		
 		stillKeepBeesYes.click();
 		

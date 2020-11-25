@@ -31,12 +31,12 @@ import lib.ReadProperties;
  *
  */
 public class UX_BeekeeperRegressionTestCasesTestRail {
-	
+
 	String url;
 	String username;
 	String password;
 	String driverLocation;
-	
+
 	public UX_BeekeeperRegressionTestCasesTestRail() {
 	}
 
@@ -47,21 +47,21 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 
 	public void UpdateAccountDetailsAndPrimaryLocation() {
 		try {
-			
-			
+
 			// login to UX
-			//driver.get(url);
-			//LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-			//loginPage.LoginToUX(username, password);
-			//Thread.sleep(5000);
-			//System.out.println("Thread " + Thread.currentThread().getId());
-			//System.out.println("HashcodeebDriver instance = " + LocalDriverManager.getDriver().hashCode());
+			// driver.get(url);
+			// LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+			// loginPage.LoginToUX(username, password);
+			// Thread.sleep(5000);
+			// System.out.println("Thread " + Thread.currentThread().getId());
+			// System.out.println("HashcodeebDriver instance = " +
+			// LocalDriverManager.getDriver().hashCode());
 			WebDriver driver = LocalDriverManager.getDriver();
 			url = ReadProperties.getObject("url");
 			username = ReadProperties.getObject("userName1");
 			password = ReadProperties.getObject("password");
 			driver.get(url);
-			
+
 			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 			loginPage.LoginToUX(username, password);
 			Thread.sleep(5000);
@@ -82,28 +82,25 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			UpdatePrimaryLocation update1 = PageFactory.initElements(driver, UpdatePrimaryLocation.class);
 			update1.update1Field_On_PrimaryLocation_Form("Test Automation", "0256454534");
 			Thread.sleep(10000);
-			
+
 			ActivityHistory activityHistory = PageFactory.initElements(driver, ActivityHistory.class);
 			List<String> actualSubjects = activityHistory.retrieveSubject("Account details change", "25/11/2020");
-			
-			for(String actualSubject : actualSubjects) {
-				
-				System.out.println("Actual Subject:"+actualSubject);
-				
-				if(actualSubject.contains("account details")) {
-					Assert.assertTrue(actualSubject.contains("Submitted account details"));	
-				}
-				else
-				{
+
+			for (String actualSubject : actualSubjects) {
+
+				System.out.println("Actual Subject:" + actualSubject);
+
+				if (actualSubject.contains("account details")) {
+					Assert.assertTrue(actualSubject.contains("Submitted account details"));
+				} else {
 					Assert.assertTrue(actualSubject.contains("Primary location update"));
 				}
 			}
-			
 
 		} catch (Exception e) {
-			
+
 			Assert.fail("UpdateAccountDetailsAndPrimaryLocation Exception");
-			//e.printStackTrace();
+			// e.printStackTrace();
 		}
 	}
 
@@ -127,7 +124,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 	 * 
 	 */
 
-	//@Test
+	// @Test
 
 	// C661 - Add Hive Brand and Hive Location
 
@@ -161,24 +158,24 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			update1.update1Field_On_PrimaryLocation_Form("Test Automation", "0256454534");
 			Thread.sleep(10000);
 
-		} catch(Exception e) {
-			
+		} catch (Exception e) {
+
 			Assert.fail("AddHiveBrandAndHiveLocation Exception");
-			//e.printStackTrace();
-			
+			// e.printStackTrace();
+
 		}
 	}
-	
+
 	@Test
 	public void addHiveLocationAddress() {
 		try {
-			//login to UX
-			//System.out.println(Thread.currentThread().getId());
-			//driver.get(url);
-			//LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-			//loginPage.LoginToUX(username, password);
-			//Thread.sleep(8000);
-			//Select Authorisation Subject
+			// login to UX
+			// System.out.println(Thread.currentThread().getId());
+			// driver.get(url);
+			// LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+			// loginPage.LoginToUX(username, password);
+			// Thread.sleep(8000);
+			// Select Authorisation Subject
 			WebDriver driver = LocalDriverManager.getDriver();
 			url = ReadProperties.getObject("url");
 			username = ReadProperties.getObject("userName1");
@@ -190,41 +187,41 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
 			subject.selectSubject("My Authorisation");
 			Thread.sleep(2000);
-			//Select Beekeeper Authorisation
+			// Select Beekeeper Authorisation
 			MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
 			myAuth.multipleAuthorisation_select1();
 			myAuth.addHiveLocation();
-			//Add Hive Location
+			// Add Hive Location
 			AddHiveLocation hiveLocation = PageFactory.initElements(driver, AddHiveLocation.class);
 			hiveLocation.addHiveLocationAddress("Nick1", "6 avenue of the americas");
-			
+
 			Thread.sleep(10000);
-			
+
 			ActivityHistory activityHistory = PageFactory.initElements(driver, ActivityHistory.class);
-		    List<String> actualSubjects = activityHistory.retrieveSubject("Location Added", "25/11/2020");
-		    for(String actualSubject : actualSubjects) {
-			System.out.println("Actual Subject:"+actualSubject);
-			Assert.assertEquals("New Hive location has been added:", actualSubject);
-		    }
-			
-		} catch(Exception e) {
-			
+			List<String> actualSubjects = activityHistory.retrieveSubject("Location Added", "25/11/2020");
+			for (String actualSubject : actualSubjects) {
+				System.out.println("Actual Subject:" + actualSubject);
+				Assert.assertEquals("New Hive location has been added:", actualSubject);
+			}
+
+		} catch (Exception e) {
+
 			Assert.fail("addHiveLocationAddress Exception");
 			e.printStackTrace();
-			
+
 		}
 	}
-	
-	//@Test
+
+	// @Test
 	public void addHiveLocationLocality() {
 		try {
-			//login to UX
-			//System.out.println(Thread.currentThread().getId());
-			//driver.get(url);
-			//LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-			//loginPage.LoginToUX("sushamakailash@gmail.com", "Happy!23");
-			//Thread.sleep(8000);
-			//Select Authorisation Subject
+			// login to UX
+			// System.out.println(Thread.currentThread().getId());
+			// driver.get(url);
+			// LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+			// loginPage.LoginToUX("sushamakailash@gmail.com", "Happy!23");
+			// Thread.sleep(8000);
+			// Select Authorisation Subject
 			WebDriver driver = LocalDriverManager.getDriver();
 			url = ReadProperties.getObject("url");
 			username = ReadProperties.getObject("userName2");
@@ -232,70 +229,70 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			driver.get(url);
 			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 			loginPage.LoginToUX(username, password);
-			
+
 			SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
 			subject.selectSubject("My Authorisation");
 			Thread.sleep(2000);
-			//Select Beekeeper Authorisation
+			// Select Beekeeper Authorisation
 			MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
 			myAuth.multipleAuthorisation_select1();
 			myAuth.addHiveLocation();
-			//Add Hive Location
+			// Add Hive Location
 			AddHiveLocation hiveLocation = PageFactory.initElements(driver, AddHiveLocation.class);
 			hiveLocation.addHiveLocationLocality("Nick");
-			
+
 			Thread.sleep(10000);
-			
-		} catch(Exception e) {
+
+		} catch (Exception e) {
 			Assert.fail("addHiveLocationLocality Exception");
-			//System.out.println("addHiveLocationLocality Exception");
-			//e.printStackTrace();
-			
+			// System.out.println("addHiveLocationLocality Exception");
+			// e.printStackTrace();
+
 		}
 	}
-	
-	//@Test
+
+	// @Test
 	public void addHiveBrand() {
 		try {
-			//login to UX
-			//System.out.println(Thread.currentThread().getId());
-			
-			//Thread.sleep(8000);
-			//Select Authorisation Subject
+			// login to UX
+			// System.out.println(Thread.currentThread().getId());
+
+			// Thread.sleep(8000);
+			// Select Authorisation Subject
 			WebDriver driver = LocalDriverManager.getDriver();
 			url = ReadProperties.getObject("url");
 			username = ReadProperties.getObject("userName1");
 			password = ReadProperties.getObject("password");
-			
+
 			driver.get(url);
 			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 			loginPage.LoginToUX(username, password);
 			SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
 			subject.selectSubject("My Authorisation");
 			Thread.sleep(2000);
-			//Select Beekeeper Authorisation
+			// Select Beekeeper Authorisation
 			MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
 			myAuth.multipleAuthorisation_select1();
 			myAuth.addHiveLocation();
-			//Add Hive Brand
+			// Add Hive Brand
 			AddHiveBrand hiveBrand = PageFactory.initElements(driver, AddHiveBrand.class);
 			hiveBrand.addHiveBrand("TD12");
 			Thread.sleep(10000);
 			ActivityHistory activityHistory = PageFactory.initElements(driver, ActivityHistory.class);
-			
+
 			List<String> actualSubjects = activityHistory.retrieveSubject("Added Hive Brand", "25/11/2020");
-			
-			for(String actualSubject : actualSubjects) {
-				
-				System.out.println("Actual Subject:"+actualSubject);
-				
+
+			for (String actualSubject : actualSubjects) {
+
+				System.out.println("Actual Subject:" + actualSubject);
+
 				Assert.assertTrue(actualSubject.contains("Added Hive Brand"));
-				
+
 			}
-		} catch(Exception e) {
+		} catch (Exception e) {
 			Assert.fail("Add Hive Brand Exception");
-			//e.printStackTrace();
-			
+			// e.printStackTrace();
+
 		}
 	}
 }
