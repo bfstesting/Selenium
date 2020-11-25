@@ -1,5 +1,5 @@
 /**
- * adding comment
+ * adding comments
  */
 package com.au.byteUX.Test.Package;
 
