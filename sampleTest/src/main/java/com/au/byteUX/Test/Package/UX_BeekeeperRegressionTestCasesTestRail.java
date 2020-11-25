@@ -17,9 +17,11 @@ import com.au.byteUX.Package.LocalDriverManager;
 import com.au.byteUX.Page.Package.ActivityHistory;
 import com.au.byteUX.Page.Package.AddHiveBrand;
 import com.au.byteUX.Page.Package.AddHiveLocation;
+import com.au.byteUX.Page.Package.HiveDetails_Notice;
 import com.au.byteUX.Page.Package.LoginPage;
 import com.au.byteUX.Page.Package.MyAccount;
 import com.au.byteUX.Page.Package.MyAuthorisation;
+import com.au.byteUX.Page.Package.NoticeOfSaleOrDisposal;
 import com.au.byteUX.Page.Package.SelectSubject;
 import com.au.byteUX.Page.Package.UpdateAccountDetails;
 import com.au.byteUX.Page.Package.UpdatePrimaryLocation;
@@ -252,7 +254,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 		}
 	}
 	
-	@Test
+	//@Test
 
 	public void addHiveBrand() {
 		try {
@@ -281,7 +283,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			//Add Hive Brand
 
 			AddHiveBrand hiveBrand = PageFactory.initElements(driver, AddHiveBrand.class);
-			hiveBrand.addHiveBrand("TD12");
+			hiveBrand.addHiveBrand("HB25112020");
 			Thread.sleep(10000);
 			ActivityHistory activityHistory = PageFactory.initElements(driver, ActivityHistory.class);
 
@@ -300,4 +302,48 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 
 		}
 	}
+	
+	@Test
+
+	// C660 - Update Account Details
+
+	public void NoticeOfSale() {
+		try {
+
+			WebDriver driver = LocalDriverManager.getDriver();
+			url = ReadProperties.getObject("url");
+			username = ReadProperties.getObject("userName1");
+			password = ReadProperties.getObject("password");
+
+			driver.get(url);
+			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+			loginPage.LoginToUX(username, password);
+			SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
+			subject.selectSubject("My Authorisation");
+			Thread.sleep(2000);
+			//Select Beekeeper Authorisation
+			MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
+			myAuth.multipleAuthorisation_select1();
+			myAuth.noticeAction();
+			//Add Notice - Sold
+			NoticeOfSaleOrDisposal Notice = PageFactory.initElements(driver, NoticeOfSaleOrDisposal.class);
+			//Notice.addHiveDetails();
+			
+			HiveDetails_Notice NoticeDetails = PageFactory.initElements(driver, HiveDetails_Notice.class);
+			//NoticeDetails.selectMedthodOfDisposal("Sold");
+						
+			//NoticeDetails.soldOrGifted("Heena", "6 avenue of the americas", "2511202001", "2", "0456455667");
+			Notice.addHiveDetails();
+			NoticeDetails.selectMedthodOfDisposal("Destroyed");
+			NoticeDetails.destroyedOrLostOrStolen("21"); //This is not working
+			Notice.submitNoticeForm("43");
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 }

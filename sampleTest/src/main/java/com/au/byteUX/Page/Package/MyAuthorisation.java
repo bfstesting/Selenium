@@ -32,6 +32,9 @@ public class MyAuthorisation {
 	@FindBy(how=How.XPATH,using="//span[text()='Notices']") @CacheLookup WebElement noticesTab;
 	@FindBy(how=How.XPATH,using="//span[text()='Export']") @CacheLookup WebElement exportTab;
 	@FindBy(how=How.XPATH,using="//span[text()='Change History']") @CacheLookup WebElement changeHistoryTab;
+	@FindBy(how=How.XPATH,using="//div[contains(text(),'Notice of sale')]") @CacheLookup WebElement noticeAction;
+	@FindBy(how=How.XPATH,using="//div[contains(text(),'Renew my')]") @CacheLookup WebElement renewAction;
+	@FindBy(how=How.XPATH,using="//div[contains(text(),'Cancel Auth')]") @CacheLookup WebElement cancelAuthAction;
 	
 	
 	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy ");
@@ -97,11 +100,19 @@ public class MyAuthorisation {
 	}
 	
 	
-	public void notices()
+	public void noticesTab()
 	{
 		noticesTab.click();
 		//add scripts for rowInNoticesTab
 		rowInNoticesTab.isDisplayed();		
+	}
+	
+	public void noticeAction() throws InterruptedException
+	{
+		System.out.println("Inside noticeAction method");
+		noticeAction.click();
+		Thread.sleep(1000);
+		System.out.println("Exiting noticeAction method");
 	}
 
 }

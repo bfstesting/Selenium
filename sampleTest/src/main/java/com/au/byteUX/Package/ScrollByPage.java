@@ -25,7 +25,7 @@ public class ScrollByPage {
 
         //This will scroll the web page till end.		
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-        System.out.println("page scrolled");
+        //System.out.println("page scrolled");
     }
 
 }

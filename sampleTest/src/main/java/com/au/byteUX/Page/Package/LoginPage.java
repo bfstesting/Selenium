@@ -21,8 +21,8 @@ public class LoginPage {
 	@FindBy(how=How.XPATH,using="//div[contains(@class,'Secondary-add')]") @CacheLookup WebElement add;
 	@FindBy(how=How.XPATH,using="//div[contains(@class,'Secondary-remove')]") @CacheLookup WebElement remove;
 	@FindBy(how=How.XPATH,using="//span[text()='ï€Œ']") @CacheLookup WebElement save;
-	@FindBy(how=How.XPATH,using="//span[text()='ï?—']") @CacheLookup WebElement cancel;
-	@FindBy(how=How.XPATH,using="//span[text()='ï? ']") @CacheLookup WebElement back;
+	@FindBy(how=How.XPATH,using="//span[text()='ï¿½?ï¿½']") @CacheLookup WebElement cancel;
+	@FindBy(how=How.XPATH,using="//span[text()='ï¿½?ï¿½']") @CacheLookup WebElement back;
 	
 	
 	public LoginPage(WebDriver driver)  //constructor
@@ -40,8 +40,6 @@ public class LoginPage {
 			//added a command to scroll the page - if I clicked on the button directly, the cursor was trying to click on the footer where the button is not available.
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-			System.out.println("page scrolled");
-			
 			btn.click();
 			System.out.println("login successful");
 			Thread.sleep(5000);

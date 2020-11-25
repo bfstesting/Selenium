@@ -2,11 +2,16 @@ package com.au.byteUX.Test.Package;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.au.byteUX.Package.LocalDriverManager;
+import com.au.byteUX.Page.Package.ActivityHistory;
+import com.au.byteUX.Page.Package.AddHiveBrand;
 import com.au.byteUX.Page.Package.AddHiveLocation;
 import com.au.byteUX.Page.Package.LoginPage;
 import com.au.byteUX.Page.Package.MyAccount;
@@ -15,6 +20,7 @@ import com.au.byteUX.Page.Package.SelectSubject;
 import com.au.byteUX.Page.Package.UpdateAccountDetails;
 import com.au.byteUX.Page.Package.UpdatePrimaryLocation;
 
+import junit.framework.Assert;
 import lib.ReadProperties;
 
 public class UX_AddNoticeOfSale extends HelperClass {
@@ -60,5 +66,12 @@ public class UX_AddNoticeOfSale extends HelperClass {
 				e.printStackTrace();
 			}
 		}
-
 }
+		
+		
+		
+		
+		
+		
+
+

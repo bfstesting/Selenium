@@ -26,22 +26,28 @@ WebDriver driver;
 		this.driver = driver;
 	}
 	
-	public void updateAccountDetails(String RemainingHives) throws InterruptedException
+	public void submitNoticeForm(String RemainingHives) throws InterruptedException
 	{
 		
 		//add checkpoint to verify that the details entered on the hive details form is reflected here
 		//submittedHiveDetails. .get(0).getText().compareTo(addAString);
-		addHiveDetails.click();
-		
 		stillKeepBeesYes.click();
 		
 		remainingHives.clear();
 		remainingHives.sendKeys(RemainingHives);
 		
 		consent.click();
-		submit.click();
+		submit.click();		
 		
-		
+	}
+	
+	public void addHiveDetails() throws InterruptedException
+	{
+		System.out.println("Inside addHiveDetails method");
+		//add checkpoint to verify that the details entered on the hive details form is reflected here
+		//submittedHiveDetails. .get(0).getText().compareTo(addAString);
+		addHiveDetails.click();	
+		System.out.println("Exiting addHiveDetails method");
 	}
 
 }
