@@ -1,5 +1,10 @@
 package com.au.byteUX.Page.Package;
 
+import java.sql.Driver;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,11 +29,37 @@ public class MyAuthorisation {
 	
 	@FindBy(how=How.XPATH,using="//span[text()='Add Hive Brand']") @CacheLookup WebElement addHiveBrandBtn;
 	@FindBy(how=How.XPATH,using="//span[text()='Add Hive Location']") @CacheLookup WebElement addHiveLocationBtn;
+	@FindBy(how=How.XPATH,using="//span[text()='Notices']") @CacheLookup WebElement noticesTab;
+	@FindBy(how=How.XPATH,using="//span[text()='Export']") @CacheLookup WebElement exportTab;
+	@FindBy(how=How.XPATH,using="//span[text()='Change History']") @CacheLookup WebElement changeHistoryTab;
+	
+	
+	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy ");
+	Date date = new Date();
+	String date1= dateFormat.format(date);
+	
+	String entry = "//table[1]/.//td[3]/div[text()='" + date1 + "']";
+		
+	
+	@FindBy(how=How.XPATH,using="//table[1]/.//td[3]/div[text()='"
+	+ "25/11/2020" //Get this date field from system date
+	+ "']") @CacheLookup WebElement rowInNoticesTab;
+	
 	
 	
 	public MyAuthorisation(WebDriver driver)  //constructor
 	{
 		this.driver = driver;
+	}
+	
+	
+	public String date()
+	{
+		try {
+			
+			return date1;
+		}
+		catch (InterruptedException e)		{			e.printStackTrace();		}		
 	}
 	
 	
@@ -42,7 +73,7 @@ public class MyAuthorisation {
 	}
 	
 	
-	public void addHiveBrand ()
+	public void addHiveBrand()
 	{
 		try {
 			//added a command to scroll the page - if I clicked on the button directly, the cursor was trying to click on the footer where the button is not available.
@@ -56,7 +87,7 @@ public class MyAuthorisation {
 	}
 	
 	
-	public void addHiveLocation ()
+	public void addHiveLocation()
 	{
 		try {
 			//added a command to scroll the page - if I clicked on the button directly, the cursor was trying to click on the footer where the button is not available.
@@ -67,6 +98,14 @@ public class MyAuthorisation {
 			Thread.sleep(1000);
 		}
 		catch (InterruptedException e)		{			e.printStackTrace();		}		
+	}
+	
+	
+	public void notices()
+	{
+		noticesTab.click();
+		//add scripts for rowInNoticesTab
+		rowInNoticesTab.isDisplayed();		
 	}
 
 }
