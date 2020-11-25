@@ -46,8 +46,7 @@ public class HelperClass {
 	@BeforeMethod
 	public void beforeMethod() {
 		System.out.println("in @BeforeMethod");
-		HelperClass.driver = BrowserFactory.startBrowser(driver, "chrome",
-				"https://train.bfs.dpi.nsw.gov.au/UXTrain/sso");
+		HelperClass.driver = BrowserFactory.startBrowser("chrome");
 
 	}
 	

@@ -16,17 +16,18 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
  */
 public class BrowserFactory {
 	
-static WebDriver driver;
-	
-	public static WebDriver startBrowser(WebDriver driver, String browserName, String url)
+
+	public static WebDriver startBrowser(String browserName)
 	{
+		WebDriver driver = null;
 		if(browserName.equalsIgnoreCase("firefox"))
 		{
 			driver = new FirefoxDriver();
+			
 		}
 		else if(browserName.equalsIgnoreCase("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\sarkah01\\Downloads\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			driver = new ChromeDriver();			
 		}
 		else if (browserName.equalsIgnoreCase("IE"))
@@ -38,7 +39,6 @@ static WebDriver driver;
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		driver.get(url);
 		
 		return driver;
 	}
