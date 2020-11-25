@@ -12,7 +12,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import com.au.byteUX.Package.LocalDriverManager;
-
+//add comments
 public class ActivityHistory {
 	
 	WebDriver driver;
