@@ -21,7 +21,7 @@ public class WebdriverListener implements IInvokedMethodListener{
         if (method.isTestMethod()) {
             WebDriver driver = LocalDriverManager.getDriver();
             if (driver != null) {
-                //driver.quit();
+               // driver.close();
             }
         }
     }

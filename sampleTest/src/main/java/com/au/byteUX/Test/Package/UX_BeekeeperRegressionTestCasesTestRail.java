@@ -27,6 +27,7 @@ import com.au.byteUX.Page.Package.UpdateAccountDetails;
 import com.au.byteUX.Page.Package.UpdatePrimaryLocation;
 import junit.framework.Assert;
 import lib.ReadProperties;
+import lib.TodaysDate;
 
 /**
  * @author sarkah01
@@ -86,7 +87,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			Thread.sleep(10000);
 
 			ActivityHistory activityHistory = PageFactory.initElements(driver, ActivityHistory.class);
-			List<String> actualSubjects = activityHistory.retrieveSubject("Account details change", "25/11/2020");
+			List<String> actualSubjects = activityHistory.retrieveSubject("Account details change", TodaysDate.getTodaysDate());
 
 			for (String actualSubject : actualSubjects) {
 
@@ -201,7 +202,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			Thread.sleep(10000);
 
 			ActivityHistory activityHistory = PageFactory.initElements(driver, ActivityHistory.class);
-			List<String> actualSubjects = activityHistory.retrieveSubject("Location Added", "25/11/2020");
+			List<String> actualSubjects = activityHistory.retrieveSubject("Location Added", TodaysDate.getTodaysDate());
 			for (String actualSubject : actualSubjects) {
 				System.out.println("Actual Subject:" + actualSubject);
 				Assert.assertEquals("New Hive location has been added:", actualSubject);
@@ -283,19 +284,23 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			//Add Hive Brand
 
 			AddHiveBrand hiveBrand = PageFactory.initElements(driver, AddHiveBrand.class);
+
 			hiveBrand.addHiveBrand("HB261120201");
+
+
 			Thread.sleep(10000);
 			ActivityHistory activityHistory = PageFactory.initElements(driver, ActivityHistory.class);
 
-			List<String> actualSubjects = activityHistory.retrieveSubject("Added Hive Brand", "25/11/2020");
+			List<String> actualSubjects = activityHistory.retrieveSubject("Added Hive Brand", TodaysDate.getTodaysDate());
 
 			for (String actualSubject : actualSubjects) {
 
 				System.out.println("Actual Subject:" + actualSubject);
 
 				Assert.assertTrue(actualSubject.contains("Added Hive Brand"));
-
+                
 			}
+			
 		} catch (Exception e) {
 			Assert.fail("Add Hive Brand Exception");
 			// e.printStackTrace();

@@ -25,8 +25,7 @@ public class UpdateAccountDetails {
 	@FindBy(how = How.XPATH, using = "//fieldset[.//div[text()='Legal']]/.//input")
 	@CacheLookup	List<WebElement> LegalFields;
 	
-	@FindBy(how = How.
-			.XPATH, using = "//fieldset[.//div[text()='Other']]/.//input")
+	@FindBy(how = How.XPATH, using = "//fieldset[.//div[text()='Other']]/.//input")
 	@CacheLookup	List<WebElement> OtherFields;
 	
 	@FindBy(how = How.XPATH, using = "//fieldset[.//div[text()='Address']]/.//input")
