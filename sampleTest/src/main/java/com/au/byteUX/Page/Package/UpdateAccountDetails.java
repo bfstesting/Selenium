@@ -25,7 +25,8 @@ public class UpdateAccountDetails {
 	@FindBy(how = How.XPATH, using = "//fieldset[.//div[text()='Legal']]/.//input")
 	@CacheLookup	List<WebElement> LegalFields;
 	
-	@FindBy(how = How.XPATH, using = "//fieldset[.//div[text()='Other']]/.//input")
+	@FindBy(how = How.
+			.XPATH, using = "//fieldset[.//div[text()='Other']]/.//input")
 	@CacheLookup	List<WebElement> OtherFields;
 	
 	@FindBy(how = How.XPATH, using = "//fieldset[.//div[text()='Address']]/.//input")
@@ -63,7 +64,8 @@ public class UpdateAccountDetails {
 	{
 		this.driver = driver;
 	}
-
+	
+	//Updating all the fields on Update Account Details form
 	public void updateAllFields(String Reason1, String CompanyName, String ABN, String ACN, String Address,
 			String MobileNumber, String PhoneNumber, String PhoneNumber2, String FaxNumber, String CompanyEmailID,
 			String CompanyWWW) {

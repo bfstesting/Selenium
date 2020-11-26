@@ -42,7 +42,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 	public UX_BeekeeperRegressionTestCasesTestRail() {
 	}
 
-	//@Test
+	@Test
 
 	// C660 - Update Account Details
 	// C662 - Update Primary Location
@@ -168,7 +168,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 		}
 	}
 
-	//@Test
+	@Test
 
 	public void addHiveLocationAddress() {
 		try {
@@ -254,7 +254,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 		}
 	}
 	
-	//@Test
+	@Test
 
 	public void addHiveBrand() {
 		try {
@@ -283,7 +283,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			//Add Hive Brand
 
 			AddHiveBrand hiveBrand = PageFactory.initElements(driver, AddHiveBrand.class);
-			hiveBrand.addHiveBrand("HB25112020");
+			hiveBrand.addHiveBrand("HB261120201");
 			Thread.sleep(10000);
 			ActivityHistory activityHistory = PageFactory.initElements(driver, ActivityHistory.class);
 
@@ -303,7 +303,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 		}
 	}
 	
-	@Test
+	//@Test
 
 	// C660 - Update Account Details
 

@@ -46,7 +46,7 @@ WebDriver driver;
 		System.out.println("Inside addHiveDetails method");
 		//add checkpoint to verify that the details entered on the hive details form is reflected here
 		//submittedHiveDetails. .get(0).getText().compareTo(addAString);
-		addHiveDetails.click();	
+		addHiveDetails.click();
 		System.out.println("Exiting addHiveDetails method");
 	}
 
