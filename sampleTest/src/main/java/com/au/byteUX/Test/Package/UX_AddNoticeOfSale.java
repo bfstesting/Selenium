@@ -31,9 +31,9 @@ public class UX_AddNoticeOfSale extends HelperClass {
 		@BeforeMethod
 		public void init() throws FileNotFoundException, IOException {
 			
-			url = ReadProperties.getObject("url");
-			username = ReadProperties.getObject("userName1");
-			password = ReadProperties.getObject("password");
+			url = ReadProperties.getObject("conf","url");
+			username = ReadProperties.getObject("conf","userName1");
+			password = ReadProperties.getObject("conf","password");
 			
 			driver.get(url);
 			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);

@@ -43,7 +43,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 	public UX_BeekeeperRegressionTestCasesTestRail() {
 	}
 
-	@Test
+	//@Test
 
 	// C660 - Update Account Details
 	// C662 - Update Primary Location
@@ -60,9 +60,9 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			// System.out.println("HashcodeebDriver instance = " +
 			// LocalDriverManager.getDriver().hashCode());
 			WebDriver driver = LocalDriverManager.getDriver();
-			url = ReadProperties.getObject("url");
-			username = ReadProperties.getObject("userName1");
-			password = ReadProperties.getObject("password");
+			url = ReadProperties.getObject("config","url");
+			username = ReadProperties.getObject("config","userName1");
+			password = ReadProperties.getObject("config","password");
 			driver.get(url);
 
 			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
@@ -78,12 +78,13 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			Thread.sleep(5000);
 			// Enter values in the fields
 			UpdateAccountDetails update = PageFactory.initElements(driver, UpdateAccountDetails.class);
-			update.update1Field_To_Open_PrimaryLocation_Update_Form("Test To check if Premises form loads",
-					"0456456545");
+			update.update1Field_To_Open_PrimaryLocation_Update_Form(ReadProperties.getObject("data", "Reason1"),
+					ReadProperties.getObject("data", "MobileNumber1"));
 			Thread.sleep(10000);
 			// Submit Primary Location Form
 			UpdatePrimaryLocation update1 = PageFactory.initElements(driver, UpdatePrimaryLocation.class);
-			update1.update1Field_On_PrimaryLocation_Form("Test Automation", "0256454534");
+			update1.update1Field_On_PrimaryLocation_Form(ReadProperties.getObject("data", "Reason2"),
+					ReadProperties.getObject("data", "MobileNumber2"));
 			Thread.sleep(10000);
 
 			ActivityHistory activityHistory = PageFactory.initElements(driver, ActivityHistory.class);
@@ -138,8 +139,8 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			System.out.println("HashcodeebDriver instance = " + LocalDriverManager.getDriver().hashCode());
 			WebDriver driver = LocalDriverManager.getDriver();
 			driver.get("https://train.bfs.dpi.nsw.gov.au/UXTrain/sso");
-			username = ReadProperties.getObject("userName1");
-			password = ReadProperties.getObject("password");
+			username = ReadProperties.getObject("config","userName1");
+			password = ReadProperties.getObject("config","password");
 			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 			loginPage.LoginToUX(username, password);
 			Thread.sleep(5000);
@@ -181,9 +182,9 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			// Thread.sleep(8000);
 			// Select Authorisation Subject
 			WebDriver driver = LocalDriverManager.getDriver();
-			url = ReadProperties.getObject("url");
-			username = ReadProperties.getObject("userName1");
-			password = ReadProperties.getObject("password");
+			url = ReadProperties.getObject("config","url");
+			username = ReadProperties.getObject("config","userName1");
+			password = ReadProperties.getObject("config","password");
 			driver.get(url);
 			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 			loginPage.LoginToUX(username, password);
@@ -197,7 +198,8 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			myAuth.addHiveLocation();
 			// Add Hive Location
 			AddHiveLocation hiveLocation = PageFactory.initElements(driver, AddHiveLocation.class);
-			hiveLocation.addHiveLocationAddress("Nick1", "6 avenue of the americas");
+			hiveLocation.addHiveLocationAddress(ReadProperties.getObject("data", "NickName"),
+					ReadProperties.getObject("data", "HiveLocationAddress"));
 
 			Thread.sleep(10000);
 
@@ -227,9 +229,9 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			// Thread.sleep(8000);
 			// Select Authorisation Subject
 			WebDriver driver = LocalDriverManager.getDriver();
-			url = ReadProperties.getObject("url");
-			username = ReadProperties.getObject("userName2");
-			password = ReadProperties.getObject("password");
+			url = ReadProperties.getObject("config","url");
+			username = ReadProperties.getObject("config","userName2");
+			password = ReadProperties.getObject("config","password");
 			driver.get(url);
 			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 			loginPage.LoginToUX(username, password);
@@ -255,7 +257,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 		}
 	}
 	
-	@Test
+	//@Test
 
 	public void addHiveBrand() {
 		try {
@@ -265,9 +267,9 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			// Thread.sleep(8000);
 			// Select Authorisation Subject
 			WebDriver driver = LocalDriverManager.getDriver();
-			url = ReadProperties.getObject("url");
-			username = ReadProperties.getObject("userName1");
-			password = ReadProperties.getObject("password");
+			url = ReadProperties.getObject("config","url");
+			username = ReadProperties.getObject("config","userName1");
+			password = ReadProperties.getObject("config","password");
 
 			driver.get(url);
 			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
@@ -316,9 +318,9 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 		try {
 
 			WebDriver driver = LocalDriverManager.getDriver();
-			url = ReadProperties.getObject("url");
-			username = ReadProperties.getObject("userName1");
-			password = ReadProperties.getObject("password");
+			url = ReadProperties.getObject("config","url");
+			username = ReadProperties.getObject("config","userName1");
+			password = ReadProperties.getObject("config","password");
 
 			driver.get(url);
 			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);

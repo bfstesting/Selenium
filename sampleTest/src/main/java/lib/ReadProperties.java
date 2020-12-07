@@ -10,23 +10,23 @@ public class ReadProperties {
 	
 	static Properties properties;
 	
-	public static void readProperties() throws FileNotFoundException,IOException{
+	public static void readProperties(String fName) throws FileNotFoundException,IOException{
 		
 		properties = new Properties();
+		File f;
+		
+		f = new File(System.getProperty("user.dir")+"\\Config\\"+fName+".properties");
+		
 
-			File f = new File(System.getProperty("user.dir")+"\\Config\\config.properties");
-			
 			FileReader reader = new FileReader(f);
 			
 			properties.load(reader);	
 			
 	}
 	
-	public static String getObject(String data) throws FileNotFoundException, IOException {	
-		readProperties();
+	public static String getObject(String fName, String data) throws FileNotFoundException, IOException {	
+		readProperties(fName);
 		return properties.getProperty(data);
 	}
-	
-	
 
 }

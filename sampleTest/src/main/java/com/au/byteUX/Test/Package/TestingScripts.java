@@ -12,6 +12,7 @@ import com.au.byteUX.Page.Package.LoginPage;
 import com.au.byteUX.Page.Package.MyAuthorisation;
 import com.au.byteUX.Page.Package.SelectSubject;
 import junit.framework.Assert;
+import lib.ReadProperties;
 import lib.ReadPropertiesFile;
 
 /**
@@ -29,10 +30,10 @@ public class TestingScripts {
 		try {
 
 			WebDriver driver = LocalDriverManager.getDriver();
-			driver.get(ReadPropertiesFile("UX_BKR_LP_BeeHive").getObject("url"));
+			driver.get(ReadProperties.getObject("UX_BKR_LP_BeeHive","url"));
 
 			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-			loginPage.LoginToUX(ReadProperties.getObject("userName1"), ReadProperties.getObject("password"));
+			loginPage.LoginToUX(ReadProperties.getObject("config","userName1"), ReadProperties.getObject("config","password"));
 			Thread.sleep(5000);
 			// Navigate to My Account
 			SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);

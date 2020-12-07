@@ -1,11 +1,17 @@
 package com.au.byteUX.Page.Package;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
+import lib.ReadProperties;
 
 /**
  * @author sarkah01
@@ -14,6 +20,8 @@ import org.openqa.selenium.support.How;
 public class LoginPage {
 	
 	WebDriver driver;
+	String login_xpath;
+	
 	
 	@FindBy(how=How.CSS,using="#email") @CacheLookup WebElement un;
 	@FindBy(how=How.ID,using="password") @CacheLookup WebElement pwd;
@@ -25,9 +33,10 @@ public class LoginPage {
 	@FindBy(how=How.XPATH,using="//span[text()='�?�']") @CacheLookup WebElement back;
 	
 	
-	public LoginPage(WebDriver driver)  //constructor
+	public LoginPage(WebDriver driver) throws FileNotFoundException, IOException  //constructor
 	{
 		this.driver = driver;
+		this.login_xpath = ReadProperties.getObject("OR", "AddLogin_xpath");
 	}
 	
 	public void LoginToUX (String uid, String pass)
