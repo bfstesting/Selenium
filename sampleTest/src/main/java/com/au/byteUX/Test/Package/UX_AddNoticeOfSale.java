@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import com.au.byteUX.Package.LocalDriverManager;
 import com.au.byteUX.Page.Package.ActivityHistory;
-import com.au.byteUX.Page.Package.AddHiveBrand;
+import com.au.byteUX.Page.Package.UX_BKR_LP_BeeHive;
 import com.au.byteUX.Page.Package.AddHiveLocation;
 import com.au.byteUX.Page.Package.LoginPage;
 import com.au.byteUX.Page.Package.MyAccount;

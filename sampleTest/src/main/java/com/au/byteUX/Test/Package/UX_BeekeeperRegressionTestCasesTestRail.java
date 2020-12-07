@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 
 import com.au.byteUX.Package.LocalDriverManager;
 import com.au.byteUX.Page.Package.ActivityHistory;
-import com.au.byteUX.Page.Package.AddHiveBrand;
+import com.au.byteUX.Page.Package.UX_BKR_LP_BeeHive;
 import com.au.byteUX.Page.Package.AddHiveLocation;
 import com.au.byteUX.Page.Package.HiveDetails_Notice;
 import com.au.byteUX.Page.Package.LoginPage;
@@ -283,7 +283,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			//myAuth.addHiveLocation();
 			//Add Hive Brand
 
-			AddHiveBrand hiveBrand = PageFactory.initElements(driver, AddHiveBrand.class);
+			UX_BKR_LP_BeeHive hiveBrand = PageFactory.initElements(driver, UX_BKR_LP_BeeHive.class);
 
 			hiveBrand.addHiveBrand("HB261120201");
 

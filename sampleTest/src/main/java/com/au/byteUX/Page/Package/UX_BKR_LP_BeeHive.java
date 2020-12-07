@@ -1,5 +1,9 @@
 package com.au.byteUX.Page.Package;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.Properties;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,11 +16,12 @@ import org.openqa.selenium.support.PageFactory;
  * @author sarkah01
  *
  */
-public class AddHiveBrand {
+public class UX_BKR_LP_BeeHive {
 
 	WebDriver driver;
+	Properties properties;
 
-	@FindBy(how = How.XPATH, using = "//fieldset[.//div/div[text()='Existing Hive Brand Reason']]/.//div/div[2]")
+	@FindBy(how = How.XPATH, using = properties. //"//fieldset[.//div/div[text()='Existing Hive Brand Reason']]/.//div/div[2]")
 	@CacheLookup
 	WebElement reason;
 	@FindBy(how = How.XPATH, using = "//fieldset[.//div/div[text()='Existing Hive Brand Reason']]/.//input")
@@ -32,9 +37,13 @@ public class AddHiveBrand {
 	@CacheLookup
 	WebElement saveForm;
 
-	public AddHiveBrand(WebDriver driver) // constructor
+	public UX_BKR_LP_BeeHive(WebDriver driver) // constructor
 	{
 		this.driver = driver;
+		File src=new File("./Configuration/UX_BKR_LP_BeeHive.proprety");
+		FileInputStream fis = new FileInputStream(src);
+		Properties pro=new Properties();
+		pro.load(fis);
 	}
 
 	public void addHiveBrand(String HiveBrandNumber) {
