@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 77.748 s <<< FAILURE! - in TestSuite
+com.au.byteUX.Test.Package.UX_BeekeeperRegressionTestCasesTestRail.UpdateAccountDetailsAndPrimaryLocation  Time elapsed: 65.479 s  <<< FAILURE!
+java.lang.NoClassDefFoundError: junit/framework/Assert
+	at com.au.byteUX.Test.Package.UX_BeekeeperRegressionTestCasesTestRail.UpdateAccountDetailsAndPrimaryLocation(UX_BeekeeperRegressionTestCasesTestRail.java:104)
+Caused by: java.lang.ClassNotFoundException: junit.framework.Assert
+	at com.au.byteUX.Test.Package.UX_BeekeeperRegressionTestCasesTestRail.UpdateAccountDetailsAndPrimaryLocation(UX_BeekeeperRegressionTestCasesTestRail.java:104)
+
+com.au.byteUX.Test.Package.UX_BeekeeperRegressionTestCasesTestRail.addHiveBrand  Time elapsed: 75.187 s  <<< FAILURE!
+java.lang.NoClassDefFoundError: junit/framework/Assert
+	at com.au.byteUX.Test.Package.UX_BeekeeperRegressionTestCasesTestRail.addHiveBrand(UX_BeekeeperRegressionTestCasesTestRail.java:300)
+
+com.au.byteUX.Test.Package.UX_BeekeeperRegressionTestCasesTestRail.addHiveLocationAddress  Time elapsed: 75.633 s  <<< FAILURE!
+java.lang.NoClassDefFoundError: junit/framework/Assert
+	at com.au.byteUX.Test.Package.UX_BeekeeperRegressionTestCasesTestRail.addHiveLocationAddress(UX_BeekeeperRegressionTestCasesTestRail.java:207)
+
