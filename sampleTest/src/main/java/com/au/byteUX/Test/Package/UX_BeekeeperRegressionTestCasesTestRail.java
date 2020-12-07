@@ -287,7 +287,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 
 			UX_BKR_LP_BeeHive hiveBrand = PageFactory.initElements(driver, UX_BKR_LP_BeeHive.class);
 
-			hiveBrand.addHiveBrand("HB261120201");
+			hiveBrand.addHiveBrand(ReadProperties.getObject("data", "HiveBrand"));
 
 
 			Thread.sleep(10000);
@@ -341,8 +341,8 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 						
 			//NoticeDetails.soldOrGifted("Heena", "6 avenue of the americas", "2511202001", "2", "0456455667");
 			Notice.addHiveDetails();
-			NoticeDetails.selectMedthodOfDisposal("Destroyed");
-			NoticeDetails.destroyedOrLostOrStolen("21"); //This is not working
+			NoticeDetails.selectMedthodOfDisposal(ReadProperties.getObject("data", "MedthodOfDisposal"));
+			NoticeDetails.destroyedOrLostOrStolen(ReadProperties.getObject("data", "DestroyedOrLostOrStolen")); //This is not working
 			Notice.submitNoticeForm("43");
 			
 
