@@ -23,7 +23,7 @@ public class UX_BKR_LP_BeeHive {
 	WebDriver driver;
 	Properties properties;
 
-	//@FindBy(how = How.XPATH, using = properties. //"//fieldset[.//div/div[text()='Existing Hive Brand Reason']]/.//div/div[2]")
+	@FindBy(how = How.XPATH, using = "//fieldset[.//div/div[text()='Existing Hive Brand Reason']]/.//div/div[2]")
 	@CacheLookup
 	WebElement reason;
 	@FindBy(how = How.XPATH, using = "//fieldset[.//div/div[text()='Existing Hive Brand Reason']]/.//input")
@@ -39,8 +39,7 @@ public class UX_BKR_LP_BeeHive {
 	@CacheLookup
 	WebElement saveForm;
 
-	public UX_BKR_LP_BeeHive(WebDriver driver) throws 
-IOException
+	public UX_BKR_LP_BeeHive(WebDriver driver) throws IOException
 	{
 		this.driver = driver;
 		File src=new File("./Configuration/UX_BKR_LP_BeeHive.proprety");

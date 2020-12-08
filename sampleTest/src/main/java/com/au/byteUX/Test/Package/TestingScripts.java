@@ -28,7 +28,7 @@ public class TestingScripts {
 
 	public void UpdateAccountDetailsAndPrimaryLocation() {
 		try {
-
+			
 			WebDriver driver = LocalDriverManager.getDriver();
 			driver.get(ReadProperties.getObject("UX_BKR_LP_BeeHive","url"));
 

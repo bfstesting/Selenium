@@ -25,7 +25,15 @@ public class MyAuthorisation {
 			+ "'] and .//td[5]/div[text()='"
 			+ "Renewal Pending" // Status of the permission
 			+ "']]")
-	@CacheLookup WebElement selectPermission;
+	@CacheLookup WebElement selectBeePermission;
+	
+	
+	@FindBy(how=How.XPATH,using="//tbody/tr[.//td[2]/div[text()='"
+			+ "RTO Approval" //Enter the permission name 
+			+ "'] and .//td[5]/div[text()='"
+			+ "Approved" // Status of the permission
+			+ "']]")
+	@CacheLookup WebElement selectRTOPermission;
 	
 	@FindBy(how=How.XPATH,using="//span[text()='Add Hive Brand']") @CacheLookup WebElement addHiveBrandBtn;
 	@FindBy(how=How.XPATH,using="//span[text()='Add Hive Location']") @CacheLookup WebElement addHiveLocationBtn;
@@ -62,10 +70,20 @@ public class MyAuthorisation {
 	}
 	
 	
-	public void multipleAuthorisation_select1 ()
+	public void multipleAuthorisation_select_Bee ()
 	{
 		try {
-			selectPermission.click();
+			selectBeePermission.click();
+			Thread.sleep(1000);
+		}
+		catch (InterruptedException e)		{			e.printStackTrace();		}		
+	}
+	
+	
+	public void multipleAuthorisation_select_RTO ()
+	{
+		try {
+			selectRTOPermission.click();
 			Thread.sleep(1000);
 		}
 		catch (InterruptedException e)		{			e.printStackTrace();		}		
