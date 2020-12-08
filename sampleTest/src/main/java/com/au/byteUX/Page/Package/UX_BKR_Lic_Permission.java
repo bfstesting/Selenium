@@ -27,12 +27,11 @@ WebDriver driver;
 	@FindBy(how=How.XPATH,using="//div[4]/.//div[contains(text(),'Training Languages')]") @CacheLookup WebElement trainingLangText;
 	@FindBy(how=How.XPATH,using="//div[4]/.//div[4]/.//div[starts-with(text(),'Training Areas')]") @CacheLookup WebElement trainingAreasText;
 	@FindBy(how=How.XPATH,using="//div[4]/.//div[starts-with(text(),'Units')]") @CacheLookup WebElement unitsText;
-	
-	
-	@FindBy(how=How.XPATH,using="//div[4]/.//span[text()='Training']") @CacheLookup WebElement trainingTab;
-	@FindBy(how=How.XPATH,using="//div[4]/.//div[text()='Trainers']") @CacheLookup WebElement trainersText;
-	
+		
 	@FindBy(how=How.XPATH,using="//div[4]/.//span[text()='Trainer']") @CacheLookup WebElement trainerTab;
+	@FindBy(how=How.XPATH,using="//div[4]/.//div[text()='Trainers']") @CacheLookup WebElement trainersText;
+		
+	@FindBy(how=How.XPATH,using="//div[4]/.//span[text()='Training']") @CacheLookup WebElement trainingTab;
 	@FindBy(how=How.XPATH,using="//div[4]/.//div[4]/.//span[text()='Add Training']") @CacheLookup WebElement addTrainingBtn;
 	
 	@FindBy(how=How.XPATH,using="//div[4]/.//span[text()='Payments']") @CacheLookup WebElement paymentsTab;
@@ -104,13 +103,69 @@ WebDriver driver;
 	{
 		trainerTab.click();
 		//add scripts for rowInNoticesTab
-		if (trainingDeliverMthdText.isDisplayed() == true)
+		if (trainersText.isDisplayed() == true)
 		{
-			System.out.println("Training Delivery Method Grid is displayed" + trainingDeliverMthdText.getText());
+			System.out.println("Trainers tab is displayed" + trainersText.getText());
 		}
 		else
 		{
-			System.out.println("Failed to click or load Training Information Tab");
+			System.out.println("Failed to click or load Trainers Tab");
+		}
+	}
+	
+	public void trainingTab()
+	{
+		trainingTab.click();
+		//add scripts for rowInNoticesTab
+		if (addTrainingBtn.isDisplayed() == true)
+		{
+			System.out.println("Training tab is displayed" + addTrainingBtn.getText());
+		}
+		else
+		{
+			System.out.println("Failed to click or load Training Tab");
+		}
+	}
+	
+	public void paymentsTab()
+	{
+		paymentsTab.click();
+		//add scripts for rowInNoticesTab
+		if (paymentsText.isDisplayed() == true)
+		{
+			System.out.println("Payments tab is displayed" + paymentsText.getText());
+		}
+		else
+		{
+			System.out.println("Failed to click or load Payments Tab");
+		}
+	}
+	
+	public void exportTab()
+	{
+		exportRTOTab.click();
+		//add scripts for rowInNoticesTab
+		if (exportText.isDisplayed() == true)
+		{
+			System.out.println("Export tab is displayed" + exportText.getText());
+		}
+		else
+		{
+			System.out.println("Failed to click or load export Tab");
+		}
+	}
+	
+	public void changeHistoryTab()
+	{
+		changeHistoryRTOTab.click();
+		//add scripts for rowInNoticesTab
+		if (dateChangedText.isDisplayed() == true)
+		{
+			System.out.println("Training history tab is displayed" + dateChangedText.getText());
+		}
+		else
+		{
+			System.out.println("Failed to click or load Training history Tab");
 		}
 	}
 
