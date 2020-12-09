@@ -17,12 +17,17 @@ public class MyAccount {
 	
 	@FindBy(how=How.XPATH,using="//div[(text()='Update Account Details')]") @CacheLookup WebElement DCR;
 	@FindBy(how=How.XPATH,using="//div[(text()='Send User Invitation')]") @CacheLookup WebElement sendInvite;
-	@FindBy(how=How.XPATH,using="//span[text()='']") @CacheLookup WebElement authorisation;
-	@FindBy(how=How.XPATH,using="//span[text()='']") @CacheLookup WebElement contacts;
-	@FindBy(how=How.XPATH,using="//span[text()='�?']") @CacheLookup WebElement interests;
-	@FindBy(how=How.XPATH,using="//span[text()='']") @CacheLookup WebElement invoices;
+	@FindBy(how=How.XPATH,using="//span[text()='Authorisations']") @CacheLookup WebElement authorisation;
+	@FindBy(how=How.XPATH,using="//span[text()='Contacts']") @CacheLookup WebElement contacts;
+	@FindBy(how=How.XPATH,using="//span[text()='Interests']") @CacheLookup WebElement interests;
+	@FindBy(how=How.XPATH,using="//span[text()='Invoices']") @CacheLookup WebElement invoices;
+	@FindBy(how=How.XPATH,using="//div[contains(text(),'Account holder information')]") @CacheLookup WebElement accountHeaderText;
+	@FindBy(how=How.XPATH,using="//span[contains(text(),'Authority Number')]") @CacheLookup WebElement authTabResult;
+	@FindBy(how=How.XPATH,using="//span[contains(text(),'First Name')]") @CacheLookup WebElement contactTabResult;
+	@FindBy(how=How.XPATH,using="//span[contains(text(),'Pref Comm Method')]") @CacheLookup WebElement interestTabResult;
+	@FindBy(how=How.XPATH,using="//div[text()='Unpaid Invoices']") @CacheLookup WebElement invoicesTabResult;
 	
-	
+
 	public MyAccount(WebDriver driver)  //constructor
 	{
 		this.driver = driver;
@@ -69,6 +74,30 @@ public class MyAccount {
 	{
 		invoices.click();
 		System.out.println("Clicked on Invoices Tab");
+	}
+	
+	public String getAccountHeaderText()
+	{
+		return accountHeaderText.getText();
+		
+	}
+	
+	public String getAuthTabResult() {
+		
+		return authTabResult.getText();
+	}
+	
+	public String getContactTabResult() {
+		
+		return contactTabResult.getText();
+	}
+	public String getInterestTabResult() {
+		
+		return interestTabResult.getText();
+	}
+    public String getInvoicesTabResult() {
+		
+		return invoicesTabResult.getText();
 	}
 	
 	

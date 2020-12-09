@@ -56,7 +56,7 @@ public class UX_AddNoticeOfSale extends HelperClass {
 				Thread.sleep(2000);
 				//Select Beekeeper Authorisation
 				MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
-				myAuth.multipleAuthorisation_select1();
+				myAuth.multipleAuthorisation_select_Bee();
 				
 				//Add Notice - Sold
 				AddHiveLocation hiveLocation = PageFactory.initElements(driver, AddHiveLocation.class);

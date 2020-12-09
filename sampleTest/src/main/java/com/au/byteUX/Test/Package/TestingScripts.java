@@ -41,7 +41,7 @@ public class TestingScripts {
 			Thread.sleep(2000);
 			// Enter values in the fields
 			MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
-			myAuth.multipleAuthorisation_select1();
+			myAuth.multipleAuthorisation_select_Bee();
 			//Click on '+' button to add hive brand 
 			myAuth.addHiveBrand();
 			//Fill and Submit UX_BKR_LP_BeeHive detail form

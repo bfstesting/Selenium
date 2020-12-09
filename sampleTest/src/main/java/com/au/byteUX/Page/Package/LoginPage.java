@@ -36,7 +36,7 @@ public class LoginPage {
 	public LoginPage(WebDriver driver) throws FileNotFoundException, IOException  //constructor
 	{
 		this.driver = driver;
-		this.login_xpath = ReadProperties.getObject("OR", "AddLogin_xpath");
+		//this.login_xpath = ReadProperties.getObject("config", "AddLogin_xpath");
 	}
 	
 	public void LoginToUX (String uid, String pass)
