@@ -18,7 +18,7 @@
 
 		WebDriver driver;
 		
-		//Verify MyAccount tab 
+		//Verify MyAuthorisation tab 
 		
 		@Test	
 		public void verifyMyAuthTabClick() throws InterruptedException, FileNotFoundException, IOException
@@ -40,13 +40,12 @@
 			MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
 			myAuth.multipleAuthorisation_select_Bee();
 			Thread.sleep(2000);
-			//myAuth.noticesTab();
-			
+		
 			String tabResult = myAuth.getAuthTabResult();
 			Assert.assertEquals(tabResult, "My Authorisation");
 		}
 		
-		
+		//verify notices tab
 		@Test( dependsOnMethods={"verifyMyAuthTabClick"}	)	
 		public void verifyNoticesTabClick() throws InterruptedException, FileNotFoundException, IOException
 		{
@@ -73,6 +72,7 @@
 			Assert.assertEquals(tabResult, "Notification Type");
 		}
 		
+		//verfiy Export tab
 		@Test( dependsOnMethods={"verifyMyAuthTabClick"}	)	
 		public void verifyExportTabClick() throws InterruptedException, FileNotFoundException, IOException
 		{
@@ -99,6 +99,7 @@
 			Assert.assertEquals(tabResult, "EXPORT REGISTRATION INFO ");
 		}
 		
+		//verify ChangeHistory Tab
 		@Test( dependsOnMethods={"verifyMyAuthTabClick"}	)	
 		public void verifyChangeHistoryTabClick() throws InterruptedException, FileNotFoundException, IOException
 		{
