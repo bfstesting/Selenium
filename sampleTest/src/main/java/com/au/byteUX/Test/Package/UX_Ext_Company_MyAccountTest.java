@@ -49,7 +49,7 @@ public class UX_Ext_Company_MyAccountTest {
 		Assert.assertEquals(actualHeaderText, "Account holder information");
 		
 	}
-	//verify Authorization tab
+	//verify Auth tab
 	@Test(dependsOnMethods={"verifyMyAccTabClick"})	
 	public void verifyAuthTabClick() throws InterruptedException, FileNotFoundException, IOException
 	{
@@ -68,8 +68,7 @@ public class UX_Ext_Company_MyAccountTest {
 		SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
 		subject.selectSubject("My Account");
 		Thread.sleep(2000);
-		
-		
+		//Verify Auth tab Click
 		MyAccount MyAccount = PageFactory.initElements(driver, MyAccount.class);
 		MyAccount.authorisationTab();
 		Thread.sleep(2000);

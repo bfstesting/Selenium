@@ -43,8 +43,11 @@ public class MyAuthorisation {
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'Notice of sale')]") @CacheLookup WebElement noticeAction;
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'Renew my')]") @CacheLookup WebElement renewAction;
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'Cancel Auth')]") @CacheLookup WebElement cancelAuthAction;
-	
-	
+	@FindBy(how=How.XPATH,using="//span[(text()='My Authorisation')]") @CacheLookup WebElement authTabResult;
+	@FindBy(how=How.XPATH,using="//span[(text()='Notification Type')]") @CacheLookup WebElement noticesTabResult;
+	@FindBy(how=How.XPATH,using="//div[contains(text(),'EXPORT REGISTRATION INFO')]") @CacheLookup WebElement exportTabResult;
+	@FindBy(how=How.XPATH,using="//span[text()='Date Changed']") @CacheLookup WebElement changeHistoryTabResult;
+
 	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy ");
 	Date date = new Date();
 	String date1= dateFormat.format(date);
@@ -121,8 +124,26 @@ public class MyAuthorisation {
 	public void noticesTab()
 	{
 		noticesTab.click();
+		System.out.println("Clicked on Notices Tab");
+	
 		//add scripts for rowInNoticesTab
-		rowInNoticesTab.isDisplayed();		
+		//rowInNoticesTab.isDisplayed();		
+	}
+	
+	public String getNoticesTabResult() {
+		return noticesTabResult.getText();		
+	}
+	public void exportTabClick() throws InterruptedException
+	{
+		exportTab.click();
+		System.out.println("Clicked on Export Tab");
+	}
+	
+	
+	public void changeHistoryTabClick() throws InterruptedException
+	{
+		changeHistoryTab.click();
+		System.out.println("Clicked on Change History Tab");
 	}
 	
 	public void noticeAction() throws InterruptedException
@@ -132,5 +153,19 @@ public class MyAuthorisation {
 		Thread.sleep(1000);
 		System.out.println("Exiting noticeAction method");
 	}
+	
+    public String getAuthTabResult() {
+		return authTabResult.getText();
+	}
+    
+    public String getExportTabResult() {
+		return exportTabResult.getText();
+	}
+	
+    public String getChangeHistoryTabResult() {
+		return changeHistoryTabResult.getText();
+	}
+	
+	
 
 }

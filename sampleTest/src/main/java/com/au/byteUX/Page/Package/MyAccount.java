@@ -91,10 +91,12 @@ public class MyAccount {
 		
 		return contactTabResult.getText();
 	}
+	
 	public String getInterestTabResult() {
 		
 		return interestTabResult.getText();
 	}
+	
     public String getInvoicesTabResult() {
 		
 		return invoicesTabResult.getText();
