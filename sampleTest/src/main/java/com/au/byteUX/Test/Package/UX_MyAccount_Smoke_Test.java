@@ -16,15 +16,18 @@ import com.au.byteUX.Page.Package.SelectSubject;
 
 import lib.ReadProperties;
 
-public class UX_Ext_Company_MyAccountTest {
+//This class has been created to execute in Train only. 
+//We need to find a way to parameterise that so selected URL from testng.xml file can be picked up.
+
+public class UX_MyAccount_Smoke_Test {
 
 	WebDriver driver;
 	
-	public UX_Ext_Company_MyAccountTest()  //constructor
+	public UX_MyAccount_Smoke_Test()  //constructor
 	{
 	}
 	
-	//Verify MyAccount tab 
+	//Verify MyAccount Menu Item - exists
 	
 	@Test	
 	public void verifyMyAccTabClick() throws InterruptedException, FileNotFoundException, IOException
@@ -49,7 +52,7 @@ public class UX_Ext_Company_MyAccountTest {
 		Assert.assertEquals(actualHeaderText, "Account holder information");
 		
 	}
-	//verify Auth tab
+	//verify Auth tab in My Account - exists
 	@Test(dependsOnMethods={"verifyMyAccTabClick"})	
 	public void verifyAuthTabClick() throws InterruptedException, FileNotFoundException, IOException
 	{
@@ -75,7 +78,7 @@ public class UX_Ext_Company_MyAccountTest {
 		String tabResult = MyAccount.getAuthTabResult();
 		Assert.assertEquals(tabResult, "Authority Number");
 	}
-	//Verifying Contacts tab
+	//Verifying Contacts tab in My Account - exists
 	@Test( dependsOnMethods={"verifyMyAccTabClick"}	)
 	public void verifyContactTabClick() throws InterruptedException, FileNotFoundException, IOException
 	{	
@@ -102,7 +105,7 @@ public class UX_Ext_Company_MyAccountTest {
 		Assert.assertEquals(tabResult, "First Name");
 	}
 	
-	//Verifying Contacts tab
+	//Verifying Interest tab on My Account - exists
 		@Test(dependsOnMethods={"verifyMyAccTabClick"})	
 		public void verifyInterestsTabClick() throws InterruptedException, FileNotFoundException, IOException
 		{	
@@ -129,7 +132,7 @@ public class UX_Ext_Company_MyAccountTest {
 			Assert.assertEquals(tabResult, "Pref Comm Method");
 		}
 		
-		//Verifying Contacts tab
+		//Verifying Invoices tab in My Account - exists
 		@Test(dependsOnMethods={"verifyMyAccTabClick"})	
 		public void verifyInvoiceTabClick() throws InterruptedException, FileNotFoundException, IOException
 		{	

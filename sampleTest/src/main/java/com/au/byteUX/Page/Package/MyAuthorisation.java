@@ -1,5 +1,7 @@
 package com.au.byteUX.Page.Package;
 
+import static org.testng.Assert.assertTrue;
+
 import java.sql.Driver;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -79,7 +81,7 @@ public class MyAuthorisation {
 			selectBeePermission.click();
 			Thread.sleep(1000);
 		}
-		catch (InterruptedException e)		{			e.printStackTrace();		}		
+		catch (InterruptedException e)		{			e.getMessage();		}		
 	}
 	
 	
@@ -89,7 +91,7 @@ public class MyAuthorisation {
 			selectRTOPermission.click();
 			Thread.sleep(1000);
 		}
-		catch (InterruptedException e)		{			e.printStackTrace();		}		
+		catch (InterruptedException e)		{			e.getMessage();		}		
 	}
 	
 	
@@ -103,7 +105,7 @@ public class MyAuthorisation {
 			addHiveBrandBtn.click();
 			Thread.sleep(1000);
 		}
-		catch (InterruptedException e)		{			e.printStackTrace();		}		
+		catch (InterruptedException e)		{			e.getMessage();		}		
 	}
 	
 	
@@ -117,11 +119,11 @@ public class MyAuthorisation {
 			addHiveLocationBtn.click();
 			Thread.sleep(1000);
 		}
-		catch (InterruptedException e)		{			e.printStackTrace();		}		
+		catch (InterruptedException e)		{			e.getMessage();		}		
 	}
 	
 	
-	public void noticesTab()
+	public void noticesTab()  throws InterruptedException
 	{
 		noticesTab.click();
 		System.out.println("Clicked on Notices Tab");
@@ -130,9 +132,12 @@ public class MyAuthorisation {
 		//rowInNoticesTab.isDisplayed();		
 	}
 	
-	public String getNoticesTabResult() {
+	public String getNoticesTabResult()  throws InterruptedException
+	{
 		return noticesTabResult.getText();		
 	}
+	
+	
 	public void exportTabClick() throws InterruptedException
 	{
 		exportTab.click();
@@ -144,28 +149,33 @@ public class MyAuthorisation {
 	{
 		changeHistoryTab.click();
 		System.out.println("Clicked on Change History Tab");
+		
 	}
 	
 	public void noticeAction() throws InterruptedException
 	{
-		System.out.println("Inside noticeAction method");
 		noticeAction.click();
 		Thread.sleep(1000);
 		System.out.println("Exiting noticeAction method");
 	}
 	
-    public String getAuthTabResult() {
+    public String getAuthTabResult()  throws InterruptedException
+    {
 		return authTabResult.getText();
 	}
     
-    public String getExportTabResult() {
+    public String getExportTabResult()  throws InterruptedException
+    {
 		return exportTabResult.getText();
 	}
 	
-    public String getChangeHistoryTabResult() {
-		return changeHistoryTabResult.getText();
+    public String getChangeHistoryTabResult()  throws InterruptedException
+    {
+    	assertTrue(changeHistoryTabResult.isSelected());
+    	
+
+    	return changeHistoryTabResult.getText();
+		
 	}
 	
-	
-
 }
