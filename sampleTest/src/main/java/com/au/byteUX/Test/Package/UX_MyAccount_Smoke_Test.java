@@ -48,114 +48,35 @@ public class UX_MyAccount_Smoke_Test {
 		
 		MyAccount MyAccount = PageFactory.initElements(driver, MyAccount.class);
 		String actualHeaderText = MyAccount.getAccountHeaderText();
-		
 		Assert.assertEquals(actualHeaderText, "Account holder information");
 		
-	}
-	//verify Auth tab in My Account - exists
-	@Test(dependsOnMethods={"verifyMyAccTabClick"})	
-	public void verifyAuthTabClick() throws InterruptedException, FileNotFoundException, IOException
-	{
-		//verifyMyAccTabClick();
-		WebDriver driver = LocalDriverManager.getDriver();
-		String url = ReadProperties.getObject("config","trainUX");
-		String username = ReadProperties.getObject("config","external_User_Deb_Syd");
-		String password = ReadProperties.getObject("config","external_pwd");
-		//login
-		driver.get(url);
-		
-		LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-		loginPage.LoginToUX(username, password);
-		Thread.sleep(5000);
-		
-		SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
-		subject.selectSubject("My Account");
-		Thread.sleep(2000);
-		//Verify Auth tab Click
-		MyAccount MyAccount = PageFactory.initElements(driver, MyAccount.class);
+		//verify Auth tab in My Account - exists
 		MyAccount.authorisationTab();
 		Thread.sleep(2000);
 		String tabResult = MyAccount.getAuthTabResult();
 		Assert.assertEquals(tabResult, "Authority Number");
-	}
-	//Verifying Contacts tab in My Account - exists
-	@Test( dependsOnMethods={"verifyMyAccTabClick"}	)
-	public void verifyContactTabClick() throws InterruptedException, FileNotFoundException, IOException
-	{	
-		//verifyMyAccTabClick();
-		WebDriver driver = LocalDriverManager.getDriver();
-		String url = ReadProperties.getObject("config","trainUX");
-		String username = ReadProperties.getObject("config","external_User_Deb_Syd");
-		String password = ReadProperties.getObject("config","external_pwd");
-		driver.get(url);
 		
-		LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-		loginPage.LoginToUX(username, password);
-		Thread.sleep(5000);
-		
-		SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
-		subject.selectSubject("My Account");
-		Thread.sleep(2000);
-		
-		MyAccount MyAccount = PageFactory.initElements(driver, MyAccount.class);
+		//Verifying Contacts tab in My Account - exists
 		MyAccount.contactsTab();
 		Thread.sleep(2000);
-		String tabResult = MyAccount.getContactTabResult();
+		//String tabResult = MyAccount.getContactTabResult();
 		//Verifiy grid value
 		Assert.assertEquals(tabResult, "First Name");
-	}
-	
-	//Verifying Interest tab on My Account - exists
-		@Test(dependsOnMethods={"verifyMyAccTabClick"})	
-		public void verifyInterestsTabClick() throws InterruptedException, FileNotFoundException, IOException
-		{	
-			//verifyMyAccTabClick();
-			WebDriver driver = LocalDriverManager.getDriver();
-			String url = ReadProperties.getObject("config","trainUX");
-			String username = ReadProperties.getObject("config","external_User_Deb_Syd");
-			String password = ReadProperties.getObject("config","external_pwd");
-			driver.get(url);
-			
-			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-			loginPage.LoginToUX(username, password);
-			Thread.sleep(5000);
-			
-			SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
-			subject.selectSubject("My Account");
-			Thread.sleep(2000);
-			
-			MyAccount MyAccount = PageFactory.initElements(driver, MyAccount.class);
-			MyAccount.interestsTab();
-			Thread.sleep(2000);
-			String tabResult = MyAccount.getInterestTabResult();
-			//Verify grid value
-			Assert.assertEquals(tabResult, "Pref Comm Method");
-		}
+		
+		//Verifying Interest tab on My Account - exists
+		MyAccount.interestsTab();
+		Thread.sleep(2000);
+		//String tabResult = MyAccount.getInterestTabResult();
+		//Verify grid value
+		Assert.assertEquals(tabResult, "Pref Comm Method");
 		
 		//Verifying Invoices tab in My Account - exists
-		@Test(dependsOnMethods={"verifyMyAccTabClick"})	
-		public void verifyInvoiceTabClick() throws InterruptedException, FileNotFoundException, IOException
-		{	
-			//verifyMyAccTabClick();
-			WebDriver driver = LocalDriverManager.getDriver();
-			String url = ReadProperties.getObject("config","trainUX");
-			String username = ReadProperties.getObject("config","external_User_Deb_Syd");
-			String password = ReadProperties.getObject("config","external_pwd");
-			driver.get(url);
-			
-			LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-			loginPage.LoginToUX(username, password);
-			Thread.sleep(5000);
-			
-			SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
-			subject.selectSubject("My Account");
-			Thread.sleep(2000);
-			
-			MyAccount MyAccount = PageFactory.initElements(driver, MyAccount.class);
-			MyAccount.invoicesTab();
-			Thread.sleep(2000);
-			//Verify grid value
-			String tabResult = MyAccount.getInvoicesTabResult();
-			Assert.assertEquals(tabResult, "Unpaid Invoices");
-		}
+		MyAccount.invoicesTab();
+		Thread.sleep(2000);
+		//Verify grid value
+		//String tabResult = MyAccount.getInvoicesTabResult();
+		Assert.assertEquals(tabResult, "Unpaid Invoices");
+
+	}
+	
 }

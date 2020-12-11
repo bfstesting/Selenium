@@ -37,38 +37,61 @@ import java.io.FileNotFoundException;
 			
 			SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
 			subject.selectSubject("My Authorisation");
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			// Select BeekeeperAuthorisation
 			MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
 			myAuth.multipleAuthorisation_select_Bee();
-			Thread.sleep(2000);
-		
-			String tabResult = myAuth.getAuthTabResult();
-			//Assert.assertEquals(tabResult, "My Authorisation");
+			Thread.sleep(3000);
 			
+			System.out.println("My Authorisation Menu Item is displayed: "+myAuth.getAuthTabResult());
+			Assert.assertTrue(myAuth.getAuthTabResult(),"Failed to load Auth tab");
+			
+			Thread.sleep(5000);
+			
+			//select Notices tab
 			myAuth.noticesTab();
-			String tabResult_notices = myAuth.getNoticesTabResult();
-			//Assert.assertEquals(tabResult_notices, "Notification Type");
+			System.out.println("Notices Tab Result is Displayed: "+myAuth.getNoticesTabResult());
+			//Assert.assertTrue(myAuth.getNoticesTabResult(),"Failed to load Notices Tab"); //no use
+			Thread.sleep(2000);
 			
+			//select Export tab
 			myAuth.exportTabClick();
-			String tabResult_export = myAuth.getExportTabResult();
-			//Assert.assertEquals(tabResult_export, "EXPORT REGISTRATION INFO ");
+			System.out.println("Export Tab Result is Displayed: "+myAuth.getExportTabResult());
+			//Assert.assertTrue(myAuth.getExportTabResult());
+			Thread.sleep(3000);
 			
-			myAuth.changeHistoryTabClick();			
-			String tabResult_changeHistory = myAuth.getChangeHistoryTabResult();
-			//Assert.assertEquals(tabResult_changeHistory, "Date Changed");
-			//assertTrue(tabResult_changeHistory.);
+			//Select ChangeHistory Tab
+			myAuth.changeHistoryTabClick();	
+			System.out.println("ChangeHistory Tab Result is Displayed: "+myAuth.getChangeHistoryTabResult());
+			//Assert.assertTrue(myAuth.getChangeHistoryTabResult());
+			Thread.sleep(3000);
 			
-			//Add for actions
+			//Actions
+			//Update Primary location Action
+			myAuth.updatePrimaryLocationClick();
+			Thread.sleep(3000);
+			System.out.println("Update Primary Location Form is displayed: "+myAuth.getupdatePrimaryLocationResult());
+			//Assert.assertTrue(myAuth.getupdatePrimaryLocationResult());
+			myAuth.saveAndCloseClick();
 			
-			
-			//signout
+			//Notice of sale Action
+			myAuth.noticeActionClick();
+			Thread.sleep(2000);
+			System.out.println("Notice of sale or disposal of Beehives form is displayed: "+myAuth.getnoticeActionResult());
+			//Assert.assertTrue(myAuth.getnoticeActionResult());
+			myAuth.saveAndCloseNoticeClick();
+			Thread.sleep(2000);
+	
+			//Cancel Auth Action
+			myAuth.cancelAuthActionClick();
+			Thread.sleep(2000);
+			System.out.println("Cancel Authorisation Form is Displayed: "+myAuth.getcancelAuthActionResult());
+			//Assert.assertTrue(myAuth.getcancelAuthActionResult());
+			myAuth.popupCancelClick();			
+			Thread.sleep(2000);
+
 			driver.close();
-		}
-		
-		
-		
-		
+		}	
 		
 	}
 	

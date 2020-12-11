@@ -43,7 +43,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 	public UX_BeekeeperRegressionTestCasesTestRail() {
 	}
 
-	//@Test
+	@Test
 
 	// C660 - Update Account Details
 	// C662 - Update Primary Location
@@ -218,7 +218,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 		}
 	}
 	
-	//@Test
+	@Test
 
 	public void addHiveBrand() {
 		try {
@@ -271,7 +271,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 		}
 	}
 	
-	//@Test
+	@Test
 
 	// C660 - Update Account Details
 

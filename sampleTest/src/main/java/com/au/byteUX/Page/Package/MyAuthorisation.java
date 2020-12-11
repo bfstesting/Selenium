@@ -44,11 +44,21 @@ public class MyAuthorisation {
 	@FindBy(how=How.XPATH,using="//span[text()='Change History']") @CacheLookup WebElement changeHistoryTab;
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'Notice of sale')]") @CacheLookup WebElement noticeAction;
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'Renew my')]") @CacheLookup WebElement renewAction;
-	@FindBy(how=How.XPATH,using="//div[contains(text(),'Cancel Auth')]") @CacheLookup WebElement cancelAuthAction;
+	@FindBy(how=How.XPATH,using="//div[contains(text(),'Cancel Authorisation')]") @CacheLookup WebElement cancelAuthAction;
 	@FindBy(how=How.XPATH,using="//span[(text()='My Authorisation')]") @CacheLookup WebElement authTabResult;
 	@FindBy(how=How.XPATH,using="//span[(text()='Notification Type')]") @CacheLookup WebElement noticesTabResult;
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'EXPORT REGISTRATION INFO')]") @CacheLookup WebElement exportTabResult;
 	@FindBy(how=How.XPATH,using="//span[text()='Date Changed']") @CacheLookup WebElement changeHistoryTabResult;
+	@FindBy(how=How.XPATH,using="//div[text()='Update primary location']") @CacheLookup WebElement updatePrimaryLocation;
+	@FindBy(how=How.XPATH,using="//span[text()='Cancel Registration']") @CacheLookup WebElement cancelAuthActionResult;
+	@FindBy(how=How.XPATH,using="//span[text()='Update Primary Location Form']") @CacheLookup WebElement updatePrimaryLocationResult;
+	@FindBy(how=How.XPATH,using="//span[text()='Notice of sale or disposal of Beehives']") @CacheLookup WebElement noticeActionResult;
+	@FindBy(how=How.XPATH,using="//span[text()='']") @CacheLookup WebElement saveAndClose;
+    @FindBy(how=How.XPATH,using="//span[text()='']") @CacheLookup WebElement saveAndCloseNotice;
+
+	@FindBy(how=How.XPATH,using="//span[text()='Cancel']") @CacheLookup WebElement popUpCancel;
+
+
 
 	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy ");
 	Date date = new Date();
@@ -119,24 +129,26 @@ public class MyAuthorisation {
 			addHiveLocationBtn.click();
 			Thread.sleep(1000);
 		}
-		catch (InterruptedException e)		{			e.getMessage();		}		
+		catch (InterruptedException e)		{			e.getMessage();		
+		}		
 	}
 	
 	
-	public void noticesTab()  throws InterruptedException
+	public void noticesTab() 
 	{
+		try {
 		noticesTab.click();
-		System.out.println("Clicked on Notices Tab");
-	
-		//add scripts for rowInNoticesTab
-		//rowInNoticesTab.isDisplayed();		
+		System.out.println("Clicked on Notices Tab");	
 	}
-	
-	public String getNoticesTabResult()  throws InterruptedException
+		catch(Exception e)
+		{
+			e.getMessage();
+		}
+	}
+	public boolean getNoticesTabResult()  
 	{
-		return noticesTabResult.getText();		
+		return noticesTabResult.isDisplayed();		
 	}
-	
 	
 	public void exportTabClick() throws InterruptedException
 	{
@@ -159,23 +171,114 @@ public class MyAuthorisation {
 		System.out.println("Exiting noticeAction method");
 	}
 	
-    public String getAuthTabResult()  throws InterruptedException
+    public Boolean getAuthTabResult()  throws InterruptedException
     {
-		return authTabResult.getText();
+    		
+		return  authTabResult.isDisplayed();//one method
 	}
     
-    public String getExportTabResult()  throws InterruptedException
+    public boolean getExportTabResult()  throws InterruptedException
     {
-		return exportTabResult.getText();
+		return exportTabResult.getText() != null;  //one method 
 	}
 	
-    public String getChangeHistoryTabResult()  throws InterruptedException
+    public boolean getChangeHistoryTabResult()  throws InterruptedException
     {
-    	assertTrue(changeHistoryTabResult.isSelected());
-    	
-
-    	return changeHistoryTabResult.getText();
+    	//assertTrue(changeHistoryTabResult.isSelected());
+    	return changeHistoryTabResult.isDisplayed();
 		
 	}
-	
+    //Actions
+    
+    public void updatePrimaryLocationClick()  
+    {
+    	try{
+    		updatePrimaryLocation.click();
+		System.out.println("Clicked on update Primary Location Action");
+    	}
+    	catch(Exception e)
+    	{
+    		e.getMessage();
+    	}
+	}
+    
+    public void noticeActionClick() throws InterruptedException
+    {
+    	try{
+    		noticeAction.click();
+    		System.out.println("Clicked on Notice of sale Action");
+    	}
+    	catch(Exception e)
+    	{
+    	      System.out.println("Failed to click Notice of sale Action");
+    		e.getMessage();
+    	}
+    	
+	}
+    
+    public void cancelAuthActionClick()  
+    {
+    	try{
+    		cancelAuthAction.click();
+    		System.out.println("Clicked on cancel Auth Action");
+    	}
+    	catch(Exception e)
+    	{
+    	      System.out.println("Failed to click cancel Auth Action");
+    		e.getMessage();
+    	}
+    	
+	}
+    
+    public void saveAndCloseClick()  
+    {
+    	try{
+    		saveAndClose.click();
+    	}
+    	catch(Exception e)
+    	{
+    	      System.out.println("Failed to click Save and Close");
+    		e.getMessage();
+    	}
+    	
+	}
+    
+    public void saveAndCloseNoticeClick()  throws InterruptedException
+    {
+    	saveAndCloseNotice.click();
+	}
+
+    public void popupCancelClick()  throws InterruptedException
+    {
+    	popUpCancel.click();
+	}
+    public boolean getupdatePrimaryLocationResult()  throws InterruptedException
+    {
+
+    	return updatePrimaryLocationResult.isDisplayed();
+		
+	}
+    
+    public boolean getnoticeActionResult() throws InterruptedException
+    {
+    	
+    	return noticeActionResult.isDisplayed();	
+	}
+  
+    public boolean getcancelAuthActionResult()  
+    {
+    	Boolean result=false;
+    	try{
+    		result= cancelAuthActionResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    	      System.out.println("Failed to load cancel Auth Result");
+    		e.getMessage();
+    	}
+		return result;
+    	
+	}
+    
 }

@@ -61,6 +61,7 @@ WebDriver driver;
 	public void trainingInfoTab()
 	{
 		trainingInfoTab.click();
+		
 		//add scripts for rowInNoticesTab
 		if (trainingDeliverMthdText.isDisplayed() == true)
 		{
