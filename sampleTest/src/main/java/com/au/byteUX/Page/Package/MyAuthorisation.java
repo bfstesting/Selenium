@@ -202,30 +202,34 @@ public class MyAuthorisation {
     	}
 	}
     
-    public void noticeActionClick() throws InterruptedException
+    public Boolean noticeActionClick()
     {
     	try{
     		noticeAction.click();
     		System.out.println("Clicked on Notice of sale Action");
+    		return true;
     	}
     	catch(Exception e)
     	{
-    	      System.out.println("Failed to click Notice of sale Action");
     		e.getMessage();
+    		return false;
     	}
     	
 	}
     
-    public void cancelAuthActionClick()  
+    public Boolean cancelAuthActionClick()  
     {
     	try{
     		cancelAuthAction.click();
     		System.out.println("Clicked on cancel Auth Action");
+    		return true;
+    		
     	}
     	catch(Exception e)
     	{
-    	      System.out.println("Failed to click cancel Auth Action");
-    		e.getMessage();
+    	    e.getMessage();
+    	    return false;
+    		
     	}
     	
 	}
@@ -252,20 +256,20 @@ public class MyAuthorisation {
     {
     	popUpCancel.click();
 	}
-    public boolean getupdatePrimaryLocationResult()  throws InterruptedException
+    public Boolean getupdatePrimaryLocationResult()  throws InterruptedException
     {
 
     	return updatePrimaryLocationResult.isDisplayed();
 		
 	}
     
-    public boolean getnoticeActionResult() throws InterruptedException
+    public Boolean getnoticeActionResult() throws InterruptedException
     {
     	
     	return noticeActionResult.isDisplayed();	
 	}
   
-    public boolean getcancelAuthActionResult()  
+    public Boolean getcancelAuthActionResult()  
     {
     	Boolean result=false;
     	try{
@@ -274,7 +278,6 @@ public class MyAuthorisation {
     	catch(Exception e)
     	{
     		result= false;
-    	      System.out.println("Failed to load cancel Auth Result");
     		e.getMessage();
     	}
 		return result;

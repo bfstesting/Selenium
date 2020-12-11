@@ -75,20 +75,47 @@ import java.io.FileNotFoundException;
 			myAuth.saveAndCloseClick();
 			
 			//Notice of sale Action
-			myAuth.noticeActionClick();
-			Thread.sleep(2000);
-			System.out.println("Notice of sale or disposal of Beehives form is displayed: "+myAuth.getnoticeActionResult());
-			//Assert.assertTrue(myAuth.getnoticeActionResult());
-			myAuth.saveAndCloseNoticeClick();
-			Thread.sleep(2000);
+			if(myAuth.noticeActionClick())
+			{
+				Thread.sleep(2000);
+				if(myAuth.getnoticeActionResult()) {
+					System.out.println("Notice of sale or disposal of Beehives form is displayed");
+					myAuth.saveAndCloseNoticeClick();
+					Thread.sleep(2000);
+				}
+				else
+				{
+					System.out.println("Failed to Display Notice of Sale or disposal form");
+				}
+				
+				//Assert.assertTrue(myAuth.getnoticeActionResult());
+				
+			}
+			else {
+				System.out.println("Failed to click Notice of sale Action");
+			}
+			
 	
 			//Cancel Auth Action
-			myAuth.cancelAuthActionClick();
-			Thread.sleep(2000);
-			System.out.println("Cancel Authorisation Form is Displayed: "+myAuth.getcancelAuthActionResult());
-			//Assert.assertTrue(myAuth.getcancelAuthActionResult());
-			myAuth.popupCancelClick();			
-			Thread.sleep(2000);
+			if(myAuth.cancelAuthActionClick()) {
+				Thread.sleep(2000);
+				
+				//Assert.assertTrue(myAuth.getcancelAuthActionResult());
+				if(myAuth.getcancelAuthActionResult()) {
+					System.out.println("Cancel Authorisation Form is Displayed");
+					myAuth.popupCancelClick();			
+					Thread.sleep(2000);
+				}
+				else
+				{
+					System.out.println("Not able to fetch Cancel Authorisation text");
+				}
+				
+			}
+			else {
+				System.out.println("Failed to click cancel Auth Action");
+			}
+			
 
 			driver.close();
 		}	
