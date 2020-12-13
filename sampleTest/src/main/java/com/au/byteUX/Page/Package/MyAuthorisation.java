@@ -134,71 +134,133 @@ public class MyAuthorisation {
 	}
 	
 	
-	public void noticesTab() 
+	public boolean noticesTab() 
 	{
 		try {
 		noticesTab.click();
-		System.out.println("Clicked on Notices Tab");	
+		System.out.println("Clicked on Notices Tab");
+		return true;
 	}
 		catch(Exception e)
 		{
 			e.getMessage();
+			return false;
 		}
 	}
+	
 	public boolean getNoticesTabResult()  
 	{
-		return noticesTabResult.isDisplayed();		
+		Boolean result=false;
+    	try{
+    		result= noticesTabResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
+				
 	}
 	
-	public void exportTabClick() throws InterruptedException
+	public boolean exportTabClick() 
 	{
-		exportTab.click();
-		System.out.println("Clicked on Export Tab");
+		try {
+			exportTab.click();
+			System.out.println("Clicked on Export Tab");
+			return true;
+		}
+			catch(Exception e)
+			{
+				e.getMessage();
+				return false;
+			}
 	}
 	
 	
-	public void changeHistoryTabClick() throws InterruptedException
+	public boolean changeHistoryTabClick() 
 	{
-		changeHistoryTab.click();
-		System.out.println("Clicked on Change History Tab");
-		
+		try {
+			changeHistoryTab.click();
+			System.out.println("Clicked on Change History Tab");
+			return true;
+		}
+			catch(Exception e)
+			{
+				e.getMessage();
+				return false;
+			}
 	}
 	
-	public void noticeAction() throws InterruptedException
+	public Boolean noticeAction() 
 	{
-		noticeAction.click();
-		Thread.sleep(1000);
-		System.out.println("Exiting noticeAction method");
+		try {
+			noticeAction.click();
+			Thread.sleep(1000);
+			System.out.println("Exiting noticeAction method");
+			return true;
+		}
+			catch(Exception e)
+			{
+				e.getMessage();
+				return false;
+			}
 	}
 	
-    public Boolean getAuthTabResult()  throws InterruptedException
+    public Boolean getAuthTabResult()  
     {
-    		
-		return  authTabResult.isDisplayed();//one method
+    	Boolean result=false;
+    	try{
+    		result= authTabResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;	
 	}
     
-    public boolean getExportTabResult()  throws InterruptedException
+    public boolean getExportTabResult() 
     {
-		return exportTabResult.getText() != null;  //one method 
-	}
+		Boolean result=false;
+    	try{
+    		result= exportTabResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
+    }
 	
-    public boolean getChangeHistoryTabResult()  throws InterruptedException
+    public boolean getChangeHistoryTabResult() 
     {
-    	//assertTrue(changeHistoryTabResult.isSelected());
-    	return changeHistoryTabResult.isDisplayed();
-		
+    	Boolean result=false;
+    	try{
+    		result= changeHistoryTabResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
 	}
     //Actions
     
-    public void updatePrimaryLocationClick()  
+    public boolean updatePrimaryLocationClick()  
     {
     	try{
     		updatePrimaryLocation.click();
 		System.out.println("Clicked on update Primary Location Action");
+		return true;
     	}
     	catch(Exception e)
     	{
     		e.getMessage();
+    		return false;
     	}
 	}
     
@@ -247,26 +309,57 @@ public class MyAuthorisation {
     	
 	}
     
-    public void saveAndCloseNoticeClick()  throws InterruptedException
+    public void saveAndCloseNoticeClick() 
     {
-    	saveAndCloseNotice.click();
+    	try{
+    		saveAndCloseNotice.click();
+    	}
+    	catch(Exception e)
+    	{
+    	      System.out.println("Failed to click Save and Close");
+    		e.getMessage();
+    	}
 	}
 
-    public void popupCancelClick()  throws InterruptedException
+    public void popupCancelClick()
     {
-    	popUpCancel.click();
-	}
-    public Boolean getupdatePrimaryLocationResult()  throws InterruptedException
-    {
-
-    	return updatePrimaryLocationResult.isDisplayed();
-		
+    	try{
+    		popUpCancel.click();
+    	}
+    	catch(Exception e)
+    	{
+    	      System.out.println("Failed to click Cancel on the popup");
+    		e.getMessage();
+    	}
 	}
     
-    public Boolean getnoticeActionResult() throws InterruptedException
+    public Boolean getupdatePrimaryLocationResult() 
     {
-    	
-    	return noticeActionResult.isDisplayed();	
+    	Boolean result=false;
+    	try{
+    		result= updatePrimaryLocationResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
+	}
+    
+    
+    public Boolean getnoticeActionResult() 
+    {
+    	Boolean result=false;
+    	try{
+    		result= noticeActionResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
 	}
   
     public Boolean getcancelAuthActionResult()  

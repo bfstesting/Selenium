@@ -44,36 +44,102 @@ import java.io.FileNotFoundException;
 			Thread.sleep(3000);
 			
 			System.out.println("My Authorisation Menu Item is displayed: "+myAuth.getAuthTabResult());
-			Assert.assertTrue(myAuth.getAuthTabResult(),"Failed to load Auth tab");
+			//Assert.assertTrue(myAuth.getAuthTabResult(),"Failed to load Auth tab");
 			
 			Thread.sleep(5000);
 			
 			//select Notices tab
-			myAuth.noticesTab();
+			
+			/*myAuth.noticesTab();
 			System.out.println("Notices Tab Result is Displayed: "+myAuth.getNoticesTabResult());
-			//Assert.assertTrue(myAuth.getNoticesTabResult(),"Failed to load Notices Tab"); //no use
-			Thread.sleep(2000);
+			Assert.assertTrue(myAuth.getNoticesTabResult(),"Failed to load Notices Tab"); //no use*/
+		
+			if(myAuth.noticesTab()){
+				Thread.sleep(2000);
+				
+				if(myAuth.getNoticesTabResult()) {
+					System.out.println("Notices Tab Result is Displayed");	
+					Thread.sleep(2000);
+				}
+				else
+				{
+					System.out.println("Not able to fetch Notices tab Result");
+					//Assert.assertTrue(myAuth.getNoticesTabResult());
+				}
+			}
+			else {
+				System.out.println("Failed to click Notices Tab");
+			//Assert.assertTrue(myAuth.noticesTab());
+
+			}
 			
 			//select Export tab
-			myAuth.exportTabClick();
-			System.out.println("Export Tab Result is Displayed: "+myAuth.getExportTabResult());
-			//Assert.assertTrue(myAuth.getExportTabResult());
+			if(myAuth.exportTabClick()){
+				Thread.sleep(2000);
+				
+				if(myAuth.getExportTabResult()) {
+					System.out.println("Export Tab Result is Displayed");
+		
+					Thread.sleep(2000);
+				}
+				else
+				{
+					System.out.println("Not able to fetch Export tab Result");
+					//Assert.assertTrue(myAuth.getExportTabResult());
+				}
+			}
+			else {
+				System.out.println("Failed to click Change History Tab");
+				Assert.assertTrue(myAuth.exportTabClick());
+
+			}
 			Thread.sleep(3000);
 			
 			//Select ChangeHistory Tab
-			myAuth.changeHistoryTabClick();	
-			System.out.println("ChangeHistory Tab Result is Displayed: "+myAuth.getChangeHistoryTabResult());
-			//Assert.assertTrue(myAuth.getChangeHistoryTabResult());
-			Thread.sleep(3000);
+			if(myAuth.changeHistoryTabClick()){
+				Thread.sleep(2000);
+				
+				if(myAuth.getChangeHistoryTabResult()) {
+					System.out.println("ChangeHistory Tab Result is Displayed");		
+					Thread.sleep(2000);
+				}
+				else
+				{
+					System.out.println("Not able to fetch Change History tab Result");
+					//Assert.assertTrue(myAuth.getChangeHistoryTabResult());
+				}
+				
+			}
+			else {
+				System.out.println("Failed to click Change History Tab");
+				//Assert.assertTrue(myAuth.changeHistoryTabClick());
+
+			}
+			Thread.sleep(2000);
 			
 			//Actions
 			//Update Primary location Action
-			myAuth.updatePrimaryLocationClick();
-			Thread.sleep(3000);
-			System.out.println("Update Primary Location Form is displayed: "+myAuth.getupdatePrimaryLocationResult());
-			//Assert.assertTrue(myAuth.getupdatePrimaryLocationResult());
-			myAuth.saveAndCloseClick();
+			if(myAuth.updatePrimaryLocationClick()){
+				Thread.sleep(2000);
+				if(myAuth.getupdatePrimaryLocationResult()) {
+					System.out.println("Update Primary Location Form is displayed");
+					myAuth.saveAndCloseClick();		
+					Thread.sleep(2000);
+				}
+				else
+				{
+					System.out.println("Not able to fetch Primary Location form");
+					//Assert.assertTrue(myAuth.getupdatePrimaryLocationResult());
+				}
+				
+			}
+			else {
+				System.out.println("Failed to click update Primary Location Action");
+				//Assert.assertTrue(myAuth.updatePrimaryLocationClick());
+
+			}
 			
+			Thread.sleep(2000);
 			//Notice of sale Action
 			if(myAuth.noticeActionClick())
 			{
@@ -86,21 +152,19 @@ import java.io.FileNotFoundException;
 				else
 				{
 					System.out.println("Failed to Display Notice of Sale or disposal form");
+					//Assert.assertTrue(myAuth.getnoticeActionResult());
 				}
-				
-				//Assert.assertTrue(myAuth.getnoticeActionResult());
 				
 			}
 			else {
 				System.out.println("Failed to click Notice of sale Action");
+				Assert.assertTrue(myAuth.noticeActionClick());
 			}
 			
 	
 			//Cancel Auth Action
 			if(myAuth.cancelAuthActionClick()) {
 				Thread.sleep(2000);
-				
-				//Assert.assertTrue(myAuth.getcancelAuthActionResult());
 				if(myAuth.getcancelAuthActionResult()) {
 					System.out.println("Cancel Authorisation Form is Displayed");
 					myAuth.popupCancelClick();			
@@ -109,14 +173,16 @@ import java.io.FileNotFoundException;
 				else
 				{
 					System.out.println("Not able to fetch Cancel Authorisation text");
+				   Assert.assertTrue(myAuth.getcancelAuthActionResult());
+
 				}
 				
 			}
 			else {
 				System.out.println("Failed to click cancel Auth Action");
+				Assert.assertTrue(myAuth.cancelAuthActionClick());
 			}
 			
-
 			driver.close();
 		}	
 		
