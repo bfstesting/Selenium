@@ -26,7 +26,7 @@ import java.io.FileNotFoundException;
 		public void verifyMyAuthTabClick() throws InterruptedException, FileNotFoundException, IOException
 		{
 			WebDriver driver = LocalDriverManager.getDriver();
-			String url = ReadProperties.getObject("config","trainUX");
+			String url = ReadProperties.getObject("config","UX");
 			String username = ReadProperties.getObject("config","external_User_Deb_Syd");
 			String password = ReadProperties.getObject("config","external_pwd");
 			driver.get(url);
@@ -40,10 +40,24 @@ import java.io.FileNotFoundException;
 			Thread.sleep(3000);
 			// Select BeekeeperAuthorisation
 			MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
-			myAuth.multipleAuthorisation_select_Bee();
+			//myAuth.multipleAuthorisation_select_Bee();
 			Thread.sleep(3000);
 			
-			System.out.println("My Authorisation Menu Item is displayed: "+myAuth.getAuthTabResult());
+			//Verify Authorisation menu item 
+			if(myAuth.multipleAuthorisation_select_Bee()){
+				Thread.sleep(3000);
+				if(myAuth.getAuthTabResult()) {
+					System.out.println("Beekeeper License permission is selected from My Authorisation Menu Item");
+					Thread.sleep(4000);
+				}
+				else
+				{
+					System.out.println("Not able to select Beekeeper from Authorisation Menu item list");
+				}
+			}
+			else {
+				System.out.println("Failed to click on the beekeper License permission from Authorisation menu item");
+			}
 			
 			Thread.sleep(5000);
 			

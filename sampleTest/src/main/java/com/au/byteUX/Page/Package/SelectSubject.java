@@ -38,11 +38,13 @@ public class SelectSubject {
 		else if (subject.equals("My Account"))
 		{
 			myaccount.click();
+			System.out.println("Clicked on My Account Menu Item");
 		}
 
 		else if (subject.equals("My Authorisation"))
 		{
 			myauthorisation.click();
+			System.out.println("Clicked on My Authorisation Menu Item");
 		}
 
 		else if (subject.equals("My Profile"))

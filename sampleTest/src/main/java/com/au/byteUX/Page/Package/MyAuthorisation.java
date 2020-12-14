@@ -85,16 +85,17 @@ public class MyAuthorisation {
 	}
 	
 	
-	public void multipleAuthorisation_select_Bee ()
+	public boolean multipleAuthorisation_select_Bee ()
 	{
 		try {
 			selectBeePermission.click();
 			Thread.sleep(1000);
+			return true;
 		}
-		catch (InterruptedException e)		{			e.getMessage();		}		
+		catch (Exception e)		{			e.getMessage();	
+		return false;		
 	}
-	
-	
+	}
 	public void multipleAuthorisation_select_RTO ()
 	{
 		try {

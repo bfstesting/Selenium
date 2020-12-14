@@ -26,82 +26,229 @@ public class MyAccount {
 	@FindBy(how=How.XPATH,using="//span[contains(text(),'First Name')]") @CacheLookup WebElement contactTabResult;
 	@FindBy(how=How.XPATH,using="//span[contains(text(),'Pref Comm Method')]") @CacheLookup WebElement interestTabResult;
 	@FindBy(how=How.XPATH,using="//div[text()='Unpaid Invoices']") @CacheLookup WebElement invoicesTabResult;
-	
+	@FindBy(how=How.XPATH,using="//span[text()='Update Account Request Form']") @CacheLookup WebElement updateAccountDetailsForm;
+	@FindBy(how=How.XPATH,using="//span[text()='']") @CacheLookup WebElement saveAndClose;
+	@FindBy(how=How.XPATH,using="//span[text()='OK']") @CacheLookup WebElement okSendUserInvite;
+	@FindBy(how=How.XPATH,using="//span[text()='User Invitation']") @CacheLookup WebElement senduserInviteForm;
+	//@FindBy(how=How.XPATH,using="//span[text()='User Invitation']") @CacheLookup WebElement closeUserInvite;
 
 	public MyAccount(WebDriver driver)  //constructor
 	{
 		this.driver = driver;
 	}
-	
-	public void updateAccountDetails() throws InterruptedException
+	//update account details
+	public boolean updateAccountDetails() 
 	{
-		DCR.click();
-		System.out.println("Update Account Details form is open");
-		Thread.sleep(5000);
+		try{
+			DCR.click();
+			System.out.println("Update Account Details form is open");
+			Thread.sleep(5000);
+    		return true;
+    	}
+    	catch(Exception e)
+    	{
+    	    e.getMessage();
+    	    return false;
+    	}
 	}
-	
-	
-	public void sendUserInvite() throws InterruptedException
+	//Send User Invite
+	public boolean sendUserInvite()
 	{
-		sendInvite.click();
-		System.out.println("Send User Invitation form is open");
-		Thread.sleep(5000);
+		try{
+			sendInvite.click();
+			System.out.println("Send User Invitation form is open");
+			Thread.sleep(5000);
+    		return true;
+    	}
+    	catch(Exception e)
+    	{
+    	    e.getMessage();
+    	    return false;
+    	}
 	}
 	
-	
-	public void authorisationTab() throws InterruptedException
+	//click on Authorisation tab
+	public boolean authorisationTab()
 	{
-		authorisation.click();
-		System.out.println("Clicked on Authorisation Tab");
+		try{
+			authorisation.click();
+			System.out.println("Clicked on Authorisation Tab");
+    		return true;
+    	}
+    	catch(Exception e)
+    	{
+    	    e.getMessage();
+    	    return false;
+    	}
 	}
 	
-	
-	public void contactsTab() throws InterruptedException
+	// click on contacts tab
+	public boolean contactsTab()
 	{
-		contacts.click();
-		System.out.println("Clicked on Contacts Tab");
+		try{
+			contacts.click();
+			System.out.println("Clicked on Contacts Tab");
+    		return true;
+    	}
+    	catch(Exception e)
+    	{
+    	    e.getMessage();
+    	    return false;
+    	}
 	}
 	
-	
-	public void interestsTab() throws InterruptedException
+	//click on interests tab
+	public boolean interestsTab() 
 	{
-		interests.click();
-		System.out.println("Clicked on Interests Tab");
+		try{
+			interests.click();
+			System.out.println("Clicked on Interests Tab");
+    		return true;
+    	}
+    	catch(Exception e)
+    	{
+    	    e.getMessage();
+    	    return false;
+    	}
 	}
 	
-	
-	public void invoicesTab() throws InterruptedException
+	//click on invoices tab
+	public boolean invoicesTab()
 	{
-		invoices.click();
-		System.out.println("Clicked on Invoices Tab");
+		try{
+			invoices.click();
+			System.out.println("Clicked on Invoices Tab");
+    		return true;
+    	}
+    	catch(Exception e)
+    	{
+    	    e.getMessage();
+    	    return false;
+    	}
 	}
-	
-	public String getAccountHeaderText()
+	//verifying Account Header is displayed
+	public Boolean getAccountHeaderText()
 	{
-		return accountHeaderText.getText();
-		
+		Boolean result=false;
+    	try{
+    		result= accountHeaderText.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
 	}
-	
-	public String getAuthTabResult() {
-		
-		return authTabResult.getText();
+	//Verify Auth Tab Result
+	public Boolean getAuthTabResult() {
+		Boolean result=false;
+    	try{
+    		result= authTabResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
 	}
-	
-	public String getContactTabResult() {
-		
-		return contactTabResult.getText();
+	//verify Contact tab result
+	public Boolean getContactTabResult() {
+		Boolean result=false;
+    	try{
+    		result= contactTabResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
 	}
-	
-	public String getInterestTabResult() {
-		
-		return interestTabResult.getText();
+	// verify Interest tab result
+	public Boolean getInterestTabResult() {
+		Boolean result=false;
+    	try{
+    		result= interestTabResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
 	}
-	
-    public String getInvoicesTabResult() {
-		
-		return invoicesTabResult.getText();
+	// verify Invoices tab result
+    public Boolean getInvoicesTabResult() {
+		Boolean result=false;
+    	try{
+    		result= invoicesTabResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
 	}
-	
+    
+    //Verify UpdatePrmiary Location form in My Account- exists
+    public Boolean getUpdateAccountDetailsResult() {
+		Boolean result=false;
+    	try{
+    		result= updateAccountDetailsForm.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
+	}
+    
+    //Save and close update primary location form
+    public void saveAndCloseClick()  
+    {
+    	try{
+    		saveAndClose.click();
+    	}
+    	catch(Exception e)
+    	{
+    	      System.out.println("Failed to click Save and Close");
+    		e.getMessage();
+    	}
+    	
+	}
+    
+    //verify send user invite form in MyAccount - exists
+    public Boolean getsendUserInviteResult() {
+		Boolean result=false;
+    	try{
+    		result= senduserInviteForm.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
+	}
+    
+    public boolean okButtonClick()  
+    {
+    	try{
+    		okSendUserInvite.click();
+    		return true;
+    	}
+    	catch(Exception e)
+    	{
+    	      System.out.println("Failed to click Ok button in send user invite");
+    		e.getMessage();
+    	}
+		return false;
+    	
+	}
 	
 	/*
 	

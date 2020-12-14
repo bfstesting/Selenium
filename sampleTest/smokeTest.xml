@@ -7,10 +7,12 @@
   <test name="Test">
   	<parameter name="browserName" value="chrome"></parameter>
     <classes>
-      <class name="com.au.byteUX.Test.Package.UX_MyAuthorisation_Smoke_Bee_Test"/>
-     <!--
-     <class name="com.au.byteUX.Test.Package.UX_MyAccount_Smoke_Test"/>
-     -->
+    <!--
+      <class name="com.au.byteUX.Test.Package.UX_MyAuthorisation_Smoke_Bee_Test"/> -->
+        
+  
+       <class name="com.au.byteUX.Test.Package.UX_MyAccount_Smoke_Test"/>
+  
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
