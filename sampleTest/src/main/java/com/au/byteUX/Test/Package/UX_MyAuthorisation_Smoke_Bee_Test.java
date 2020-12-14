@@ -44,7 +44,6 @@ import java.io.FileNotFoundException;
 			Thread.sleep(3000);
 			
 			System.out.println("My Authorisation Menu Item is displayed: "+myAuth.getAuthTabResult());
-			//Assert.assertTrue(myAuth.getAuthTabResult(),"Failed to load Auth tab");
 			
 			Thread.sleep(5000);
 			
@@ -58,19 +57,16 @@ import java.io.FileNotFoundException;
 				Thread.sleep(2000);
 				
 				if(myAuth.getNoticesTabResult()) {
-					System.out.println("Notices Tab Result is Displayed");	
+					System.out.println("Notices Tab Result is Displayed");
 					Thread.sleep(2000);
 				}
 				else
 				{
 					System.out.println("Not able to fetch Notices tab Result");
-					//Assert.assertTrue(myAuth.getNoticesTabResult());
 				}
 			}
 			else {
 				System.out.println("Failed to click Notices Tab");
-			//Assert.assertTrue(myAuth.noticesTab());
-
 			}
 			
 			//select Export tab
@@ -85,7 +81,6 @@ import java.io.FileNotFoundException;
 				else
 				{
 					System.out.println("Not able to fetch Export tab Result");
-					//Assert.assertTrue(myAuth.getExportTabResult());
 				}
 			}
 			else {
@@ -106,13 +101,11 @@ import java.io.FileNotFoundException;
 				else
 				{
 					System.out.println("Not able to fetch Change History tab Result");
-					//Assert.assertTrue(myAuth.getChangeHistoryTabResult());
 				}
 				
 			}
 			else {
 				System.out.println("Failed to click Change History Tab");
-				//Assert.assertTrue(myAuth.changeHistoryTabClick());
 
 			}
 			Thread.sleep(2000);
@@ -120,7 +113,7 @@ import java.io.FileNotFoundException;
 			//Actions
 			//Update Primary location Action
 			if(myAuth.updatePrimaryLocationClick()){
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				if(myAuth.getupdatePrimaryLocationResult()) {
 					System.out.println("Update Primary Location Form is displayed");
 					myAuth.saveAndCloseClick();		
@@ -129,21 +122,20 @@ import java.io.FileNotFoundException;
 				else
 				{
 					System.out.println("Not able to fetch Primary Location form");
-					//Assert.assertTrue(myAuth.getupdatePrimaryLocationResult());
 				}
 				
 			}
 			else {
 				System.out.println("Failed to click update Primary Location Action");
-				//Assert.assertTrue(myAuth.updatePrimaryLocationClick());
 
 			}
 			
 			Thread.sleep(2000);
+			
 			//Notice of sale Action
 			if(myAuth.noticeActionClick())
 			{
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				if(myAuth.getnoticeActionResult()) {
 					System.out.println("Notice of sale or disposal of Beehives form is displayed");
 					myAuth.saveAndCloseNoticeClick();
@@ -152,19 +144,17 @@ import java.io.FileNotFoundException;
 				else
 				{
 					System.out.println("Failed to Display Notice of Sale or disposal form");
-					//Assert.assertTrue(myAuth.getnoticeActionResult());
 				}
 				
 			}
 			else {
 				System.out.println("Failed to click Notice of sale Action");
-				//Assert.assertTrue(myAuth.noticeActionClick());
 			}
 			
 	
 			//Cancel Auth Action
 			if(myAuth.cancelAuthActionClick()) {
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				if(myAuth.getcancelAuthActionResult()) {
 					System.out.println("Cancel Authorisation Form is Displayed");
 					myAuth.popupCancelClick();			
@@ -173,14 +163,10 @@ import java.io.FileNotFoundException;
 				else
 				{
 					System.out.println("Not able to fetch Cancel Authorisation text");
-				   //Assert.assertTrue(myAuth.getcancelAuthActionResult());
-
 				}
-				
 			}
 			else {
 				System.out.println("Failed to click cancel Auth Action");
-				//Assert.assertTrue(myAuth.cancelAuthActionClick());
 			}
 			
 			driver.close();
