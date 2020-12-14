@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="classes">
+  <listeners>
+        <listener class-name="com.au.byteUX.Package.WebdriverListener"/>
+    </listeners>
+  <test name="Test">
+  	<parameter name="browserName" value="chrome"></parameter>
+    <classes>
+      <class name="com.au.byteUX.Test.Package.UX_MyAuthorisation_Smoke_Bee_Test"/>
+     <!--
+     <class name="com.au.byteUX.Test.Package.UX_MyAccount_Smoke_Test"/>
+     -->
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
