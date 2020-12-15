@@ -60,7 +60,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			// System.out.println("HashcodeebDriver instance = " +
 			// LocalDriverManager.getDriver().hashCode());
 			WebDriver driver = LocalDriverManager.getDriver();
-			url = ReadProperties.getObject("config","trainUX");
+			url = ReadProperties.getObject("config","UX");
 			username = ReadProperties.getObject("config","external_User_Deb_Syd");
 			password = ReadProperties.getObject("config","external_pwd");
 			driver.get(url);
@@ -143,7 +143,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			// Thread.sleep(8000);
 			// Select Authorisation Subject
 			WebDriver driver = LocalDriverManager.getDriver();
-			url = ReadProperties.getObject("config","trainUX");
+			url = ReadProperties.getObject("config","UX");
 			username = ReadProperties.getObject("config","external_User_Deb_Syd");
 			password = ReadProperties.getObject("config","external_pwd");
 			driver.get(url);
@@ -190,7 +190,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			// Thread.sleep(8000);
 			// Select Authorisation Subject
 			WebDriver driver = LocalDriverManager.getDriver();
-			url = ReadProperties.getObject("config","trainUX");
+			url = ReadProperties.getObject("config","UX");
 			username = ReadProperties.getObject("config","external_User_New");
 			password = ReadProperties.getObject("config","external_pwd");
 			driver.get(url);
@@ -228,7 +228,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			// Thread.sleep(8000);
 			// Select Authorisation Subject
 			WebDriver driver = LocalDriverManager.getDriver();
-			url = ReadProperties.getObject("config","trainUX");
+			url = ReadProperties.getObject("config","UX");
 			username = ReadProperties.getObject("config","external_User_Deb_Syd");
 			password = ReadProperties.getObject("config","external_pwd");
 
@@ -279,7 +279,7 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 		try {
 
 			WebDriver driver = LocalDriverManager.getDriver();
-			url = ReadProperties.getObject("config","trainUX");
+			url = ReadProperties.getObject("config","UX");
 			username = ReadProperties.getObject("config","external_User_Deb_Syd");
 			password = ReadProperties.getObject("config","external_pwd");
 

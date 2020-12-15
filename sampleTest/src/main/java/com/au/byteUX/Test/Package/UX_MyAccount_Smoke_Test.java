@@ -57,7 +57,7 @@ public class UX_MyAccount_Smoke_Test {
 		else
 		{
 			System.out.println("Not able to fetch the My Account page header text");
-			softAssert.assertFalse(true,"Not able to fetch the My Account page header text");
+			softAssert.assertTrue(false,"Not able to fetch the My Account page header text");
 		}
 		
 		//verify Auth tab in My Account - exists
@@ -70,12 +70,12 @@ public class UX_MyAccount_Smoke_Test {
 			else
 			{
 				System.out.println("Not able to fetch Authorisation tab Result");
-				softAssert.assertFalse(true,"Not able to fetch Authorisation tab Result");
+				softAssert.assertTrue(false,"Not able to fetch Authorisation tab Result");
 			}
 		}
 		else {
 			System.out.println("Failed to click Authorisation Tab");
-			softAssert.assertFalse(true,"Failed to click Authorisation Tab");
+			softAssert.assertTrue(false,"Failed to click Authorisation Tab");
 		}
 		
 		//Verifying Contacts tab in My Account - exists
@@ -88,12 +88,12 @@ public class UX_MyAccount_Smoke_Test {
 			else
 			{
 				System.out.println("Not able to fetch Contact tab Result");
-				softAssert.assertFalse(true,"Not able to fetch Contact tab Result");
+				softAssert.assertTrue(false,"Not able to fetch Contact tab Result");
 			}
 		}
 		else {
 			System.out.println("Failed to click Contact Tab");
-			softAssert.assertFalse(true,"Failed to click Contact Tab");
+			softAssert.assertTrue(false,"Failed to click Contact Tab");
 		}
 		
 		//Verifying Interest tab on My Account - exists
@@ -106,12 +106,12 @@ public class UX_MyAccount_Smoke_Test {
 			else
 			{
 				System.out.println("Not able to fetch Interest tab Result");
-				softAssert.assertFalse(true,"Not able to fetch Interest tab Result");
+				softAssert.assertTrue(false,"Not able to fetch Interest tab Result");
 			}
 		}
 		else {
 			System.out.println("Failed to click Interest Tab");
-			softAssert.assertFalse(true,"Failed to click Interest Tab");
+			softAssert.assertTrue(false,"Failed to click Interest Tab");
 		}
 		
 		//Verifying Invoices tab in My Account - exists
@@ -124,12 +124,12 @@ public class UX_MyAccount_Smoke_Test {
 			else
 			{
 				System.out.println("Not able to fetch Invoices tab Result");
-				softAssert.assertFalse(true,"Not able to fetch Invoices tab Result");
+				softAssert.assertTrue(false,"Not able to fetch Invoices tab Result");
 			}
 		}
 		else {
 			System.out.println("Failed to click Invoices Tab");
-			softAssert.assertFalse(true,"Failed to click Invoices Tab");
+			softAssert.assertTrue(false,"Failed to click Invoices Tab");
 		}
 		
 		//Verifing Update Account Details form in My Account - Exists
@@ -139,22 +139,23 @@ public class UX_MyAccount_Smoke_Test {
 				System.out.println("Update Account Details form is Displayed");
 				Thread.sleep(2000);
 				MyAccount.saveAndCloseClick();
+				Thread.sleep(1000);
 			}
 			else
 			{
 				System.out.println("Not able to fetch Update Account Details form");
 				
-				softAssert.assertFalse(true,"Not able to fetch Update Account Details form");
+				softAssert.assertTrue(false,"Not able to fetch Update Account Details form");
 			}
 		}
 		else {
 			System.out.println("Failed to click Update Account Details form");
-			softAssert.assertFalse(true,"Failed to click Update Account Details form");
+			softAssert.assertTrue(false,"Failed to click Update Account Details form");
 		}
 		
 		//Verifing Send User Invite form in My Account - Exists
 				if(MyAccount.sendUserInvite()){
-					Thread.sleep(1000);
+					Thread.sleep(2000);
 					if(MyAccount.okButtonClick())
 					{
 						Thread.sleep(1000);
@@ -166,18 +167,18 @@ public class UX_MyAccount_Smoke_Test {
 					else
 					{
 						System.out.println("Not able to fetch Send User Invite Form");
-						softAssert.assertFalse(true,"Not able to fetch Send User Invite Form");
+						softAssert.assertTrue(false,"Not able to fetch Send User Invite Form");
 					}
 					}else
 					{
 						System.out.println("Not able to Click on Ok Button insend user invite");
-						softAssert.assertFalse(true,"Not able to Click on Ok Button insend user invite");
+						softAssert.assertTrue(false,"Not able to Click on Ok Button in send user invite");
 
 					}
 				}
 				else {
 					System.out.println("Failed to click Send User Invite");
-					softAssert.assertFalse(true,"Failed to click Send User Invite");
+					softAssert.assertTrue(false,"Failed to click Send User Invite");
 				}
 				
 		softAssert.assertAll();

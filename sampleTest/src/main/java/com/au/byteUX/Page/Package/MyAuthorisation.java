@@ -37,8 +37,9 @@ public class MyAuthorisation {
 			+ "']]")
 	@CacheLookup WebElement selectRTOPermission;
 	
-	@FindBy(how=How.XPATH,using="//span[text()='Add Hive Brand']") @CacheLookup WebElement addHiveBrandBtn;
-	@FindBy(how=How.XPATH,using="//span[text()='Add Hive Location']") @CacheLookup WebElement addHiveLocationBtn;
+	//@FindBy(how=How.XPATH,using="//span[text()='Add Hive Brand']") @CacheLookup WebElement addHiveBrandBtn;
+	@FindBy(how=How.XPATH,using="//div[2]/div[1]/div/div/div[2]/div[1]/.//div[2]/div") @CacheLookup WebElement addHiveBrandBtn;
+	@FindBy(how=How.XPATH,using="//div[2]/div[1]/div/div/div[3]/div[1]/.//div[2]/div") @CacheLookup WebElement addHiveLocationBtn;
 	@FindBy(how=How.XPATH,using="//span[text()='Notices']") @CacheLookup WebElement noticesTab;
 	@FindBy(how=How.XPATH,using="//span[text()='Export']") @CacheLookup WebElement exportTab;
 	@FindBy(how=How.XPATH,using="//span[text()='Change History']") @CacheLookup WebElement changeHistoryTab;

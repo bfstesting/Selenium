@@ -9,7 +9,9 @@ import java.io.FileNotFoundException;
 	import org.openqa.selenium.support.PageFactory;
 	import org.testng.Assert;
 	import org.testng.annotations.Test;
-	import com.au.byteUX.Package.LocalDriverManager;
+import org.testng.asserts.SoftAssert;
+
+import com.au.byteUX.Package.LocalDriverManager;
 	import com.au.byteUX.Page.Package.LoginPage;
 	import com.au.byteUX.Page.Package.MyAccount;
     import com.au.byteUX.Page.Package.MyAuthorisation;
@@ -18,7 +20,13 @@ import java.io.FileNotFoundException;
 
 	public class UX_MyAuthorisation_Smoke_Bee_Test { 
 
-		WebDriver driver;
+		WebDriver driver;       //constructor
+		SoftAssert softAssert;
+		
+		public UX_MyAuthorisation_Smoke_Bee_Test() 
+		{
+			softAssert = new SoftAssert();
+		}
 		
 		//Verify MyAuthorisation Menu Item - bees - exists
 		
@@ -53,10 +61,12 @@ import java.io.FileNotFoundException;
 				else
 				{
 					System.out.println("Not able to select Beekeeper from Authorisation Menu item list");
+					softAssert.assertTrue(false,"Not able to select Beekeeper from Authorisation Menu item list");
 				}
 			}
 			else {
 				System.out.println("Failed to click on the beekeper License permission from Authorisation menu item");
+				softAssert.assertTrue(false,"Failed to click on the beekeper License permission from Authorisation menu item");
 			}
 			
 			Thread.sleep(5000);
@@ -77,10 +87,12 @@ import java.io.FileNotFoundException;
 				else
 				{
 					System.out.println("Not able to fetch Notices tab Result");
+					softAssert.assertTrue(false,"Not able to fetch Notices tab Result");
 				}
 			}
 			else {
 				System.out.println("Failed to click Notices Tab");
+				softAssert.assertTrue(false,"Failed to click Notices Tab");
 			}
 			
 			//select Export tab
@@ -89,18 +101,18 @@ import java.io.FileNotFoundException;
 				
 				if(myAuth.getExportTabResult()) {
 					System.out.println("Export Tab Result is Displayed");
-		
 					Thread.sleep(2000);
 				}
 				else
 				{
 					System.out.println("Not able to fetch Export tab Result");
+					softAssert.assertTrue(false,"Not able to fetch Export tab Result");
 				}
 			}
 			else {
 				System.out.println("Failed to click Change History Tab");
-				Assert.assertTrue(myAuth.exportTabClick());
-
+				softAssert.assertTrue(false,"Failed to click Change History Tab");
+				//Assert.assertTrue(myAuth.exportTabClick());
 			}
 			Thread.sleep(3000);
 			
@@ -115,12 +127,13 @@ import java.io.FileNotFoundException;
 				else
 				{
 					System.out.println("Not able to fetch Change History tab Result");
+					softAssert.assertTrue(false,"Not able to fetch Change History tab Result");
 				}
 				
 			}
 			else {
 				System.out.println("Failed to click Change History Tab");
-
+				softAssert.assertTrue(false,"Failed to click Change History Tab");
 			}
 			Thread.sleep(2000);
 			
@@ -136,12 +149,13 @@ import java.io.FileNotFoundException;
 				else
 				{
 					System.out.println("Not able to fetch Primary Location form");
+					softAssert.assertTrue(false,"Not able to fetch Primary Location form");
 				}
 				
 			}
 			else {
 				System.out.println("Failed to click update Primary Location Action");
-
+				softAssert.assertTrue(false,"Failed to click update Primary Location Action");
 			}
 			
 			Thread.sleep(2000);
@@ -158,11 +172,13 @@ import java.io.FileNotFoundException;
 				else
 				{
 					System.out.println("Failed to Display Notice of Sale or disposal form");
+					softAssert.assertTrue(false,"Failed to Display Notice of Sale or disposal form");
 				}
 				
 			}
 			else {
 				System.out.println("Failed to click Notice of sale Action");
+				softAssert.assertTrue(false,"Failed to click Notice of sale Action");
 			}
 			
 	
@@ -177,12 +193,14 @@ import java.io.FileNotFoundException;
 				else
 				{
 					System.out.println("Not able to fetch Cancel Authorisation text");
+					softAssert.assertTrue(false,"Not able to fetch Cancel Authorisation text");
 				}
 			}
 			else {
 				System.out.println("Failed to click cancel Auth Action");
+				softAssert.assertTrue(false,"Failed to click cancel Auth Action");
 			}
-			
+			softAssert.assertAll();
 			driver.close();
 		}	
 		

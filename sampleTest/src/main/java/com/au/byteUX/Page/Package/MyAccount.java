@@ -41,7 +41,7 @@ public class MyAccount {
 	{
 		try{
 			DCR.click();
-			System.out.println("Update Account Details form is open");
+			System.out.println("Clicked on Update Account Details");
 			Thread.sleep(5000);
     		return true;
     	}
@@ -56,7 +56,7 @@ public class MyAccount {
 	{
 		try{
 			sendInvite.click();
-			System.out.println("Send User Invitation form is open");
+			System.out.println("Clicked on Send User Invitation");
 			Thread.sleep(5000);
     		return true;
     	}
@@ -212,6 +212,7 @@ public class MyAccount {
     {
     	try{
     		saveAndClose.click();
+    		Thread.sleep(2000);
     	}
     	catch(Exception e)
     	{
