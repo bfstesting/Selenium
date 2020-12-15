@@ -29,8 +29,14 @@ public class UX_BKR_Lic_Renewal {
 	@FindBy(how = How.XPATH, using = "span[text()='OK']")	@CacheLookup WebElement clickOKToOpenPaymentForm;
 	@FindBy(how = How.XPATH, using = "//div[2]/div/div/div")	@CacheLookup WebElement getAmount;
 	@FindBy(how = How.XPATH, using = "//div[2]/span") @CacheLookup WebElement getTrackingCode;
-	
-	
+	@FindBy(how = How.NAME, using = "cardholderName") @CacheLookup WebElement cardHolderName;
+	@FindBy(how = How.NAME, using = "cardNumber") @CacheLookup WebElement cardNumber;
+	@FindBy(how = How.NAME, using = "expiryDateMonth") @CacheLookup WebElement expiryDateMonth;
+	@FindBy(how = How.XPATH, using = "//html/body/div/form/div[3]/div/div[1]/select/option[5]") @CacheLookup WebElement selectMonth;
+	@FindBy(how = How.NAME, using = "expiryDateYear") @CacheLookup WebElement expiryDateYear;
+	@FindBy(how = How.XPATH, using = "//html/body/div/form/div[3]/div/div[2]/select/option[6]") @CacheLookup WebElement selectYear;
+	@FindBy(how = How.NAME, using = "cvn") @CacheLookup WebElement cvnNumber;
+	// If condition required - Cancel on UX "Do you wish to renew other authorisation that is due for renewals.": //a[4]/span/span/span[text()='Cancel']
 			
 	public UX_BKR_Lic_Renewal(WebDriver driver)  //constructor
 	{
@@ -75,8 +81,8 @@ public class UX_BKR_Lic_Renewal {
 			}
 
 			//code to do something on new window
-			getAmount.getText();
-			getTrackingCode.getText();
+			System.out.println("Please verify the amount for Beekeeper Recreational: " + getAmount.getText());
+			System.out.println("Please verify the tracking code submission in Smart Client: " + getTrackingCode.getText());
 			//driver.close(); // close newly opened window when done with it
 			//driver.switchTo().window(parentHandle); // switch back to the original window
 		}
