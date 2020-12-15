@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.au.byteUX.Test.Package.UX_BeekeeperRegressionTestCasesTestRail">
+      <class name="com.au.byteUX.Test.Package.UX_SubmitPayment_Bee_Renewal">
         <methods>
-          <include name="addHiveBrand"/>
+          <include name="verifyRenewal"/>
         </methods>
-      </class> <!-- com.au.byteUX.Test.Package.UX_BeekeeperRegressionTestCasesTestRail -->
+      </class> <!-- com.au.byteUX.Test.Package.UX_SubmitPayment_Bee_Renewal -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
