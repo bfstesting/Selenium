@@ -45,6 +45,7 @@ import com.au.byteUX.Package.LocalDriverManager;
 			
 			SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
 			subject.selectSubject("My Authorisation");
+			System.out.println("Clicked on My Authorisation Menu Item");
 			Thread.sleep(3000);
 			// Select BeekeeperAuthorisation
 			MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);

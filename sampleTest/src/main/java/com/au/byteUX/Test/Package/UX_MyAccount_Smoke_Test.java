@@ -47,6 +47,7 @@ public class UX_MyAccount_Smoke_Test {
 		
 		SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
 		subject.selectSubject("My Account");
+		System.out.println("Clicked on My Account Menu Item");
 		Thread.sleep(2000);
 		
 		MyAccount MyAccount = PageFactory.initElements(driver, MyAccount.class);

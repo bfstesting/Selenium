@@ -26,10 +26,11 @@ public class UX_BKR_Lic_Renewal {
 	@FindBy(how = How.NAME, using = "ConsentFinal")	@CacheLookup WebElement consent;
 	@FindBy(how = How.XPATH, using = "//span[text()='Submit my renewal application']")	@CacheLookup WebElement submitBtn;
 	@FindBy(how = How.XPATH, using = "//span[text()='Cancel']")	@CacheLookup WebElement cancelBtn;
-	@FindBy(how = How.XPATH, using = "span[text()='OK']")	@CacheLookup WebElement clickOKToOpenPaymentForm;
-	@FindBy(how = How.XPATH, using = "//div[2]/div/div/div")	@CacheLookup WebElement getAmount;
+	@FindBy(how = How.XPATH, using = "//span[text()='OK']")	@CacheLookup WebElement clickOKToOpenPaymentForm;
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Payment amount:')]")	@CacheLookup WebElement getAmount;
 	@FindBy(how = How.XPATH, using = "//div[2]/span") @CacheLookup WebElement getTrackingCode;
-	@FindBy(how = How.NAME, using = "cardholderName") @CacheLookup WebElement cardHolderName;
+	@FindBy(how = How.ID, using = "cardholderName") @CacheLookup WebElement cardHolderName;
+	//@FindBy(how = How.XPATH, using = "//*[@id=\"cardholderNameField\"]/label") @CacheLookup WebElement cardHolderName;
 	@FindBy(how = How.NAME, using = "cardNumber") @CacheLookup WebElement cardNumber;
 	@FindBy(how = How.NAME, using = "expiryDateMonth") @CacheLookup WebElement expiryDateMonth;
 	@FindBy(how = How.XPATH, using = "//html/body/div/form/div[3]/div/div[1]/select/option[5]") @CacheLookup WebElement selectMonth;
@@ -43,6 +44,11 @@ public class UX_BKR_Lic_Renewal {
 		this.driver = driver;
 	}
 	
+	public void renewMyAuth()
+	{
+		renewMyAuthorisation.click();
+		System.out.println("test clcik RMA");
+	}
 		
 	public void submitRenewal_NoPermissionChange ()
 	{
@@ -79,10 +85,19 @@ public class UX_BKR_Lic_Renewal {
 			    driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
 			    	System.out.println(driver.getWindowHandle());
 			}
-
+			Thread.sleep(5000);
 			//code to do something on new window
 			System.out.println("Please verify the amount for Beekeeper Recreational: " + getAmount.getText());
 			System.out.println("Please verify the tracking code submission in Smart Client: " + getTrackingCode.getText());
+			//cardHolderName.getText();
+			cardHolderName.sendKeys("Jack");
+			cardNumber.sendKeys("4444333322221111");
+			expiryDateMonth.click();
+			selectMonth.click();
+			//expiryDateYear.click();
+			//selectYear.click();
+			//cvnNumber.sendKeys("234");
+
 			//driver.close(); // close newly opened window when done with it
 			//driver.switchTo().window(parentHandle); // switch back to the original window
 		}
