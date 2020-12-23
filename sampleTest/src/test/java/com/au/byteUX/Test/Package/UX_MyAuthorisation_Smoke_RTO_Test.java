@@ -75,8 +75,8 @@ import lib.ReadProperties;
 			
 			Thread.sleep(5000);
 			
-			//select Training Info tab
 			
+			//select Training Info tab
 			if(myLP.trainingInfoTab()){
 				Thread.sleep(2000);
 				
