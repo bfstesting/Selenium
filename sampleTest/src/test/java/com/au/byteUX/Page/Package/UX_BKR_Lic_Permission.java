@@ -152,7 +152,7 @@ WebDriver driver;
 	public boolean paymentsTabResult(){
 	    	Boolean result=false;
 	    	try{
-	    		result= paymentsText.isDisplayed()();
+	    		result= paymentsText.isDisplayed();
 	    	}
 	    	catch(Exception e){
 	    		result= false;
@@ -178,7 +178,7 @@ WebDriver driver;
 	public boolean exportRTOTabResult(){
 	    	Boolean result=false;
 	    	try{
-	    		result= exportText.isDisplayed()();
+	    		result= exportText.isDisplayed();
 	    	}
 	    	catch(Exception e){
 	    		result= false;
