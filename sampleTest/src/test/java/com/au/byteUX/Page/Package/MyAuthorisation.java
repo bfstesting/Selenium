@@ -86,8 +86,7 @@ public class MyAuthorisation {
 	}
 	
 	
-	public boolean multipleAuthorisation_select_Bee ()
-	{
+	public boolean multipleAuthorisation_select_Bee(){
 		try {
 			selectBeePermission.click();
 			Thread.sleep(1000);
@@ -97,18 +96,18 @@ public class MyAuthorisation {
 		return false;		
 	}
 	}
-	public void multipleAuthorisation_select_RTO ()
-	{
+	public boolean multipleAuthorisation_select_RTO(){
 		try {
 			selectRTOPermission.click();
 			Thread.sleep(1000);
+			return true;
 		}
-		catch (InterruptedException e)		{			e.getMessage();		}		
+		catch (InterruptedException e)		{			e.getMessage();		}
+		return false;		
 	}
 	
 	
-	public void addHiveBrand()
-	{
+	public void addHiveBrand(){
 		try {
 			//added a command to scroll the page - if I clicked on the button directly, the cursor was trying to click on the footer where the button is not available.
 			JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -121,8 +120,7 @@ public class MyAuthorisation {
 	}
 	
 	
-	public void addHiveLocation()
-	{
+	public void addHiveLocation(){
 		try {
 			//added a command to scroll the page - if I clicked on the button directly, the cursor was trying to click on the footer where the button is not available.
 			JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -136,8 +134,7 @@ public class MyAuthorisation {
 	}
 	
 	
-	public boolean noticesTab() 
-	{
+	public boolean noticesTab(){
 		try {
 		noticesTab.click();
 		System.out.println("Clicked on Notices Tab");
@@ -150,8 +147,7 @@ public class MyAuthorisation {
 		}
 	}
 	
-	public boolean getNoticesTabResult()  
-	{
+	public boolean getNoticesTabResult(){
 		Boolean result=false;
     	try{
     		result= noticesTabResult.isDisplayed();
@@ -165,8 +161,7 @@ public class MyAuthorisation {
 				
 	}
 	
-	public boolean exportTabClick() 
-	{
+	public boolean exportTabClick(){
 		try {
 			exportTab.click();
 			System.out.println("Clicked on Export Tab");
@@ -180,8 +175,7 @@ public class MyAuthorisation {
 	}
 	
 	
-	public boolean changeHistoryTabClick() 
-	{
+	public boolean changeHistoryTabClick(){
 		try {
 			changeHistoryTab.click();
 			System.out.println("Clicked on Change History Tab");
@@ -194,8 +188,7 @@ public class MyAuthorisation {
 			}
 	}
 	
-	public Boolean noticeAction() 
-	{
+	public Boolean noticeAction(){
 		try {
 			noticeAction.click();
 			Thread.sleep(1000);
@@ -209,8 +202,7 @@ public class MyAuthorisation {
 			}
 	}
 	
-    public Boolean getAuthTabResult()  
-    {
+    public Boolean getAuthTabResult(){
     	Boolean result=false;
     	try{
     		result= authTabResult.isDisplayed();
@@ -223,8 +215,7 @@ public class MyAuthorisation {
 		return result;	
 	}
     
-    public boolean getExportTabResult() 
-    {
+    public boolean getExportTabResult(){
 		Boolean result=false;
     	try{
     		result= exportTabResult.isDisplayed();
@@ -237,8 +228,7 @@ public class MyAuthorisation {
 		return result;
     }
 	
-    public boolean getChangeHistoryTabResult() 
-    {
+    public boolean getChangeHistoryTabResult(){
     	Boolean result=false;
     	try{
     		result= changeHistoryTabResult.isDisplayed();
@@ -252,8 +242,7 @@ public class MyAuthorisation {
 	}
     //Actions
     
-    public boolean updatePrimaryLocationClick()  
-    {
+    public boolean updatePrimaryLocationClick(){
     	try{
     		updatePrimaryLocation.click();
 		System.out.println("Clicked on update Primary Location Action");
@@ -266,8 +255,7 @@ public class MyAuthorisation {
     	}
 	}
     
-    public Boolean noticeActionClick()
-    {
+    public Boolean noticeActionClick(){
     	try{
     		noticeAction.click();
     		System.out.println("Clicked on Notice of sale Action");
@@ -281,8 +269,7 @@ public class MyAuthorisation {
     	
 	}
     
-    public Boolean cancelAuthActionClick()  
-    {
+    public Boolean cancelAuthActionClick(){
     	try{
     		cancelAuthAction.click();
     		System.out.println("Clicked on cancel Auth Action");
@@ -298,8 +285,7 @@ public class MyAuthorisation {
     	
 	}
     
-    public void saveAndCloseClick()  
-    {
+    public void saveAndCloseClick(){
     	try{
     		saveAndClose.click();
     	}
@@ -311,8 +297,7 @@ public class MyAuthorisation {
     	
 	}
     
-    public void saveAndCloseNoticeClick() 
-    {
+    public void saveAndCloseNoticeClick(){
     	try{
     		saveAndCloseNotice.click();
     	}
@@ -323,8 +308,7 @@ public class MyAuthorisation {
     	}
 	}
 
-    public void popupCancelClick()
-    {
+    public void popupCancelClick(){
     	try{
     		popUpCancel.click();
     	}
@@ -335,8 +319,7 @@ public class MyAuthorisation {
     	}
 	}
     
-    public Boolean getupdatePrimaryLocationResult() 
-    {
+    public Boolean getupdatePrimaryLocationResult(){
     	Boolean result=false;
     	try{
     		result= updatePrimaryLocationResult.isDisplayed();
@@ -350,8 +333,7 @@ public class MyAuthorisation {
 	}
     
     
-    public Boolean getnoticeActionResult() 
-    {
+    public Boolean getnoticeActionResult(){
     	Boolean result=false;
     	try{
     		result= noticeActionResult.isDisplayed();
@@ -364,8 +346,7 @@ public class MyAuthorisation {
 		return result;
 	}
   
-    public Boolean getcancelAuthActionResult()  
-    {
+    public Boolean getcancelAuthActionResult(){
     	Boolean result=false;
     	try{
     		result= cancelAuthActionResult.isDisplayed();

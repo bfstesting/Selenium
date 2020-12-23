@@ -58,116 +58,162 @@ WebDriver driver;
 	}
 	
 		
-	public void trainingInfoTab()
-	{
-		trainingInfoTab.click();
-		
-		//add scripts for rowInNoticesTab
-		if (trainingDeliverMthdText.isDisplayed() == true)
-		{
-			System.out.println("Training Delivery Method Grid is displayed" + trainingDeliverMthdText.getText());
+	public boolean trainingInfoTab(){
+		try{
+			trainingInfoTab.click();
+		System.out.println("Clicked on Training Info Tab");
+		return true;
 		}
-		else
-		{
-			System.out.println("Failed to load Training Delivery Method Grid");
-		}
-		
-		if (trainingLangText.isDisplayed() == true)
-		{
-			System.out.println("Training Language Grid is displayed" + trainingLangText.getText());
-		}
-		else
-		{
-			System.out.println("Failed to load Training Language Grid");
-		}
-		
-		if (trainingAreasText.isDisplayed() == true)
-		{
-			System.out.println("Training Areas Grid is displayed" + trainingAreasText.getText());
-		}
-		else
-		{
-			System.out.println("Failed to load Training Areas Grid");
-		}
-		
-		if (unitsText.isDisplayed() == true)
-		{
-			System.out.println("Training Units Grid is displayed" + unitsText.getText());
-		}
-		else
-		{
-			System.out.println("Failed to load Training Units Grid");
+		catch(Exception e){
+			e.getMessage();
+			return false;
 		}
 	}
 	
-	public void trainerTab()
-	{
-		trainerTab.click();
-		//add scripts for rowInNoticesTab
-		if (trainersText.isDisplayed() == true)
-		{
-			System.out.println("Trainers tab is displayed" + trainersText.getText());
+	
+	public boolean trainingInfoTabResult(){
+	    	Boolean result=false;
+	    	try{
+	    		result= trainingDeliverMthdText.isDisplayed();
+	    	}
+	    	catch(Exception e){
+	    		result= false;
+	    		e.getMessage();
+	    	}
+			return result;	
+	}
+	
+	
+	public boolean trainerTab(){
+		try{
+			trainerTab.click();
+		System.out.println("Clicked on Trainer Tab");
+		return true;
 		}
-		else
-		{
-			System.out.println("Failed to click or load Trainers Tab");
+		catch(Exception e){
+			e.getMessage();
+			return false;
 		}
 	}
 	
-	public void trainingTab()
-	{
-		trainingTab.click();
-		//add scripts for rowInNoticesTab
-		if (addTrainingBtn.isDisplayed() == true)
-		{
-			System.out.println("Training tab is displayed" + addTrainingBtn.getText());
+	
+	public boolean trainerTabResult(){
+	    	Boolean result=false;
+	    	try{
+	    		result= trainersText.isDisplayed();
+	    	}
+	    	catch(Exception e){
+	    		result= false;
+	    		e.getMessage();
+	    	}
+			return result;	
+	}
+	
+	
+	public boolean trainingTab(){
+		try{
+			trainingTab.click();
+		System.out.println("Clicked on Training Tab");
+		return true;
 		}
-		else
-		{
-			System.out.println("Failed to click or load Training Tab");
+		catch(Exception e){
+			e.getMessage();
+			return false;
 		}
 	}
 	
-	public void paymentsTab()
-	{
-		paymentsTab.click();
-		//add scripts for rowInNoticesTab
-		if (paymentsText.isDisplayed() == true)
-		{
-			System.out.println("Payments tab is displayed" + paymentsText.getText());
+	
+	public boolean trainingTabResult(){
+	    	Boolean result=false;
+	    	try{
+	    		result= addTrainingBtn.isEnabled();
+	    	}
+	    	catch(Exception e){
+	    		result= false;
+	    		e.getMessage();
+	    	}
+			return result;	
+	}
+	
+	
+	public boolean paymentsTab(){
+		try{
+			paymentsTab.click();
+		System.out.println("Clicked on Payments Tab");
+		return true;
 		}
-		else
-		{
-			System.out.println("Failed to click or load Payments Tab");
+		catch(Exception e){
+			e.getMessage();
+			return false;
 		}
 	}
 	
-	public void exportTab()
-	{
-		exportRTOTab.click();
-		//add scripts for rowInNoticesTab
-		if (exportText.isDisplayed() == true)
-		{
-			System.out.println("Export tab is displayed" + exportText.getText());
+	
+	public boolean paymentsTabResult(){
+	    	Boolean result=false;
+	    	try{
+	    		result= paymentsText.isDisplayed()();
+	    	}
+	    	catch(Exception e){
+	    		result= false;
+	    		e.getMessage();
+	    	}
+			return result;	
+	}
+	
+	
+	public boolean exportRTOTab(){
+		try{
+			exportRTOTab.click();
+		System.out.println("Clicked on Export Tab");
+		return true;
 		}
-		else
-		{
-			System.out.println("Failed to click or load export Tab");
+		catch(Exception e){
+			e.getMessage();
+			return false;
 		}
 	}
 	
-	public void changeHistoryTab()
-	{
-		changeHistoryRTOTab.click();
-		//add scripts for rowInNoticesTab
-		if (dateChangedText.isDisplayed() == true)
-		{
-			System.out.println("Training history tab is displayed" + dateChangedText.getText());
+	
+	public boolean exportRTOTabResult(){
+	    	Boolean result=false;
+	    	try{
+	    		result= exportText.isDisplayed()();
+	    	}
+	    	catch(Exception e){
+	    		result= false;
+	    		e.getMessage();
+	    	}
+			return result;	
+	}
+	
+	
+	public boolean changeHistoryRTOTab(){
+		try{
+			changeHistoryRTOTab.click();
+		System.out.println("Clicked on Change History Tab");
+		return true;
 		}
-		else
-		{
-			System.out.println("Failed to click or load Training history Tab");
+		catch(Exception e){
+			e.getMessage();
+			return false;
 		}
 	}
+	
+	
+	public boolean changeHistoryRTOTabResult(){
+	    	Boolean result=false;
+	    	try{
+	    		result= dateChangedText.isDisplayed();
+	    	}
+	    	catch(Exception e){
+	    		result= false;
+	    		e.getMessage();
+	    	}
+			return result;	
+	}
+	
+	
+	
 
 }

@@ -16,14 +16,16 @@ import com.au.byteUX.Package.LocalDriverManager;
 	import com.au.byteUX.Page.Package.MyAccount;
     import com.au.byteUX.Page.Package.MyAuthorisation;
     import com.au.byteUX.Page.Package.SelectSubject;
-	import lib.ReadProperties;
+import com.au.byteUX.Page.Package.UX_BKR_Lic_Permission;
 
-	public class UX_MyAuthorisation_Smoke_Bee_Test { 
+import lib.ReadProperties;
+
+	public class UX_MyAuthorisation_Smoke_RTO_Test { 
 
 		WebDriver driver;       //constructor
 		SoftAssert softAssert;
 		
-		public UX_MyAuthorisation_Smoke_Bee_Test() 
+		public UX_MyAuthorisation_Smoke_RTO_Test() 
 		{
 			softAssert = new SoftAssert();
 		}
@@ -49,94 +51,177 @@ import com.au.byteUX.Package.LocalDriverManager;
 			Thread.sleep(3000);
 			// Select BeekeeperAuthorisation
 			MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
+			UX_BKR_Lic_Permission myLP = PageFactory.initElements(driver, UX_BKR_Lic_Permission.class);
 			//myAuth.multipleAuthorisation_select_Bee();
 			Thread.sleep(3000);
 			
 			//Verify Authorisation menu item 
-			if(myAuth.multipleAuthorisation_select_Bee()){
+			if(myAuth.multipleAuthorisation_select_RTO()){
 				Thread.sleep(3000);
 				if(myAuth.getAuthTabResult()) {
-					System.out.println("Beekeeper License permission is selected from My Authorisation Menu Item");
+					System.out.println("RTO License permission is selected from My Authorisation Menu Item");
 					Thread.sleep(4000);
 				}
 				else
 				{
-					System.out.println("Not able to select Beekeeper from Authorisation Menu item list");
+					System.out.println("Not able to select RTO from Authorisation Menu item list");
 					softAssert.assertTrue(false,"Not able to select Beekeeper from Authorisation Menu item list");
 				}
 			}
 			else {
-				System.out.println("Failed to click on the Beekeper License permission from Authorisation menu item");
-				softAssert.assertTrue(false,"Failed to click on the Beekeper License permission from Authorisation menu item");
+				System.out.println("Failed to click on the RTO License permission from Authorisation menu item");
+				softAssert.assertTrue(false,"Failed to click on the RTO License permission from Authorisation menu item");
 			}
 			
 			Thread.sleep(5000);
 			
-			//select Notices tab
+			//select Training Info tab
 			
-			/*myAuth.noticesTab();
-			System.out.println("Notices Tab Result is Displayed: "+myAuth.getNoticesTabResult());
-			Assert.assertTrue(myAuth.getNoticesTabResult(),"Failed to load Notices Tab"); //no use*/
-		
-			if(myAuth.noticesTab()){
+			if(myLP.trainingInfoTab()){
 				Thread.sleep(2000);
 				
-				if(myAuth.getNoticesTabResult()) {
-					System.out.println("Notices Tab Result is Displayed");
+				if(myLP.trainingInfoTabResult()) {
+					System.out.println("Training Info Tab Result is Displayed");
 					Thread.sleep(2000);
 				}
 				else
 				{
-					System.out.println("Not able to fetch Notices tab Result");
-					softAssert.assertTrue(false,"Not able to fetch Notices tab Result");
+					System.out.println("Not able to fetch Training Info tab Result");
+					softAssert.assertTrue(false,"Not able to fetch Training Info tab Result");
 				}
 			}
 			else {
-				System.out.println("Failed to click Notices Tab");
-				softAssert.assertTrue(false,"Failed to click Notices Tab");
+				System.out.println("Failed to click Training Info Tab");
+				softAssert.assertTrue(false,"Failed to click Training Info Tab");
 			}
 			
-			//select Export tab
-			if(myAuth.exportTabClick()){
+			//select Trainer tab
+			if(myLP.trainerTab()){
 				Thread.sleep(2000);
 				
-				if(myAuth.getExportTabResult()) {
-					System.out.println("Export Tab Result is Displayed");
+				if(myLP.trainerTabResult()) {
+					System.out.println("Trainer Tab Result is Displayed");
 					Thread.sleep(2000);
 				}
 				else
 				{
-					System.out.println("Not able to fetch Export tab Result");
-					softAssert.assertTrue(false,"Not able to fetch Export tab Result");
+					System.out.println("Not able to fetch Trainer tab Result");
+					softAssert.assertTrue(false,"Not able to fetch Trainer tab Result");
 				}
 			}
 			else {
-				System.out.println("Failed to click Export Tab");
-				softAssert.assertTrue(false,"Failed to click Export Tab");
+				System.out.println("Failed to click Trainer Tab");
+				softAssert.assertTrue(false,"Failed to click Trainer Tab");
 				//Assert.assertTrue(myAuth.exportTabClick());
 			}
 			Thread.sleep(3000);
 			
-			//Select ChangeHistory Tab
-			if(myAuth.changeHistoryTabClick()){
+			//Select Training Tab
+			if(myLP.trainingTab()){
 				Thread.sleep(2000);
 				
-				if(myAuth.getChangeHistoryTabResult()) {
-					System.out.println("ChangeHistory Tab Result is Displayed");		
+				if(myLP.trainingTabResult()) {
+					System.out.println("Training Button is Enabled");		
 					Thread.sleep(2000);
 				}
 				else
 				{
-					System.out.println("Not able to fetch Change History tab Result");
-					softAssert.assertTrue(false,"Not able to fetch Change History tab Result");
+					System.out.println("Not able to fetch Training Button");
+					softAssert.assertTrue(false,"Not able to fetch Training Button");
 				}
 				
 			}
 			else {
-				System.out.println("Failed to click Change History Tab");
-				softAssert.assertTrue(false,"Failed to click Change History Tab");
+				System.out.println("Failed to find Training Button");
+				softAssert.assertTrue(false,"Failed to find Training Button");
 			}
 			Thread.sleep(2000);
+			
+			
+			//Select Payments Tab
+			if(myLP.paymentsTab()){
+				Thread.sleep(2000);
+				
+				if(myLP.paymentsTabResult()) {
+					System.out.println("Payments Tab is Clicked");		
+					Thread.sleep(2000);
+				}
+				else
+				{
+					System.out.println("Not able to fetch Payments Tab");
+					softAssert.assertTrue(false,"Not able to fetch Payments Tab");
+				}
+				
+			}
+			else {
+				System.out.println("Failed to click Payments Tab");
+				softAssert.assertTrue(false,"Failed to click Payments Tab");
+			}
+			Thread.sleep(2000);
+			
+			
+			//select Training Info tab
+			
+			if(myLP.trainingInfoTab()){
+				Thread.sleep(2000);
+				
+				if(myLP.trainingInfoTabResult()) {
+					System.out.println("Training Info Tab Result is Displayed");
+					Thread.sleep(2000);
+				}
+				else
+				{
+					System.out.println("Not able to fetch Training Info tab Result");
+					softAssert.assertTrue(false,"Not able to fetch Training Info tab Result");
+				}
+			}
+			else {
+				System.out.println("Failed to click Training Info Tab");
+				softAssert.assertTrue(false,"Failed to click Training Info Tab");
+			}
+			
+			
+			//select Training Info tab
+			
+			if(myLP.trainingInfoTab()){
+				Thread.sleep(2000);
+				
+				if(myLP.trainingInfoTabResult()) {
+					System.out.println("Training Info Tab Result is Displayed");
+					Thread.sleep(2000);
+				}
+				else
+				{
+					System.out.println("Not able to fetch Training Info tab Result");
+					softAssert.assertTrue(false,"Not able to fetch Training Info tab Result");
+				}
+			}
+			else {
+				System.out.println("Failed to click Training Info Tab");
+				softAssert.assertTrue(false,"Failed to click Training Info Tab");
+			}
+			
+			
+			//select Training Info tab
+			
+			if(myLP.trainingInfoTab()){
+				Thread.sleep(2000);
+				
+				if(myLP.trainingInfoTabResult()) {
+					System.out.println("Training Info Tab Result is Displayed");
+					Thread.sleep(2000);
+				}
+				else
+				{
+					System.out.println("Not able to fetch Training Info tab Result");
+					softAssert.assertTrue(false,"Not able to fetch Training Info tab Result");
+				}
+			}
+			else {
+				System.out.println("Failed to click Training Info Tab");
+				softAssert.assertTrue(false,"Failed to click Training Info Tab");
+			}
+			
 			
 			//Actions
 			//Update Primary location Action
