@@ -56,6 +56,8 @@ WebDriver driver;
 		
 		RenewPage.submitPayment();
 		Thread.sleep(5000);
+		RenewPage.cancelAuth();
+		driver.close();
 	}
 
 }

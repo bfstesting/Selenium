@@ -37,6 +37,8 @@ public class UX_BKR_Lic_Renewal {
 	@FindBy(how = How.NAME, using = "expiryDateYear") @CacheLookup WebElement expiryDateYear;
 	@FindBy(how = How.XPATH, using = "//html/body/div/form/div[3]/div/div[2]/select/option[6]") @CacheLookup WebElement selectYear;
 	@FindBy(how = How.NAME, using = "cvn") @CacheLookup WebElement cvnNumber;
+	@FindBy(how = How.XPATH, using = "//a[4]/span/span/span[text()='Cancel']") @CacheLookup WebElement cancelAuthorisation;
+
 	// If condition required - Cancel on UX "Do you wish to renew other authorisation that is due for renewals.": //a[4]/span/span/span[text()='Cancel']
 			
 	public UX_BKR_Lic_Renewal(WebDriver driver)  //constructor
@@ -47,7 +49,7 @@ public class UX_BKR_Lic_Renewal {
 	public void renewMyAuth()
 	{
 		renewMyAuthorisation.click();
-		System.out.println("test clcik RMA");
+		//System.out.println("test clcik RMA");
 	}
 		
 	public void submitRenewal_NoPermissionChange ()
@@ -104,6 +106,10 @@ public class UX_BKR_Lic_Renewal {
 		}
 		catch (InterruptedException e)		{			e.getMessage();		}
 	}
-
+	public void cancelAuth() throws InterruptedException
+	{
+		cancelAuthorisation.click();
+		Thread.sleep(1000);
+	}
 }
 
