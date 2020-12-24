@@ -90,7 +90,7 @@ public class UX_BKR_Lic_Renewal {
 			System.out.println("Please verify the amount for Beekeeper Recreational: " + getAmount.getText());
 			System.out.println("Please verify the tracking code submission in Smart Client: " + getTrackingCode.getText());
 			//cardHolderName.getText();
-			System.out.println("cardHolderName is displayed" + cardHolderName.isDisplayed());
+			//System.out.println("cardHolderName is displayed" + cardHolderName.isDisplayed());
 			//cardHolderName.sendKeys("Jack");
 			//cardNumber.sendKeys("4444333322221111");
 			//expiryDateMonth.click();
@@ -99,8 +99,8 @@ public class UX_BKR_Lic_Renewal {
 			//selectYear.click();
 			//cvnNumber.sendKeys("234");
 
-			//driver.close(); // close newly opened window when done with it
-			//driver.switchTo().window(parentHandle); // switch back to the original window
+			driver.close(); // close newly opened window when done with it
+			driver.switchTo().window(parentHandle); // switch back to the original window
 		}
 		catch (InterruptedException e)		{			e.getMessage();		}
 	}
