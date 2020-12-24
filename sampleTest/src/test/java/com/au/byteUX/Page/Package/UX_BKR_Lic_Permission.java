@@ -62,6 +62,11 @@ WebDriver driver;
 		
 	public boolean trainingInfoTab(){
 		try{
+			//added a command to scroll the page 
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+			System.out.println("page scrolled");
+			Thread.sleep(2000);
 			trainingInfoTab.click();
 		System.out.println("Clicked on Training Info Tab");
 		return true;

@@ -66,7 +66,7 @@ import lib.ReadProperties;
 				else
 				{
 					System.out.println("Not able to select RTO from Authorisation Menu item list");
-					softAssert.assertTrue(false,"Not able to select Beekeeper from Authorisation Menu item list");
+					softAssert.assertTrue(false,"Not able to select RTO from Authorisation Menu item list");
 				}
 			}
 			else {
@@ -163,7 +163,7 @@ import lib.ReadProperties;
 			
 			//select Training Info tab
 			
-			if(myLP.trainingInfoTab()){
+		/*	if(myLP.trainingInfoTab()){
 				Thread.sleep(2000);
 				
 				if(myLP.trainingInfoTabResult()) {
@@ -286,7 +286,7 @@ import lib.ReadProperties;
 			else {
 				System.out.println("Failed to click cancel Auth Action");
 				softAssert.assertTrue(false,"Failed to click cancel Auth Action");
-			}
+			}*/
 			softAssert.assertAll();
 			driver.close();
 		}	
