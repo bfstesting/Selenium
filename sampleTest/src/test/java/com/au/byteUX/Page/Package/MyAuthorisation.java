@@ -48,7 +48,7 @@ public class MyAuthorisation {
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'Cancel Authorisation')]") @CacheLookup WebElement cancelAuthAction;
 	@FindBy(how=How.XPATH,using="//span[(text()='My Authorisation')]") @CacheLookup WebElement authTabResult;
 	@FindBy(how=How.XPATH,using="//span[(text()='Notification Type')]") @CacheLookup WebElement noticesTabResult;
-	@FindBy(how=How.XPATH,using="//div[contains(text(),'EXPORT REGISTRATION INFO')]") @CacheLookup WebElement exportTabResult;
+	@FindBy(how=How.XPATH,using="//div[contains(text(),'Export')]") @CacheLookup WebElement exportTabResult;
 	@FindBy(how=How.XPATH,using="//span[text()='Date Changed']") @CacheLookup WebElement changeHistoryTabResult;
 	@FindBy(how=How.XPATH,using="//div[text()='Update primary location']") @CacheLookup WebElement updatePrimaryLocation;
 	@FindBy(how=How.XPATH,using="//span[text()='Cancel Registration']") @CacheLookup WebElement cancelAuthActionResult;
