@@ -63,10 +63,10 @@ public class UX_MyAccount_Smoke_Test {
 		
 		//verify Auth tab in My Account - exists
 		if(MyAccount.authorisationTab()){
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			if(MyAccount.getAuthTabResult()) {
 				System.out.println("Authorisation Tab Result is Displayed");
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 			}
 			else
 			{
@@ -81,10 +81,10 @@ public class UX_MyAccount_Smoke_Test {
 		
 		//Verifying Contacts tab in My Account - exists
 		if(MyAccount.contactsTab()){
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			if(MyAccount.getContactTabResult()) {
 				System.out.println("Contact Tab Result is Displayed");
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 			}
 			else
 			{
@@ -99,15 +99,16 @@ public class UX_MyAccount_Smoke_Test {
 		
 		//Verifying Interest tab on My Account - exists
 		if(MyAccount.interestsTab()){
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			if(MyAccount.getInterestTabResult()) {
 				System.out.println("Interest Tab Result is Displayed");
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 			}
 			else
 			{
 				System.out.println("Not able to fetch Interest tab Result");
 				softAssert.assertTrue(false,"Not able to fetch Interest tab Result");
+				Thread.sleep(3000);
 			}
 		}
 		else {
@@ -117,10 +118,10 @@ public class UX_MyAccount_Smoke_Test {
 		
 		//Verifying Invoices tab in My Account - exists
 		if(MyAccount.invoicesTab()){
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			if(MyAccount.getInvoicesTabResult()) {
 				System.out.println("Invoices Tab Result is Displayed");
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 			}
 			else
 			{
@@ -135,12 +136,12 @@ public class UX_MyAccount_Smoke_Test {
 		
 		//Verifing Update Account Details form in My Account - Exists
 		if(MyAccount.updateAccountDetails()){
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			if(MyAccount.getUpdateAccountDetailsResult()) {
 				System.out.println("Update Account Details form is Displayed");
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				MyAccount.saveAndCloseClick();
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 			}
 			else
 			{
@@ -156,13 +157,13 @@ public class UX_MyAccount_Smoke_Test {
 		
 		//Verifing Send User Invite form in My Account - Exists
 				if(MyAccount.sendUserInvite()){
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 					if(MyAccount.okButtonClick())
 					{
-						Thread.sleep(1000);
+						Thread.sleep(3000);
 					if(MyAccount.getsendUserInviteResult()) {
 						System.out.println("Send User Invite form is Displayed");
-						Thread.sleep(2000);
+						Thread.sleep(3000);
 						//should write xpath for Close  
 					}
 					else

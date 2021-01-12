@@ -79,11 +79,11 @@ import com.au.byteUX.Package.LocalDriverManager;
 			Assert.assertTrue(myAuth.getNoticesTabResult(),"Failed to load Notices Tab"); //no use*/
 		
 			if(myAuth.noticesTab()){
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				
 				if(myAuth.getNoticesTabResult()) {
 					System.out.println("Notices Tab Result is Displayed");
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 				}
 				else
 				{
@@ -98,11 +98,11 @@ import com.au.byteUX.Package.LocalDriverManager;
 			
 			//select Export tab
 			if(myAuth.exportTabClick()){
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				
 				if(myAuth.getExportTabResult()) {
 					System.out.println("Export Tab Result is Displayed");
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 				}
 				else
 				{
@@ -119,11 +119,11 @@ import com.au.byteUX.Package.LocalDriverManager;
 			
 			//Select ChangeHistory Tab
 			if(myAuth.changeHistoryTabClick()){
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				
 				if(myAuth.getChangeHistoryTabResult()) {
 					System.out.println("ChangeHistory Tab Result is Displayed");		
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 				}
 				else
 				{
@@ -136,7 +136,7 @@ import com.au.byteUX.Package.LocalDriverManager;
 				System.out.println("Failed to click Change History Tab");
 				softAssert.assertTrue(false,"Failed to click Change History Tab");
 			}
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			
 			//Actions
 			//Update Primary location Action
@@ -145,7 +145,7 @@ import com.au.byteUX.Package.LocalDriverManager;
 				if(myAuth.getupdatePrimaryLocationResult()) {
 					System.out.println("Update Primary Location Form is displayed");
 					myAuth.saveAndCloseClick();		
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 				}
 				else
 				{
@@ -159,7 +159,7 @@ import com.au.byteUX.Package.LocalDriverManager;
 				softAssert.assertTrue(false,"Failed to click update Primary Location Action");
 			}
 			
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			
 			//Notice of sale Action
 			if(myAuth.noticeActionClick())
@@ -168,7 +168,7 @@ import com.au.byteUX.Package.LocalDriverManager;
 				if(myAuth.getnoticeActionResult()) {
 					System.out.println("Notice of sale or disposal of Beehives form is displayed");
 					myAuth.saveAndCloseNoticeClick();
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 				}
 				else
 				{
@@ -189,7 +189,7 @@ import com.au.byteUX.Package.LocalDriverManager;
 				if(myAuth.getcancelAuthActionResult()) {
 					System.out.println("Cancel Authorisation Form is Displayed");
 					myAuth.popupCancelClick();			
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 				}
 				else
 				{

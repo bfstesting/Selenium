@@ -79,11 +79,11 @@ import lib.ReadProperties;
 			
 			//select Training Info tab
 			if(myLP.trainingInfoTab()){
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				
 				if(myLP.trainingInfoTabResult()) {
 					System.out.println("Training Info Tab Result is Displayed");
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 				}
 				else
 				{
@@ -98,11 +98,11 @@ import lib.ReadProperties;
 			
 			//select Trainer tab
 			if(myLP.trainerTab()){
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				
 				if(myLP.trainerTabResult()) {
 					System.out.println("Trainer Tab Result is Displayed");
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 				}
 				else
 				{
@@ -118,11 +118,11 @@ import lib.ReadProperties;
 			
 			//Select Training Tab
 			if(myLP.trainingTab()){
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				
 				if(myLP.trainingTabResult()) {
 					System.out.println("Training Button is Enabled");		
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 				}
 				else
 				{
@@ -135,16 +135,16 @@ import lib.ReadProperties;
 				System.out.println("Failed to find Training Button");
 				softAssert.assertTrue(false,"Failed to find Training Button");
 			}
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			
 			
 			//Select Payments Tab
 			if(myLP.paymentsTab()){
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				
 				if(myLP.paymentsTabResult()) {
 					System.out.println("Payments Tab is Clicked");		
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 				}
 				else
 				{
@@ -157,17 +157,17 @@ import lib.ReadProperties;
 				System.out.println("Failed to click Payments Tab");
 				softAssert.assertTrue(false,"Failed to click Payments Tab");
 			}
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			
 			
 			//select Export tab
 			
 			if(myLP.exportRTOTab()){
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				
 				if(myLP.exportRTOTabResult()) {
 					System.out.println("Export Tab Result is Displayed");
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 				}
 				else
 				{
@@ -184,11 +184,11 @@ import lib.ReadProperties;
 			//select Change History tab
 			
 			if(myLP.changeHistoryRTOTab()){
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				
 				if(myLP.changeHistoryRTOTabResult()) {
 					System.out.println("Change History Tab Result is Displayed");
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 				}
 				else
 				{
@@ -205,13 +205,13 @@ import lib.ReadProperties;
 			//Issue Certificate Action
 			if(myLP.IssueCertificateClick())
 			{
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				if(myLP.getheaderOnIssueCert()) {
 					System.out.println("Issue Certificate Header is Displayed");
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 					myLP.backButtonClick();
 					if(myLP.clickNoButton()) {
-						Thread.sleep(2000);
+						Thread.sleep(3000);
 						System.out.println("Clicked No!");
 					}
 										
@@ -225,7 +225,7 @@ import lib.ReadProperties;
 				System.out.println("Failed to Issue Certificate Action");
 				softAssert.assertTrue(false,"Failed to click Issue Certificate Action");
 			}
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			//Certificates Issues Action
 			if(myLP.certificatesIssuedClick()) {
 				
@@ -358,7 +358,7 @@ import lib.ReadProperties;
 				softAssert.assertTrue(false,"Failed to click cancel Auth Action");
 			}*/
 			softAssert.assertAll();
-			//driver.close();
+			driver.close();
 		}	
 		
 	}
