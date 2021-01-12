@@ -40,7 +40,7 @@ WebDriver driver;
 	@FindBy(how=How.XPATH,using="//div[starts-with(text(),'Payments')]") @CacheLookup WebElement paymentsText;
 	
 	@FindBy(how=How.XPATH,using="//span[text()='Export']") @CacheLookup WebElement exportRTOTab;
-	@FindBy(how=How.XPATH,using="//div[starts-with(text(),'EXPORT')]") @CacheLookup WebElement exportText;
+	@FindBy(how=How.XPATH,using="//div[contains(text(),'Export')]") @CacheLookup WebElement exportText;
 	
 	@FindBy(how=How.XPATH,using="//span[text()='Change History']") @CacheLookup WebElement changeHistoryRTOTab;
 	@FindBy(how=How.XPATH,using="//span[starts-with(text(),'Date Changed')]") @CacheLookup WebElement dateChangedText;
