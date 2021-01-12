@@ -29,5 +29,20 @@ public class TodaysDate {
 		 return todaysDate;
 		 
 		 }
+	
+	public static String getTodayDateWithNoSeparator() {
+		DateFormat dateFormat = new SimpleDateFormat("ddMMyyyy");
+		 
+		 //get current date time with Date()
+		 Date date = new Date();
+		 
+		 // Now format the date
+		 String todaysDate= dateFormat.format(date);
+		 
+		 // Print the Date
+		 //System.out.println(todaysDate);
+		 
+		 return todaysDate;
+	}
 
 }

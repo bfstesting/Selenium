@@ -16,7 +16,7 @@ import com.au.byteUX.Package.LocalDriverManager;
 	import com.au.byteUX.Page.Package.MyAccount;
     import com.au.byteUX.Page.Package.MyAuthorisation;
     import com.au.byteUX.Page.Package.SelectSubject;
-import com.au.byteUX.Page.Package.UX_BKR_Lic_Permission;
+import com.au.byteUX.Page.Package.UX_BKR_Lic_Permission_RTO;
 
 import lib.ReadProperties;
 
@@ -52,7 +52,7 @@ import lib.ReadProperties;
 			Thread.sleep(3000);
 			// Select BeekeeperAuthorisation
 			MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
-			UX_BKR_Lic_Permission myLP = PageFactory.initElements(driver, UX_BKR_Lic_Permission.class);
+			UX_BKR_Lic_Permission_RTO myLP = PageFactory.initElements(driver, UX_BKR_Lic_Permission_RTO.class);
 			//myAuth.multipleAuthorisation_select_Bee();
 			Thread.sleep(3000);
 			
@@ -113,7 +113,6 @@ import lib.ReadProperties;
 			else {
 				System.out.println("Failed to click Trainer Tab");
 				softAssert.assertTrue(false,"Failed to click Trainer Tab");
-				//Assert.assertTrue(myAuth.exportTabClick());
 			}
 			Thread.sleep(3000);
 			
@@ -161,70 +160,141 @@ import lib.ReadProperties;
 			Thread.sleep(2000);
 			
 			
-			//select Training Info tab
+			//select Export tab
 			
-		/*	if(myLP.trainingInfoTab()){
+			if(myLP.exportRTOTab()){
 				Thread.sleep(2000);
 				
-				if(myLP.trainingInfoTabResult()) {
-					System.out.println("Training Info Tab Result is Displayed");
+				if(myLP.exportRTOTabResult()) {
+					System.out.println("Export Tab Result is Displayed");
 					Thread.sleep(2000);
 				}
 				else
 				{
-					System.out.println("Not able to fetch Training Info tab Result");
-					softAssert.assertTrue(false,"Not able to fetch Training Info tab Result");
+					System.out.println("Not able to fetch Export tab Result");
+					softAssert.assertTrue(false,"Not able to fetch Export tab Result");
 				}
 			}
 			else {
-				System.out.println("Failed to click Training Info Tab");
-				softAssert.assertTrue(false,"Failed to click Training Info Tab");
+				System.out.println("Failed to click Export Tab");
+				softAssert.assertTrue(false,"Failed to click Export Tab");
 			}
 			
 			
-			//select Training Info tab
+			//select Change History tab
 			
-			if(myLP.trainingInfoTab()){
+			if(myLP.changeHistoryRTOTab()){
 				Thread.sleep(2000);
 				
-				if(myLP.trainingInfoTabResult()) {
-					System.out.println("Training Info Tab Result is Displayed");
+				if(myLP.changeHistoryRTOTabResult()) {
+					System.out.println("Change History Tab Result is Displayed");
 					Thread.sleep(2000);
 				}
 				else
 				{
-					System.out.println("Not able to fetch Training Info tab Result");
-					softAssert.assertTrue(false,"Not able to fetch Training Info tab Result");
+					System.out.println("Not able to fetch Change History tab Result");
+					softAssert.assertTrue(false,"Not able to fetch Change History tab Result");
 				}
 			}
 			else {
-				System.out.println("Failed to click Training Info Tab");
-				softAssert.assertTrue(false,"Failed to click Training Info Tab");
+				System.out.println("Failed to click Change History Tab");
+				softAssert.assertTrue(false,"Failed to click Change History Tab");
 			}
-			
-			
-			//select Training Info tab
-			
-			if(myLP.trainingInfoTab()){
-				Thread.sleep(2000);
-				
-				if(myLP.trainingInfoTabResult()) {
-					System.out.println("Training Info Tab Result is Displayed");
-					Thread.sleep(2000);
-				}
-				else
-				{
-					System.out.println("Not able to fetch Training Info tab Result");
-					softAssert.assertTrue(false,"Not able to fetch Training Info tab Result");
-				}
-			}
-			else {
-				System.out.println("Failed to click Training Info Tab");
-				softAssert.assertTrue(false,"Failed to click Training Info Tab");
-			}
-			
 			
 			//Actions
+			//Issue Certificate Action
+			if(myLP.IssueCertificateClick())
+			{
+				Thread.sleep(2000);
+				if(myLP.getheaderOnIssueCert()) {
+					System.out.println("Issue Certificate Header is Displayed");
+					Thread.sleep(2000);
+					myLP.backButtonClick();
+					if(myLP.clickNoButton()) {
+						Thread.sleep(2000);
+						System.out.println("Clicked No!");
+					}
+										
+				}
+				else {
+					System.out.println("Failed to Display Issue Certificate Header");
+					softAssert.assertTrue(false,"Failed to Display Issue Certificate Header");
+				}
+			}
+			else {
+				System.out.println("Failed to Issue Certificate Action");
+				softAssert.assertTrue(false,"Failed to click Issue Certificate Action");
+			}
+			Thread.sleep(2000);
+			//Certificates Issues Action
+			if(myLP.certificatesIssuedClick()) {
+				
+				if(myLP.getCertificateIssuesHeaderText()) {
+					
+						if(myLP.selectCertificate()) {
+							
+							if(myLP.clickReprint()) {
+								
+								if(myLP.getReprintPopupText()) {
+									
+									if(myLP.clickCancelButton()) {
+										
+										if(myLP.clickRequestNameChange()) {
+											
+											if(myLP.getCertChngReqHeadTxt()) {
+												myLP.backButtonClick();
+											}
+											else {
+												System.out.println("Unable to get Certiticate Name Change Header Text");
+												softAssert.assertTrue(false,"Unable to get Certiticate Name Change Header Text");
+											}
+											
+										}
+										else {
+											System.out.println("Unable to click Request Name change Action");
+											softAssert.assertTrue(false,"Unable to click Request Name change Action");
+										}
+										
+									}
+									else {
+										System.out.println("Unable to click Cancel Button on Alert");
+										softAssert.assertTrue(false,"Unable to click Cancel Button on Alert");
+									}
+									
+								}
+								else {
+									System.out.println("Unable to get Alert Box Text");
+									softAssert.assertTrue(false,"Unable to get Alert Box Text");
+								}
+								
+							}
+							else {
+								System.out.println("Unable to click Reprint");
+								softAssert.assertTrue(false,"Unable to click Reprint");
+							}
+							
+						}
+						else
+						{
+							System.out.println("Unable to select Certificate");
+							softAssert.assertTrue(false,"Unable to select Certificate");
+						}
+					
+					
+				}
+				else {
+					System.out.println("Failed to Display Reprint Certificate");
+					softAssert.assertTrue(false,"Failed to Display Reprint Certificate");
+				}
+				
+			}
+			else {
+				System.out.println("Failed to Click Certificates Issued Action");
+				softAssert.assertTrue(false,"Failed to Click Certificates Issued Action");
+			}
+			
+			
+		/*	//Actions
 			//Update Primary location Action
 			if(myAuth.updatePrimaryLocationClick()){
 				Thread.sleep(3000);
@@ -288,7 +358,7 @@ import lib.ReadProperties;
 				softAssert.assertTrue(false,"Failed to click cancel Auth Action");
 			}*/
 			softAssert.assertAll();
-			driver.close();
+			//driver.close();
 		}	
 		
 	}

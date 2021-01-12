@@ -53,7 +53,7 @@ WebDriver driver;
 	
 	public void selectMedthodOfDisposal(String MethodOfDisposal) throws InterruptedException
 	{
-		System.out.println("Inside selectMedthodOfDisposal method");
+		System.out.println("Inside selectMethodOfDisposal method");
 		selectAMedthodOfDisposal.click();
 		if (MethodOfDisposal.equals("Sold"))
 		{
@@ -79,7 +79,7 @@ WebDriver driver;
 		{
 			selectStolen.click();
 		}
-		System.out.println("Exiting of selectMedthodOfDisposal method");
+		System.out.println("Exiting of selectMethodOfDisposal method");
 	}
 	
 	
