@@ -54,7 +54,7 @@ public class UX_AddNoticeOfSale extends HelperClass {
 				SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
 				subject.selectSubject("My Authorisation");
 				Thread.sleep(2000);
-				//Select Beekeeper Authorisation
+				//Select Beekeeper Auth
 				MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
 				myAuth.multipleAuthorisation_select_Bee();
 				
