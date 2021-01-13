@@ -53,11 +53,10 @@ WebDriver driver;
 		Thread.sleep(5000);
 		
 		RenewPage.submitRenewal_NoPermissionChange();
-		
+		Thread.sleep(3000);
 		RenewPage.submitPayment();
 		Thread.sleep(5000);
 		RenewPage.cancelAuth();
 		driver.close();
 	}
-
 }

@@ -332,7 +332,7 @@ WebDriver driver;
 			 Boolean result=false;
 		    	try{
 		    		result= getCertificateIssuesHeaderText.isDisplayed();
-		    		System.out.println("Get Certificate Issued Header Test is Displayed");
+		    		System.out.println("Certificate Issued Header Text is Displayed");
 		    	}
 		    	catch(Exception e)
 		    	{
@@ -347,7 +347,8 @@ WebDriver driver;
 			 Boolean result=false;
 		    	try{
 		    		selectCertificate.click();
-		    		result = true;
+		    		System.out.println("certificate is selected");
+		    		//result = true;
 		    	}
 		    	catch(Exception e)
 		    	{

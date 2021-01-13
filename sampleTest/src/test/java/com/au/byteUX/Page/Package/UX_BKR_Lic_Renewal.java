@@ -46,10 +46,11 @@ public class UX_BKR_Lic_Renewal {
 		this.driver = driver;
 	}
 	
-	public void renewMyAuth()
+	public void renewMyAuth() throws InterruptedException 
 	{
 		renewMyAuthorisation.click();
-		//System.out.println("test clcik RMA");
+		Thread.sleep(2000);
+		System.out.println("test click RMA");
 	}
 		
 	public void submitRenewal_NoPermissionChange ()
@@ -70,7 +71,7 @@ public class UX_BKR_Lic_Renewal {
 				//driver.switchTo().window("${win202}");
 				
 			}
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 		}
 		catch (InterruptedException e)		{			e.getMessage();		}		
 	}
@@ -82,12 +83,12 @@ public class UX_BKR_Lic_Renewal {
 			String parentHandle = driver.getWindowHandle(); // get the current window handle
 				System.out.println(parentHandle);
 			clickOKToOpenPaymentForm.click(); // click some link that opens a new window
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			for (String winHandle : driver.getWindowHandles()) {
 			    driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
 			    	System.out.println(driver.getWindowHandle());
 			}
-			Thread.sleep(5000);
+			Thread.sleep(6000);
 			//code to do something on new window
 			System.out.println("Please verify the amount for Beekeeper Recreational: " + getAmount.getText());
 			System.out.println("Please verify the tracking code submission in Smart Client: " + getTrackingCode.getText());
@@ -109,7 +110,7 @@ public class UX_BKR_Lic_Renewal {
 	public void cancelAuth() throws InterruptedException
 	{
 		cancelAuthorisation.click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 	}
 }
 
