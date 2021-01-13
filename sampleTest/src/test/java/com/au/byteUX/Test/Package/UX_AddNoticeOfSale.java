@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import com.au.byteUX.Package.LocalDriverManager;
 import com.au.byteUX.Page.Package.ActivityHistory;
 import com.au.byteUX.Page.Package.UX_BKR_LP_BeeHive;
-import com.au.byteUX.Page.Package.AddHiveLocation;
+import com.au.byteUX.Page.Package.UX_BKR_LP_Location;
 import com.au.byteUX.Page.Package.LoginPage;
 import com.au.byteUX.Page.Package.MyAccount;
 import com.au.byteUX.Page.Package.MyAuthorisation;
@@ -59,7 +59,7 @@ public class UX_AddNoticeOfSale extends HelperClass {
 				myAuth.multipleAuthorisation_select_Bee();
 				
 				//Add Notice - Sold
-				AddHiveLocation hiveLocation = PageFactory.initElements(driver, AddHiveLocation.class);
+				UX_BKR_LP_Location hiveLocation = PageFactory.initElements(driver, UX_BKR_LP_Location.class);
 				hiveLocation.addHiveLocationAddress("Nick1", "6 avenue of the americas");
 
 			} catch (Exception e) {
