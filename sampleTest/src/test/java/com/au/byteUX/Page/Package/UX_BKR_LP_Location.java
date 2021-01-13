@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
  * @author sarkah01
  *
  */
-public class AddHiveLocation {
+public class UX_BKR_LP_Location {
 	
 	WebDriver driver;
 	
@@ -23,7 +23,7 @@ public class AddHiveLocation {
 	@FindBy(how=How.XPATH,using="//div[2]/.//div/div/div/a[2]/.//span[text()='']") @CacheLookup WebElement saveForm;
 	
 	
-	public AddHiveLocation(WebDriver driver)  //constructor
+	public UX_BKR_LP_Location(WebDriver driver)  //constructor
 	{
 		this.driver = driver;
 	}
