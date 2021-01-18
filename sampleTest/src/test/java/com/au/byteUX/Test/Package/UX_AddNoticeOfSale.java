@@ -14,10 +14,10 @@ import com.au.byteUX.Page.Package.ActivityHistory;
 import com.au.byteUX.Page.Package.UX_BKR_LP_BeeHive;
 import com.au.byteUX.Page.Package.UX_BKR_LP_Location;
 import com.au.byteUX.Page.Package.LoginPage;
-import com.au.byteUX.Page.Package.MyAccount;
+import com.au.byteUX.Page.Package.UX_Ext_Company_MyAccount;
 import com.au.byteUX.Page.Package.MyAuthorisation;
 import com.au.byteUX.Page.Package.SelectSubject;
-import com.au.byteUX.Page.Package.UpdateAccountDetails;
+import com.au.byteUX.Page.Package.UX_Ext_Update_Account;
 import com.au.byteUX.Page.Package.UpdatePrimaryLocation;
 
 import junit.framework.Assert;

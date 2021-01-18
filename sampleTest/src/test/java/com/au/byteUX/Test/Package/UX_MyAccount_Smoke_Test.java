@@ -12,7 +12,7 @@ import org.testng.asserts.SoftAssert;
 
 import com.au.byteUX.Package.LocalDriverManager;
 import com.au.byteUX.Page.Package.LoginPage;
-import com.au.byteUX.Page.Package.MyAccount;
+import com.au.byteUX.Page.Package.UX_Ext_Company_MyAccount;
 import com.au.byteUX.Page.Package.SelectSubject;
 
 import lib.ReadProperties;
@@ -50,7 +50,7 @@ public class UX_MyAccount_Smoke_Test {
 		System.out.println("Clicked on My Account Menu Item");
 		Thread.sleep(2000);
 		
-		MyAccount MyAccount = PageFactory.initElements(driver, MyAccount.class);
+		UX_Ext_Company_MyAccount MyAccount = PageFactory.initElements(driver, UX_Ext_Company_MyAccount.class);
 		if(MyAccount.getAccountHeaderText()) {
 			System.out.println("My Account Form is Displayed");
 			Thread.sleep(2000);

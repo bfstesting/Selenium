@@ -15,7 +15,7 @@ import org.openqa.selenium.support.PageFactory;
  * @author sarkah01
  *
  */
-public class UpdateAccountDetails {
+public class UX_Ext_Update_Account {
 
 	WebDriver driver;
 
@@ -59,7 +59,7 @@ public class UpdateAccountDetails {
 	@CacheLookup	List<WebElement> PrimaryLocationFormTitle;
 	
 
-	public UpdateAccountDetails(WebDriver driver) // constructor
+	public UX_Ext_Update_Account(WebDriver driver) // constructor
 	{
 		this.driver = driver;
 	}

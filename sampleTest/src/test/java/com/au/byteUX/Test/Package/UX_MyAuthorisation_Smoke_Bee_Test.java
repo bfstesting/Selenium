@@ -13,7 +13,7 @@ import org.testng.asserts.SoftAssert;
 
 import com.au.byteUX.Package.LocalDriverManager;
 	import com.au.byteUX.Page.Package.LoginPage;
-	import com.au.byteUX.Page.Package.MyAccount;
+	import com.au.byteUX.Page.Package.UX_Ext_Company_MyAccount;
     import com.au.byteUX.Page.Package.MyAuthorisation;
     import com.au.byteUX.Page.Package.SelectSubject;
 	import lib.ReadProperties;

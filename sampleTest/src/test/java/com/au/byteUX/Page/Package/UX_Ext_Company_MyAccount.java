@@ -11,7 +11,7 @@ import org.openqa.selenium.support.How;
  * @author sarkah01
  *
  */
-public class MyAccount {
+public class UX_Ext_Company_MyAccount {
 	
 	WebDriver driver;
 	
@@ -32,7 +32,7 @@ public class MyAccount {
 	@FindBy(how=How.XPATH,using="//span[text()='User Invitation']") @CacheLookup WebElement senduserInviteForm;
 	//@FindBy(how=How.XPATH,using="//span[text()='User Invitation']") @CacheLookup WebElement closeUserInvite;
 
-	public MyAccount(WebDriver driver)  //constructor
+	public UX_Ext_Company_MyAccount(WebDriver driver)  //constructor
 	{
 		this.driver = driver;
 	}

@@ -19,12 +19,12 @@ import com.au.byteUX.Page.Package.AddHiveBrand;
 import com.au.byteUX.Page.Package.UX_BKR_LP_Location;
 import com.au.byteUX.Page.Package.HiveDetails_Notice;
 import com.au.byteUX.Page.Package.LoginPage;
-import com.au.byteUX.Page.Package.MyAccount;
+import com.au.byteUX.Page.Package.UX_Ext_Company_MyAccount;
 import com.au.byteUX.Page.Package.MyAuthorisation;
 import com.au.byteUX.Page.Package.NoticeOfSaleOrDisposal;
 import com.au.byteUX.Page.Package.SelectSubject;
 import com.au.byteUX.Page.Package.UX_BKR_LP_BeeHive;
-import com.au.byteUX.Page.Package.UpdateAccountDetails;
+import com.au.byteUX.Page.Package.UX_Ext_Update_Account;
 import com.au.byteUX.Page.Package.UpdatePrimaryLocation;
 import junit.framework.Assert;
 import lib.ReadProperties;
@@ -75,11 +75,11 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			subject.selectSubject("My Account");
 			Thread.sleep(2000);
 			// click on update account details
-			MyAccount MyAccount = PageFactory.initElements(driver, MyAccount.class);
+			UX_Ext_Company_MyAccount MyAccount = PageFactory.initElements(driver, UX_Ext_Company_MyAccount.class);
 			MyAccount.updateAccountDetails();
 			Thread.sleep(5000);
 			// Enter values in the fields
-			UpdateAccountDetails update = PageFactory.initElements(driver, UpdateAccountDetails.class);
+			UX_Ext_Update_Account update = PageFactory.initElements(driver, UX_Ext_Update_Account.class);
 			update.update1Field_To_Open_PrimaryLocation_Update_Form(ReadProperties.getObject("data", "Reason1"),
 					ReadProperties.getObject("data", "MobileNumber1"));
 			Thread.sleep(10000);
