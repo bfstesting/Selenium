@@ -57,11 +57,37 @@ WebDriver driver;
 	@FindBy(how=How.XPATH,using="//div[text()='Issue Certificate']") @CacheLookup WebElement issueCertificate;
 	@FindBy(how=How.XPATH,using="//span[text()='Issue Certificate']") @CacheLookup WebElement headerOnIssueCert;
 	@FindBy(how=How.XPATH,using="//span[text()='Back']") @CacheLookup WebElement back;
-	@FindBy(how=How.XPATH,using="//span[text()='No']") @CacheLookup WebElement clickNoBtn;
-	@FindBy(how=How.XPATH,using="//span[text()='Cancel']") @CacheLookup WebElement clickCancelBtn;
+	@FindBy(how=How.XPATH,using="//div[text()='Certificates Issued']") @CacheLookup WebElement certificatesIssued;
+	@FindBy(how=How.XPATH,using="//span[text()='Reprint Certificate']") @CacheLookup WebElement headerOnCertIssued;
+
+	@FindBy(how=How.XPATH,using="//div/div/div[2]/div[2]/.//div[3]/table[1]/.//span") @CacheLookup WebElement selectTrainerToChangeName;
+	@FindBy(how=How.XPATH,using="//div[text()='Request Name Change']") @CacheLookup WebElement requestNameChange;
+	@FindBy(how=How.XPATH,using="//span[text()='Certificate Change Request']") @CacheLookup WebElement headerOnNameChange;
+	//back btn
+	//click No
+	@FindBy(how=How.XPATH,using="//div[text()='Request Stats Report']") @CacheLookup WebElement requestStatsReport;
+	@FindBy(how=How.XPATH,using="//span[text()='RTO Request']") @CacheLookup WebElement headerOnStatsReport;
+	@FindBy(how=How.XPATH,using="//div[text()='Order Blank Certificate Stock']") @CacheLookup WebElement orderBlankCert;
+	@FindBy(how=How.XPATH,using="//span[text()='RTO Request']") @CacheLookup WebElement headerOnOrderCert;
 	@FindBy(how=How.XPATH,using="//div[text()='Cancel Authorisation']") @CacheLookup WebElement cancelAuthorisation;
 	@FindBy(how=How.XPATH,using="//span[text()='Cancel Registration']") @CacheLookup WebElement headerOnCancelAuth;
 	@FindBy(how=How.XPATH,using="//html/body/div[18]/div[1]/.//div[2]/div") @CacheLookup WebElement cancelBtn;
+	@FindBy(how=How.XPATH,using="//div[text()='Trainer Management']") @CacheLookup WebElement trainerManagement;
+	@FindBy(how=How.XPATH,using="//span[text()='Trainer Management']") @CacheLookup WebElement headerOnTrainerMgt;
+	@FindBy(how=How.XPATH,using="//div[text()='Apply for New Trainer']") @CacheLookup WebElement applyNewTrainer;
+	@FindBy(how=How.XPATH,using="//a[2]/.//span[text()='Trainer Application']") @CacheLookup WebElement headerOnApplyTrainer;
+	@FindBy(how=How.XPATH,using="//div[3]/table/.//table[2]/.//td[1]/div/span") @CacheLookup WebElement selectTrainerToCancel;
+	@FindBy(how=How.XPATH,using="//div[text()='Cancel Trainer']") @CacheLookup WebElement cancelTrainer;
+	@FindBy(how=How.XPATH,using="//div[text()='Cancel Alert']") @CacheLookup WebElement headerOnCancelTrainer;
+	@FindBy(how=How.XPATH,using="//span[text()='No']") @CacheLookup WebElement clickNoBtn;
+	@FindBy(how=How.XPATH,using="//span[text()='Cancel']") @CacheLookup WebElement clickCancelBtn;
+	@FindBy(how=How.XPATH,using="//span[text()='Reprint Certificate']") @CacheLookup WebElement getCertificateIssuesHeaderText;
+	@FindBy(how=How.XPATH,using="//div[.//span[text()='RESULTS']]/.//div[starts-with(text(),'Certificate') and contains(text(),')')]") @CacheLookup WebElement getTableHeader;
+	@FindBy(how=How.XPATH,using="//div[.//span[text()='RESULTS']]/div[2]/div[2]/div/div/div/div[2]/.//table[1]/.//td[1]/div") @CacheLookup WebElement selectCertificate;
+	@FindBy(how=How.XPATH,using="//div[text()='Reprint']") @CacheLookup WebElement clickReprint;
+	@FindBy(how=How.XPATH,using="//div[contains(text(),'Please enter reprint')]") @CacheLookup WebElement getReprintPopupText;
+	@FindBy(how=How.XPATH,using="//div[text()='Request Name Change']") @CacheLookup WebElement clickReqNameChng;
+	@FindBy(how=How.XPATH,using="//span[text()='Certificate Change Request']") @CacheLookup WebElement getCertChgReqHeadTxt;
 		
 	public UX_BKR_Lic_Permission_RTO(WebDriver driver)  //constructor
 	{
@@ -255,22 +281,6 @@ WebDriver driver;
 	    	}
 			return result;
 		}
-public Boolean clickNoButton() {
-		 
-		 Boolean result=false;
-	    	try{
-	    		clickNoBtn.click();
-	    		result = true;
-	    	}
-	    	catch(Exception e)
-	    	{
-	    		result= false;
-	    		e.getMessage();
-	    	}
-			return result;
-	 }
-		
-		//click back button
 	 public void backButtonClick(){
 	    	try{
 	    		back.click();
@@ -281,47 +291,162 @@ public Boolean clickNoButton() {
 	    		e.getMessage();
 	    	}
 		}	
-	 //Click Cancel Button
+	//Click on Certificates Issued
+		 public boolean certificatesIssuedClick(){
+		    	try{
+		    		certificatesIssued.click();
+				System.out.println("Clicked on Certificates Issued Action");
+				return true;
+		    	}
+		    	catch(Exception e)
+		    	{
+		    		e.getMessage();
+		    		return false;
+		    	}
+			}
+		//Get certificates Issued Action Result
+		 public Boolean getheaderOnRePrintCertIssued(){
+		    	Boolean result=false;
+		    	try{
+		    		result= headerOnCertIssued.isDisplayed();
+		    	}
+		    	catch(Exception e)
+		    	{
+		    		result= false;
+		    		e.getMessage();
+		    	}
+				return result;
+			}	 
+		 
+		 public String getReprintCertResultCount()
+		 {
+			 String headerText = getTableHeader.getText();
+			 
+			 System.out.println("Length: "+headerText.length()+" Text: "+headerText);
+			 
+			 return headerText.substring(11, 13);
+		 }
+		 
+		 public Boolean getCertificateIssuesHeaderText() {
+			 
+			 Boolean result=false;
+		    	try{
+		    		result= getCertificateIssuesHeaderText.isDisplayed();
+		    		System.out.println("Certificate Issued Header Text is Displayed");
+		    	}
+		    	catch(Exception e)
+		    	{
+		    		result= false;
+		    		e.getMessage();
+		    	}
+				return result;
+			 
+		 }
+		 
+		 public Boolean selectCertificate() {
+			 Boolean result=false;
+		    	try{
+		    		selectCertificate.click();
+		    		System.out.println("certificate is selected");
+		    		//result = true;
+		    	}
+		    	catch(Exception e)
+		    	{
+		    		result= false;
+		    		e.getMessage();
+		    	}
+				return result;
+		 }
+		 
+		 public Boolean clickReprint() {
+			 Boolean result=false;
+		    	try{
+		    		result= clickReprint.isDisplayed();
+		    		
+		    	}
+		    	catch(Exception e)
+		    	{
+		    		result= false;
+		    		e.getMessage();
+		    	}
+				return result;
+		 }
+		 
+		 public Boolean getReprintPopupText()
+		 {
+			 
+			 
+			 Boolean result=false;
+		    	try{
+		    		result = getReprintPopupText.isDisplayed();
+		    		
+		    	}
+		    	catch(Exception e)
+		    	{
+		    		result= false;
+		    		e.getMessage();
+		    	}
+				return result;
+			 
+		 }
+		 
 		 public Boolean clickCancelButton() {
 			 
 			 Boolean result=false;
-		   	try{
-		   		clickCancelBtn.click();
-		   		result = true;
-		   	}
-		   	catch(Exception e)
-		   	{
-		   		result= false;
-		   		e.getMessage();
-		   	}
+		    	try{
+		    		clickCancelBtn.click();
+		    		result = true;
+		    	}
+		    	catch(Exception e)
+		    	{
+		    		result= false;
+		    		e.getMessage();
+		    	}
 				return result;
-		}
-	//Click Cancel Authorisation Action
-			public Boolean clickCancelAuthorisation() {
-				 
-				 Boolean result=false;
-			   	try{
-			   		cancelAuthorisation.click();
-			   		result = true;
-			   	}
-			   	catch(Exception e)
-			   	{
-			   		result= false;
-			   		e.getMessage();
-			   	}
-					return result;
-			}
-	//Get header On Cancel Auth form
-			public Boolean headerOnCancelAuth(){
-			   	Boolean result=false;
-			   	try{
-			   		result= headerOnCancelAuth.isDisplayed();
-			   	}
-			   	catch(Exception e)
-			   	{
-			   		result= false;
-			   		e.getMessage();
-			   	}
-					return result;
-				}
+		 }
+		 
+		 public Boolean clickRequestNameChange()
+		 {
+			 Boolean result=false;
+		    	try{
+		    		clickReqNameChng.click();
+		    		result = true;
+		    	}
+		    	catch(Exception e)
+		    	{
+		    		result= false;
+		    		e.getMessage();
+		    	}
+				return result;
+		 }
+		 
+		 public Boolean getCertChngReqHeadTxt() {
+			 	 
+			 Boolean result=false;
+		    	try{
+		    		result =  getCertChgReqHeadTxt.isDisplayed();
+		    		
+		    	}
+		    	catch(Exception e)
+		    	{
+		    		result= false;
+		    		e.getMessage();
+		    	}
+				return result;
+			 
+		 }
+		 public Boolean clickNoButton() {
+			 
+			 Boolean result=false;
+		    	try{
+		    		clickNoBtn.click();
+		    		result = true;
+		    	}
+		    	catch(Exception e)
+		    	{
+		    		result= false;
+		    		e.getMessage();
+		    	}
+				return result;
+		 }
 }

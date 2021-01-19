@@ -12,12 +12,10 @@ import java.io.FileNotFoundException;
 import org.testng.asserts.SoftAssert;
 
 import com.au.byteUX.Package.LocalDriverManager;
-import com.au.byteUX.Page.Package.CertificatesIssued;
-import com.au.byteUX.Page.Package.LoginPage;
+	import com.au.byteUX.Page.Package.LoginPage;
 	import com.au.byteUX.Page.Package.MyAccount;
     import com.au.byteUX.Page.Package.MyAuthorisation;
     import com.au.byteUX.Page.Package.SelectSubject;
-import com.au.byteUX.Page.Package.UXRTORequest;
 import com.au.byteUX.Page.Package.UX_BKR_Lic_Permission_RTO;
 
 import lib.ReadProperties;
@@ -58,8 +56,7 @@ import lib.ReadProperties;
 			//myAuth.multipleAuthorisation_select_Bee();
 			Thread.sleep(3000);
 			
-			
-			//Verify Authorization menu item 
+			//Verify Authorisation menu item 
 			if(myAuth.multipleAuthorisation_select_RTO()){
 				Thread.sleep(3000);
 				if(myAuth.getAuthTabResult()) {
@@ -225,29 +222,26 @@ import lib.ReadProperties;
 				}
 			}
 			else {
-				System.out.println("Failed to click Issue Certificate Action");
+				System.out.println("Failed to Issue Certificate Action");
 				softAssert.assertTrue(false,"Failed to click Issue Certificate Action");
 			}
 			Thread.sleep(3000);
 			//Certificates Issues Action
-			
-			/*CertificatesIssued myCI = PageFactory.initElements(driver, CertificatesIssued.class);
-			if(myCI.certificatesIssuedClick()) {
+			if(myLP.certificatesIssuedClick()) {
 				
-				if(myCI.getCertificateIssuesHeaderText()) {
-					if(myCI.getReprintCertResultCount()!="0") {
-						
-						if(myCI.selectCertificate()) {
+				if(myLP.getCertificateIssuesHeaderText()) {
+					
+						if(myLP.selectCertificate()) {
 							
-							if(myCI.clickReprint()) {
+							if(myLP.clickReprint()) {
 								
-								if(myCI.getReprintPopupText()) {
+								if(myLP.getReprintPopupText()) {
 									
 									if(myLP.clickCancelButton()) {
 										
-										if(myCI.clickRequestNameChange()) {
+										if(myLP.clickRequestNameChange()) {
 											
-											if(myCI.getCertChngReqHeadTxt()) {
+											if(myLP.getCertChngReqHeadTxt()) {
 												myLP.backButtonClick();
 											}
 											else {
@@ -280,16 +274,12 @@ import lib.ReadProperties;
 							}
 							
 						}
-					
 						else
 						{
 							System.out.println("Unable to select Certificate");
 							softAssert.assertTrue(false,"Unable to select Certificate");
 						}
-					}
-					else {
-						System.out.println("No Certificates to select!");
-					}
+					
 					
 				}
 				else {
@@ -302,77 +292,71 @@ import lib.ReadProperties;
 				System.out.println("Failed to Click Certificates Issued Action");
 				softAssert.assertTrue(false,"Failed to Click Certificates Issued Action");
 			}
-			*/
-			//Request Stat Report Action
-			UXRTORequest uxRTORequest = PageFactory.initElements(driver, UXRTORequest.class);
 			
-			if(uxRTORequest.requestStatsReportClick()){
+			
+		/*	//Actions
+			//Update Primary location Action
+			if(myAuth.updatePrimaryLocationClick()){
 				Thread.sleep(3000);
-				if(uxRTORequest.getheaderOnStatsReport()) {
-					System.out.println("Request Stats Report Form is displayed");
-					Thread.sleep(3000);
-					myLP.backButtonClick();
-					Thread.sleep(3000);
+				if(myAuth.getupdatePrimaryLocationResult()) {
+					System.out.println("Update Primary Location Form is displayed");
+					myAuth.saveAndCloseClick();		
+					Thread.sleep(2000);
 				}
 				else
 				{
-					System.out.println("Not able to fetch Request Stats Report Form");
-					softAssert.assertTrue(false,"Not able to fetch Request Stats Report Form");
+					System.out.println("Not able to fetch Primary Location form");
+					softAssert.assertTrue(false,"Not able to fetch Primary Location form");
 				}
 				
 			}
 			else {
-				System.out.println("Failed to click Request Stats Report Action");
-				softAssert.assertTrue(false,"Failed to click Request Stats Report Action");
+				System.out.println("Failed to click update Primary Location Action");
+				softAssert.assertTrue(false,"Failed to click update Primary Location Action");
 			}
 			
 			Thread.sleep(2000);
-
-			//Order Blank Cert Action
-			if(uxRTORequest.orderBlankCertClick()){
+			
+			//Notice of sale Action
+			if(myAuth.noticeActionClick())
+			{
 				Thread.sleep(3000);
-				if(uxRTORequest.getheaderOnOrderCert()) {
-					System.out.println("Order Blank Cert Form is displayed");
-					Thread.sleep(3000);
-					myLP.backButtonClick();
-					Thread.sleep(3000);
+				if(myAuth.getnoticeActionResult()) {
+					System.out.println("Notice of sale or disposal of Beehives form is displayed");
+					myAuth.saveAndCloseNoticeClick();
+					Thread.sleep(2000);
 				}
 				else
 				{
-					System.out.println("Not able to fetch Order Blank Cert Form");
-					softAssert.assertTrue(false,"Not able to fetch Order Blank Cert Form");
+					System.out.println("Failed to Display Notice of Sale or disposal form");
+					softAssert.assertTrue(false,"Failed to Display Notice of Sale or disposal form");
 				}
 				
 			}
 			else {
-				System.out.println("Failed to click Order Blank Cert Action");
-				softAssert.assertTrue(false,"Failed to click Order Blank Cert Action");
+				System.out.println("Failed to click Notice of sale Action");
+				softAssert.assertTrue(false,"Failed to click Notice of sale Action");
 			}
 			
-			Thread.sleep(2000);
-			
-			
-			//Cancel Authorisation Action
-			if(myLP.clickCancelAuthorisation()) {
+	
+			//Cancel Auth Action
+			if(myAuth.cancelAuthActionClick()) {
 				Thread.sleep(3000);
-				if(myLP.headerOnCancelAuth()) {
+				if(myAuth.getcancelAuthActionResult()) {
 					System.out.println("Cancel Authorisation Form is Displayed");
-					Thread.sleep(2000);
-					myLP.clickCancelButton();			
+					myAuth.popupCancelClick();			
 					Thread.sleep(2000);
 				}
 				else
 				{
-					System.out.println("Not able to fetch Cancel Registration text");
-					softAssert.assertTrue(false,"Not able to fetch Cancel Registration text");
+					System.out.println("Not able to fetch Cancel Authorisation text");
+					softAssert.assertTrue(false,"Not able to fetch Cancel Authorisation text");
 				}
 			}
 			else {
-				System.out.println("Failed to click cancel Authorisation Action");
-				softAssert.assertTrue(false,"Failed to click cancel Authorisation Action");
-			}
-			Thread.sleep(2000);
-			// Need to write for trainer Management
+				System.out.println("Failed to click cancel Auth Action");
+				softAssert.assertTrue(false,"Failed to click cancel Auth Action");
+			}*/
 			softAssert.assertAll();
 			driver.close();
 		}	
