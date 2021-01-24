@@ -21,8 +21,8 @@ public class UX_BKR_Lic_Renewal {
 	
 	@FindBy(how = How.XPATH, using = "//div[text()='Renew my Authorisation']")	@CacheLookup WebElement renewMyAuthorisation;
 	@FindBy(how = How.XPATH, using = "//div[4]/.//div[2]/div[1]/div[3]/.//td[2]/div")	@CacheLookup WebElement totalNoOfHives;
-	@FindBy(how = How.XPATH, using = "//div[7]/.//tr[2]/td[2]/.//input")	@CacheLookup WebElement changeClassNO;
-	@FindBy(how = How.XPATH, using = "//div[7]/.//tr[2]/td[3]/.//input")	@CacheLookup WebElement changeClassYES;
+	@FindBy(how = How.XPATH, using = "//div[7]/.//tr[3]/td[1]/.//input")	@CacheLookup WebElement changeClassNO;
+	@FindBy(how = How.XPATH, using = "//div[7]/.//tr[2]/td[1]/.//input")	@CacheLookup WebElement changeClassYES;
 	@FindBy(how = How.NAME, using = "ConsentFinal")	@CacheLookup WebElement consent;
 	@FindBy(how = How.XPATH, using = "//span[text()='Submit my renewal application']")	@CacheLookup WebElement submitBtn;
 	@FindBy(how = How.XPATH, using = "//span[text()='Cancel']")	@CacheLookup WebElement cancelBtn;
@@ -65,6 +65,7 @@ public class UX_BKR_Lic_Renewal {
 			}
 			else
 			{
+				//System.out.println("test total no.of hives");
 				changeClassNO.click();
 				consent.click();
 				submitBtn.click();
