@@ -18,6 +18,8 @@ public class UX_BKR_LP_Location {
 	@FindBy(how=How.XPATH,using="//fieldset[.//div[text()='Authorisation Location']]/.//tr[4]/.//input") @CacheLookup WebElement enterAddress;
 	@FindBy(how=How.XPATH,using="//fieldset[.//div[text()='Authorisation Location']]/.//tr[1]/.//input") @CacheLookup WebElement nickName;
 	@FindBy(how=How.XPATH,using="//html/body/ul/li[1]/div") @CacheLookup WebElement SelectFirstItem;
+	@FindBy(how=How.NAME,using="TypeAddress") @CacheLookup WebElement typeAddress;
+	@FindBy(how=How.XPATH,using="//label[text()='Enter full street address']") @CacheLookup WebElement addressRadioBtn;
 	@FindBy(how=How.XPATH,using="//label[text()='Enter locality']") @CacheLookup WebElement localityRadioBtn;
 	@FindBy(how=How.XPATH,using="//li[52]") @CacheLookup WebElement selectLocality;
 	@FindBy(how=How.XPATH,using="//div[2]/.//div/div/div/a[2]/.//span[text()='']") @CacheLookup WebElement saveForm;
@@ -34,8 +36,12 @@ public class UX_BKR_LP_Location {
 		try {
 			//start date and end date are not added
 			nickName.sendKeys(NickName);
-			enterAddress.sendKeys(HiveLocationAddress);
+			addressRadioBtn.click();
+			Thread.sleep(1000);
+			typeAddress.sendKeys(HiveLocationAddress);
+			Thread.sleep(1000);
 			SelectFirstItem.click();
+			Thread.sleep(1000);
 			saveForm.click();
 			Thread.sleep(1000);
 		}		catch (InterruptedException e)		{			e.printStackTrace();		}		

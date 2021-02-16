@@ -171,8 +171,9 @@ public class UX_BeekeeperRegressionTestCasesTestRail {
 			ActivityHistory activityHistory = PageFactory.initElements(driver, ActivityHistory.class);
 			List<String> actualSubjects = activityHistory.retrieveSubject("Location Added", TodaysDate.getTodaysDate());
 			for (String actualSubject : actualSubjects) {
-				System.out.println("Actual Subject:" + actualSubject);
-				Assert.assertEquals("New Hive location has been added:", actualSubject);
+				System.out.println("Actual Subject: " + actualSubject);
+				Assert.assertEquals("New Hive location has been added: "+ReadProperties.getObject("data", "HiveLocationAddress"), actualSubject);
+				//Assert.assertTrue(actualSubject.contains("New Hive location has been added"));
 			}
 
 		} catch (Exception e) {
