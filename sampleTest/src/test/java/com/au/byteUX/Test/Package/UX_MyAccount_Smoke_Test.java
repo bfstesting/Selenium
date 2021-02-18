@@ -116,80 +116,24 @@ public class UX_MyAccount_Smoke_Test {
 			softAssert.assertTrue(false,"Failed to click Interest Tab");
 		}
 		
-		//Verifying unpaid Invoices tab in My Account - exists
+		//Verifying Invoices tab in My Account - exists
 		if(MyAccount.invoicesTab()){
 			Thread.sleep(3000);
 			if(MyAccount.getInvoicesTabResult()) {
-				System.out.println("Unpaid Invoices Tab Result is Displayed");
+				System.out.println("Invoices Tab Result is Displayed");
 				Thread.sleep(3000);
 			}
 			else
 			{
-				System.out.println("Not able to fetch Unpaid Invoices tab Result");
-				softAssert.assertTrue(false,"Not able to fetch unpaid Invoices tab Result");
+				System.out.println("Not able to fetch Invoices tab Result");
+				softAssert.assertTrue(false,"Not able to fetch Invoices tab Result");
 			}
 		}
 		else {
-			System.out.println("Failed to click Unpaid Invoices Tab");
-			softAssert.assertTrue(false,"Failed to click Unpaid Invoices Tab");
+			System.out.println("Failed to click Invoices Tab");
+			softAssert.assertTrue(false,"Failed to click Invoices Tab");
 		}
 		
-		//Verifying All Invoices tab in My Account - exists
-				if(MyAccount.allInvoicesTab()){
-					Thread.sleep(3000);
-					if(MyAccount.getAllInvoicesTabResult()) {
-						System.out.println("All Invoices Tab Result is Displayed");
-						Thread.sleep(3000);
-					}
-					else
-					{
-						System.out.println("Not able to fetch All Invoices tab Result");
-						softAssert.assertTrue(false,"Not able to fetch All Invoices tab Result");
-					}
-				}
-				else {
-					System.out.println("Failed to click All Invoices Tab");
-					softAssert.assertTrue(false,"Failed to click All Invoices Tab");
-				}
-				
-				//Verifying Audit tab on My Account - exists
-				if(MyAccount.auditsTab()){
-					Thread.sleep(3000);
-					if(MyAccount.getAuditTabResult()) {
-						System.out.println("Audit Tab Result is Displayed");
-						Thread.sleep(3000);
-					}
-					else
-					{
-						System.out.println("Not able to fetch Auidt tab Result");
-						softAssert.assertTrue(false,"Not able to fetch Audit tab Result");
-						Thread.sleep(3000);
-					}
-				}
-				else {
-					System.out.println("Failed to click Audit Tab");
-					softAssert.assertTrue(false,"Failed to click Audit Tab");
-				}
-				
-				//Verifying Inspection tab on My Account - exists
-				if(MyAccount.inspectionsTab()){
-					Thread.sleep(3000);
-					if(MyAccount.getInspectionTabResult()) {
-						System.out.println("Inspection Tab Result is Displayed");
-						Thread.sleep(3000);
-					}
-					else
-					{
-						System.out.println("Not able to fetch Inspection tab Result");
-						softAssert.assertTrue(false,"Not able to fetch Inspection tab Result");
-						Thread.sleep(3000);
-					}
-				}
-				else {
-					System.out.println("Failed to click Inspection Tab");
-					softAssert.assertTrue(false,"Failed to click Inspection Tab");
-				}
-				
 		//Verifing Update Account Details form in My Account - Exists
 		if(MyAccount.updateAccountDetails()){
 			Thread.sleep(3000);
