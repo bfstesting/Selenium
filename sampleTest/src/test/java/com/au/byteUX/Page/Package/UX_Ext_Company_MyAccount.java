@@ -22,12 +22,16 @@ public class UX_Ext_Company_MyAccount {
 	@FindBy(how=How.XPATH,using="//span[text()='Interests']") @CacheLookup WebElement interests;
 	@FindBy(how=How.XPATH,using="//span[text()='Unpaid Invoices']") @CacheLookup WebElement unpaidInvoices;
 	@FindBy(how=How.XPATH,using="//span[text()='All Invoices']") @CacheLookup WebElement allInvoices;
+	@FindBy(how=How.XPATH,using="//span[text()='Audits']") @CacheLookup WebElement audits;
+	@FindBy(how=How.XPATH,using="//span[text()='Inspections']") @CacheLookup WebElement inspections;
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'Account holder information')]") @CacheLookup WebElement accountHeaderText;
 	@FindBy(how=How.XPATH,using="//span[contains(text(),'Authority Number')]") @CacheLookup WebElement authTabResult;
 	@FindBy(how=How.XPATH,using="//span[contains(text(),'First Name')]") @CacheLookup WebElement contactTabResult;
 	@FindBy(how=How.XPATH,using="//span[contains(text(),'Pref Comm Method')]") @CacheLookup WebElement interestTabResult;
 	@FindBy(how=How.XPATH,using="//div[text()='Unpaid Invoices']") @CacheLookup WebElement invoicesTabResult;
 	@FindBy(how=How.XPATH,using="//div[text()='All Invoices']") @CacheLookup WebElement allInvoicesTabResult;
+	@FindBy(how=How.XPATH,using="//div[text()='Audits']") @CacheLookup WebElement auditsTabResult;
+	@FindBy(how=How.XPATH,using="//div[text()='Inspections']") @CacheLookup WebElement inspectionsTabResult;
 	@FindBy(how=How.XPATH,using="//span[text()='Update Account Request Form']") @CacheLookup WebElement updateAccountDetailsForm;
 	@FindBy(how=How.XPATH,using="//span[text()='']") @CacheLookup WebElement saveAndClose;
 	@FindBy(how=How.XPATH,using="//span[text()='OK']") @CacheLookup WebElement okSendUserInvite;
@@ -143,6 +147,34 @@ public class UX_Ext_Company_MyAccount {
     	    return false;
     	}
 	}
+	//click on Auidts
+		public boolean auditsTab()
+		{
+			try{
+				audits.click();
+				System.out.println("Clicked on Audits Tab");
+	    		return true;
+	    	}
+	    	catch(Exception e)
+	    	{
+	    	    e.getMessage();
+	    	    return false;
+	    	}
+		}
+		//click on Inspections tab
+		public boolean inspectionsTab()
+		{
+			try{
+				inspections.click();
+				System.out.println("Clicked on inspections Tab");
+	    		return true;
+	    	}
+	    	catch(Exception e)
+	    	{
+	    	    e.getMessage();
+	    	    return false;
+	    	}
+		}
 	//verifying Account Header is displayed
 	public Boolean getAccountHeaderText()
 	{
@@ -214,6 +246,33 @@ public class UX_Ext_Company_MyAccount {
 		Boolean result=false;
     	try{
     		result= allInvoicesTabResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
+	}
+    
+ // verify Audit tab result
+    public Boolean getAuditTabResult() {
+		Boolean result=false;
+    	try{
+    		result= auditsTabResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
+	}
+ // verify inspection tab result
+    public Boolean getInspectionTabResult() {
+		Boolean result=false;
+    	try{
+    		result= inspectionsTabResult.isDisplayed();
     	}
     	catch(Exception e)
     	{
