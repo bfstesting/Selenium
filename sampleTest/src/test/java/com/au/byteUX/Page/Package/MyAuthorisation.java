@@ -14,6 +14,8 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import com.au.byteUX.Package.ScrollByPage;
+
 /**
  * @author sarkah01
  *
@@ -308,15 +310,25 @@ public class MyAuthorisation {
     	}
 	}
 
-    public void popupCancelClick(){
+    public boolean popupCancelClick(){
     	try{
+    		JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+			System.out.println("page scrolled");
+			Thread.sleep(2000);
+    		/*ScrollByPage scrollByPage= new ScrollByPage();
+    		scrollByPage.ByPage();
+    		System.out.println("Page scrolled");*/
     		popUpCancel.click();
+    		System.out.println("Clicked cancel on the Popup");
+    		return true;
     	}
     	catch(Exception e)
     	{
     	      System.out.println("Failed to click Cancel on the popup");
     		e.getMessage();
     	}
+    	return false;
 	}
     
     public Boolean getupdatePrimaryLocationResult(){
