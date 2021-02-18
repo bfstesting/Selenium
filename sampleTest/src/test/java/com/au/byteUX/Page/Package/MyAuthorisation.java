@@ -59,7 +59,8 @@ public class MyAuthorisation {
 	@FindBy(how=How.XPATH,using="//span[text()='']") @CacheLookup WebElement saveAndClose;
     @FindBy(how=How.XPATH,using="//span[text()='']") @CacheLookup WebElement saveAndCloseNotice;
 
-	@FindBy(how=How.XPATH,using="//span[text()='Cancel']") @CacheLookup WebElement popUpCancel;
+	@FindBy(how=How.XPATH,using="//tbody/.//span[text()='Cancel']") @CacheLookup WebElement popUpCancel;
+	
 
 
 
