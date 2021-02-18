@@ -20,12 +20,14 @@ public class UX_Ext_Company_MyAccount {
 	@FindBy(how=How.XPATH,using="//span[text()='Authorisations']") @CacheLookup WebElement authorisation;
 	@FindBy(how=How.XPATH,using="//span[text()='Contacts']") @CacheLookup WebElement contacts;
 	@FindBy(how=How.XPATH,using="//span[text()='Interests']") @CacheLookup WebElement interests;
-	@FindBy(how=How.XPATH,using="//span[text()='Invoices']") @CacheLookup WebElement invoices;
+	@FindBy(how=How.XPATH,using="//span[text()='Unpaid Invoices']") @CacheLookup WebElement unpaidInvoices;
+	@FindBy(how=How.XPATH,using="//span[text()='All Invoices']") @CacheLookup WebElement allInvoices;
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'Account holder information')]") @CacheLookup WebElement accountHeaderText;
 	@FindBy(how=How.XPATH,using="//span[contains(text(),'Authority Number')]") @CacheLookup WebElement authTabResult;
 	@FindBy(how=How.XPATH,using="//span[contains(text(),'First Name')]") @CacheLookup WebElement contactTabResult;
 	@FindBy(how=How.XPATH,using="//span[contains(text(),'Pref Comm Method')]") @CacheLookup WebElement interestTabResult;
 	@FindBy(how=How.XPATH,using="//div[text()='Unpaid Invoices']") @CacheLookup WebElement invoicesTabResult;
+	@FindBy(how=How.XPATH,using="//div[text()='All Invoices']") @CacheLookup WebElement allInvoicesTabResult;
 	@FindBy(how=How.XPATH,using="//span[text()='Update Account Request Form']") @CacheLookup WebElement updateAccountDetailsForm;
 	@FindBy(how=How.XPATH,using="//span[text()='']") @CacheLookup WebElement saveAndClose;
 	@FindBy(how=How.XPATH,using="//span[text()='OK']") @CacheLookup WebElement okSendUserInvite;
@@ -112,12 +114,27 @@ public class UX_Ext_Company_MyAccount {
     	}
 	}
 	
-	//click on invoices tab
+	//click on unpaid invoices tab
 	public boolean invoicesTab()
 	{
 		try{
-			invoices.click();
-			System.out.println("Clicked on Invoices Tab");
+			unpaidInvoices.click();
+			System.out.println("Clicked on unpaid Invoices Tab");
+    		return true;
+    	}
+    	catch(Exception e)
+    	{
+    	    e.getMessage();
+    	    return false;
+    	}
+	}
+	
+	//click on All invoices
+	public boolean allInvoicesTab()
+	{
+		try{
+			allInvoices.click();
+			System.out.println("Clicked on All Invoices Tab");
     		return true;
     	}
     	catch(Exception e)
@@ -179,11 +196,24 @@ public class UX_Ext_Company_MyAccount {
     	}
 		return result;
 	}
-	// verify Invoices tab result
+	// verify unpaid Invoices tab result
     public Boolean getInvoicesTabResult() {
 		Boolean result=false;
     	try{
     		result= invoicesTabResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
+	}
+	// verify All Invoices tab result
+    public Boolean getAllInvoicesTabResult() {
+		Boolean result=false;
+    	try{
+    		result= allInvoicesTabResult.isDisplayed();
     	}
     	catch(Exception e)
     	{
