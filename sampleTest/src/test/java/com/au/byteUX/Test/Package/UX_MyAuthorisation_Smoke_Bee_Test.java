@@ -188,8 +188,15 @@ import com.au.byteUX.Package.LocalDriverManager;
 				Thread.sleep(3000);
 				if(myAuth.getcancelAuthActionResult()) {
 					System.out.println("Cancel Authorisation Form is Displayed");
-					myAuth.popupCancelClick();			
-					Thread.sleep(3000);
+					if(myAuth.popupCancelClick())
+					{
+						Thread.sleep(3000);
+					}
+					else
+					{
+						System.out.println("Not able to cancel Popup box");
+						softAssert.assertTrue(false,"Not able to cancel Popup box");
+					}
 				}
 				else
 				{
