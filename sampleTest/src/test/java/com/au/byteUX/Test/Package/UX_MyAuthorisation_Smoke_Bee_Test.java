@@ -138,6 +138,27 @@ import com.au.byteUX.Package.LocalDriverManager;
 			}
 			Thread.sleep(3000);
 			
+			//Select Renewals tab
+			if(myAuth.renewalTabClick()){
+				Thread.sleep(3000);
+				
+				if(myAuth.getRenewalTabResult()) {
+					System.out.println("Renewal Tab Result is Displayed");		
+					Thread.sleep(3000);
+				}
+				else
+				{
+					System.out.println("Not able to fetch Renewal tab Result");
+					softAssert.assertTrue(false,"Not able to fetch Renewal tab Result");
+				}
+				
+			}
+			else {
+				System.out.println("Failed to click Renewal Tab");
+				softAssert.assertTrue(false,"Failed to click Renewal Tab");
+			}
+			Thread.sleep(3000);
+			
 			//Actions
 			//Update Primary location Action
 			if(myAuth.updatePrimaryLocationClick()){

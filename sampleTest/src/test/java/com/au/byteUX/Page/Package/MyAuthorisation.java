@@ -45,6 +45,7 @@ public class MyAuthorisation {
 	@FindBy(how=How.XPATH,using="//span[text()='Notices']") @CacheLookup WebElement noticesTab;
 	@FindBy(how=How.XPATH,using="//span[text()='Export']") @CacheLookup WebElement exportTab;
 	@FindBy(how=How.XPATH,using="//span[text()='Change History']") @CacheLookup WebElement changeHistoryTab;
+	@FindBy(how=How.XPATH,using="//span[text()='Renewals']") @CacheLookup WebElement renewalTab;
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'Notice of sale')]") @CacheLookup WebElement noticeAction;
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'Renew my')]") @CacheLookup WebElement renewAction;
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'Cancel Authorisation')]") @CacheLookup WebElement cancelAuthAction;
@@ -52,6 +53,7 @@ public class MyAuthorisation {
 	@FindBy(how=How.XPATH,using="//span[(text()='Notification Type')]") @CacheLookup WebElement noticesTabResult;
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'Export')]") @CacheLookup WebElement exportTabResult;
 	@FindBy(how=How.XPATH,using="//span[text()='Date Changed']") @CacheLookup WebElement changeHistoryTabResult;
+	@FindBy(how=How.XPATH,using="//div[contains(text(),'Renewals')]") @CacheLookup WebElement renewalTabResult;
 	@FindBy(how=How.XPATH,using="//div[text()='Update primary location']") @CacheLookup WebElement updatePrimaryLocation;
 	@FindBy(how=How.XPATH,using="//span[text()='Cancel Registration']") @CacheLookup WebElement cancelAuthActionResult;
 	@FindBy(how=How.XPATH,using="//span[text()='Update Primary Location Form']") @CacheLookup WebElement updatePrimaryLocationResult;
@@ -204,6 +206,19 @@ public class MyAuthorisation {
 				return false;
 			}
 	}
+	public boolean renewalTabClick(){
+		try {
+			renewalTab.click();
+			System.out.println("Clicked on Renewals Tab");
+			return true;
+		}
+			catch(Exception e)
+			{
+				e.getMessage();
+				return false;
+			}
+	}
+	
 	
     public Boolean getAuthTabResult(){
     	Boolean result=false;
@@ -235,6 +250,19 @@ public class MyAuthorisation {
     	Boolean result=false;
     	try{
     		result= changeHistoryTabResult.isDisplayed();
+    	}
+    	catch(Exception e)
+    	{
+    		result= false;
+    		e.getMessage();
+    	}
+		return result;
+	}
+    // Renewal tab click result
+    public boolean getRenewalTabResult(){
+    	Boolean result=false;
+    	try{
+    		result= renewalTabResult.isDisplayed();
     	}
     	catch(Exception e)
     	{
