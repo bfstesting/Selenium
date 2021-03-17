@@ -35,7 +35,7 @@ public class MyAuthorisation {
 	@FindBy(how=How.XPATH,using="//tbody/tr[.//td[2]/div[text()='"
 			+ "RTO Approval" //Enter the permission name 
 			+ "'] and .//td[5]/div[text()='"
-			+ "Approved" // Status of the permission
+			+ "Renewal Pending" // Status of the permission (Approved)
 			+ "']]")
 	@CacheLookup WebElement selectRTOPermission;
 	
