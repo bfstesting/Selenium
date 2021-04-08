@@ -18,7 +18,7 @@ public class CertificatesIssued {
 	@FindBy(how=How.XPATH,using="//span[text()='Certificate Change Request']") @CacheLookup WebElement headerOnNameChange;
 	@FindBy(how=How.XPATH,using="//span[text()='Reprint Certificate']") @CacheLookup WebElement getCertificateIssuesHeaderText;
 	@FindBy(how=How.XPATH,using="//div[.//span[text()='RESULTS']]/.//div[starts-with(text(),'Certificate') and contains(text(),')')]") @CacheLookup WebElement getTableHeader;
-	@FindBy(how=How.XPATH,using="//div[.//span[text()='RESULTS']]/div[2]/div[2]/div/div/div/div[2]/.//table[1]") @CacheLookup WebElement selectCertificate;
+	@FindBy(how=How.XPATH,using="//div[.//span[text()='RESULTS']]/div[2]/div[2]/div/div/div/div[2]/.//table[1]/tbody/tr/td[2]") @CacheLookup WebElement selectCertificate;
 	@FindBy(how=How.XPATH,using="//div[text()='Reprint']") @CacheLookup WebElement clickReprint;
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'Please enter reprint')]") @CacheLookup WebElement getReprintPopupText;
 	@FindBy(how=How.XPATH,using="//div[text()='Request Name Change']") @CacheLookup WebElement clickReqNameChng;

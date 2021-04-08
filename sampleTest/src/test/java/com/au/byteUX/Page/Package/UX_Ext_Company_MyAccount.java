@@ -27,7 +27,7 @@ public class UX_Ext_Company_MyAccount {
 	@FindBy(how=How.XPATH,using="//div[contains(text(),'Account holder information')]") @CacheLookup WebElement accountHeaderText;
 	@FindBy(how=How.XPATH,using="//span[contains(text(),'Authority Number')]") @CacheLookup WebElement authTabResult;
 	@FindBy(how=How.XPATH,using="//span[contains(text(),'First Name')]") @CacheLookup WebElement contactTabResult;
-	@FindBy(how=How.XPATH,using="//span[contains(text(),'Pref Comm Method')]") @CacheLookup WebElement interestTabResult;
+	@FindBy(how=How.XPATH,using="//div[contains(text(),'Interests')]") @CacheLookup WebElement interestTabResult;
 	@FindBy(how=How.XPATH,using="//div[text()='Unpaid Invoices']") @CacheLookup WebElement invoicesTabResult;
 	@FindBy(how=How.XPATH,using="//div[text()='All Invoices']") @CacheLookup WebElement allInvoicesTabResult;
 	@FindBy(how=How.XPATH,using="//div[text()='Audits']") @CacheLookup WebElement auditsTabResult;

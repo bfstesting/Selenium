@@ -1,46 +1,38 @@
-
-	package com.au.byteUX.Test.Package;
-
-	import static org.testng.Assert.assertTrue;
-
+package com.au.byteUX.Test.Package;
 import java.io.FileNotFoundException;
-	import java.io.IOException;
-	import org.openqa.selenium.WebDriver;
-	import org.openqa.selenium.support.PageFactory;
-	import org.testng.Assert;
-	import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
+import java.io.IOException;
+import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import com.au.byteUX.Package.LocalDriverManager;
+import com.au.byteUX.Page.Package.ActivityHistory;
 import com.au.byteUX.Page.Package.CertificatesIssued;
 import com.au.byteUX.Page.Package.LoginPage;
-
-	import com.au.byteUX.Page.Package.LoginPage;
-	import com.au.byteUX.Page.Package.UX_Ext_Company_MyAccount;
-
-    import com.au.byteUX.Page.Package.MyAuthorisation;
-    import com.au.byteUX.Page.Package.SelectSubject;
+import com.au.byteUX.Page.Package.MyAuthorisation;
+import com.au.byteUX.Page.Package.SelectSubject;
 import com.au.byteUX.Page.Package.UXRTORequest;
 import com.au.byteUX.Page.Package.UX_BKR_Lic_Permission_RTO;
-
+import junit.framework.Assert;
 import lib.ReadProperties;
+import lib.TodaysDate;
 
-	public class UX_MyAuthorisation_Smoke_RTO_Test { 
+public class UX_RTORegressionTestcases {
+	String url;
+	String username;
+	String password;
+	String driverLocation;
+	SoftAssert softAssert;
+	public UX_RTORegressionTestcases() {
+		softAssert = new SoftAssert();
+	}
+	// Issue certificate
+	//@Test
+	public void issueCertificate() throws FileNotFoundException, IOException, InterruptedException {
 
-		WebDriver driver;       //constructor
-		SoftAssert softAssert;
-		
-		public UX_MyAuthorisation_Smoke_RTO_Test() 
-		{
-			softAssert = new SoftAssert();
-		}
-		
-		
-		//Verify MyAuthorisation Menu Item - bees - exists
-		
-		@Test	
-		public void verifyMyAuthTabClick() throws InterruptedException, FileNotFoundException, IOException
-		{
 			WebDriver driver = LocalDriverManager.getDriver();
 			String url = ReadProperties.getObject("config","UX");
 			String username = ReadProperties.getObject("config","external_User_Deb_Syd");
@@ -55,13 +47,12 @@ import lib.ReadProperties;
 			subject.selectSubject("My Authorisation");
 			System.out.println("Clicked on My Authorisation Menu Item");
 			Thread.sleep(3000);
-			// Select BeekeeperAuthorisation
+			// Select RTO Authorisation
 			MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
+		
 			UX_BKR_Lic_Permission_RTO myLP = PageFactory.initElements(driver, UX_BKR_Lic_Permission_RTO.class);
-			//myAuth.multipleAuthorisation_select_Bee();
+
 			Thread.sleep(3000);
-			
-			
 			//Verify Authorization menu item 
 			if(myAuth.multipleAuthorisation_select_RTO()){
 				Thread.sleep(3000);
@@ -82,137 +73,11 @@ import lib.ReadProperties;
 			
 			Thread.sleep(5000);
 			
-			
-			//select Training Info tab
-			if(myLP.trainingInfoTab()){
-				Thread.sleep(3000);
-				
-				if(myLP.trainingInfoTabResult()) {
-					System.out.println("Training Info Tab Result is Displayed");
-					Thread.sleep(3000);
-				}
-				else
-				{
-					System.out.println("Not able to fetch Training Info tab Result");
-					softAssert.assertTrue(false,"Not able to fetch Training Info tab Result");
-				}
-			}
-			else {
-				System.out.println("Failed to click Training Info Tab");
-				softAssert.assertTrue(false,"Failed to click Training Info Tab");
-			}
-			
-			//select Trainer tab
-			if(myLP.trainerTab()){
-				Thread.sleep(3000);
-				
-				if(myLP.trainerTabResult()) {
-					System.out.println("Trainer Tab Result is Displayed");
-					Thread.sleep(3000);
-				}
-				else
-				{
-					System.out.println("Not able to fetch Trainer tab Result");
-					softAssert.assertTrue(false,"Not able to fetch Trainer tab Result");
-				}
-			}
-			else {
-				System.out.println("Failed to click Trainer Tab");
-				softAssert.assertTrue(false,"Failed to click Trainer Tab");
-			}
-			Thread.sleep(3000);
-			
-			//Select Training Tab
-			if(myLP.trainingTab()){
-				Thread.sleep(3000);
-				
-				if(myLP.trainingTabResult()) {
-					System.out.println("Training Button is Enabled");		
-					Thread.sleep(3000);
-				}
-				else
-				{
-					System.out.println("Not able to fetch Training Button");
-					softAssert.assertTrue(false,"Not able to fetch Training Button");
-				}
-				
-			}
-			else {
-				System.out.println("Failed to find Training Button");
-				softAssert.assertTrue(false,"Failed to find Training Button");
-			}
-			Thread.sleep(3000);
-			
-			
-			//Select Payments Tab
-			if(myLP.paymentsTab()){
-				Thread.sleep(3000);
-				
-				if(myLP.paymentsTabResult()) {
-					System.out.println("Payments Tab is Clicked");		
-					Thread.sleep(3000);
-				}
-				else
-				{
-					System.out.println("Not able to fetch Payments Tab");
-					softAssert.assertTrue(false,"Not able to fetch Payments Tab");
-				}
-				
-			}
-			else {
-				System.out.println("Failed to click Payments Tab");
-				softAssert.assertTrue(false,"Failed to click Payments Tab");
-			}
-			Thread.sleep(3000);
-			
-			
-			//select Export tab
-			
-			if(myLP.exportRTOTab()){
-				Thread.sleep(3000);
-				
-				if(myLP.exportRTOTabResult()) {
-					System.out.println("Export Tab Result is Displayed");
-					Thread.sleep(3000);
-				}
-				else
-				{
-					System.out.println("Not able to fetch Export tab Result");
-					softAssert.assertTrue(false,"Not able to fetch Export tab Result");
-				}
-			}
-			else {
-				System.out.println("Failed to click Export Tab");
-				softAssert.assertTrue(false,"Failed to click Export Tab");
-			}
-			
-			
-			//select Change History tab
-			
-			if(myLP.changeHistoryRTOTab()){
-				Thread.sleep(3000);
-				
-				if(myLP.changeHistoryRTOTabResult()) {
-					System.out.println("Change History Tab Result is Displayed");
-					Thread.sleep(3000);
-				}
-				else
-				{
-					System.out.println("Not able to fetch Change History tab Result");
-					softAssert.assertTrue(false,"Not able to fetch Change History tab Result");
-				}
-			}
-			else {
-				System.out.println("Failed to click Change History Tab");
-				softAssert.assertTrue(false,"Failed to click Change History Tab");
-			}
-			
-			//Actions
-			//Issue Certificate Action
 			if(myLP.IssueCertificateClick())
 			{
 				Thread.sleep(3000);
-				if(myLP.getheaderOnIssueCert()) {
+				if(myLP.getheaderOnIssueCert()) // Need to write code for issuing certificate - pending
+				{
 					System.out.println("Issue Certificate Header is Displayed");
 					Thread.sleep(3000);
 					myLP.backButtonClick();
@@ -232,8 +97,31 @@ import lib.ReadProperties;
 				softAssert.assertTrue(false,"Failed to click Issue Certificate Action");
 			}
 			Thread.sleep(3000);
-			//Certificates Issues Action
+	}
 			
+			//@Test
+			//Certificates Issued Action
+			
+			public void CertificatesIssued() {
+				try {
+
+					WebDriver driver = LocalDriverManager.getDriver();
+					url = ReadProperties.getObject("config","UX");
+					username = ReadProperties.getObject("config","external_User_Deb_Syd");
+					password = ReadProperties.getObject("config","external_pwd");
+
+					driver.get(url);
+					LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+					loginPage.LoginToUX(username, password);
+					SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
+					subject.selectSubject("My Authorisation");
+					Thread.sleep(2000);
+					//Select RTO
+					MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
+					myAuth.multipleAuthorisation_select_RTO();	
+		UX_BKR_Lic_Permission_RTO myLP = PageFactory.initElements(driver, UX_BKR_Lic_Permission_RTO.class);
+
+			Thread.sleep(6000);
 			CertificatesIssued myCI = PageFactory.initElements(driver, CertificatesIssued.class);
 			if(myCI.certificatesIssuedClick()) {
 				
@@ -304,9 +192,36 @@ import lib.ReadProperties;
 			else {
 				System.out.println("Failed to Click Certificates Issued Action");
 				softAssert.assertTrue(false,"Failed to Click Certificates Issued Action");
-			}
+			
+				} }catch (Exception e) {
+					e.printStackTrace();
+				}
+				}
 			
 			//Request Stat Report Action
+			@Test
+			
+			public void UXRTORequest() {
+				try {
+
+					WebDriver driver = LocalDriverManager.getDriver();
+					url = ReadProperties.getObject("config","UX");
+					username = ReadProperties.getObject("config","external_User_Deb_Syd");
+					password = ReadProperties.getObject("config","external_pwd");
+
+					driver.get(url);
+					LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+					loginPage.LoginToUX(username, password);
+					SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
+					subject.selectSubject("My Authorisation");
+					Thread.sleep(2000);
+					//Select RTO
+					MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
+					myAuth.multipleAuthorisation_select_RTO();	
+		UX_BKR_Lic_Permission_RTO myLP = PageFactory.initElements(driver, UX_BKR_Lic_Permission_RTO.class);
+
+			Thread.sleep(3000);
+
 			UXRTORequest uxRTORequest = PageFactory.initElements(driver, UXRTORequest.class);
 			
 			if(uxRTORequest.requestStatsReportClick()){
@@ -314,30 +229,55 @@ import lib.ReadProperties;
 				if(uxRTORequest.getheaderOnStatsReport()) {
 					System.out.println("Request Stats Report Form is displayed");
 					Thread.sleep(3000);
-					myLP.backButtonClick();
+					driver.findElement(By.xpath("//fieldset/div[2]/.//tr[5]/td[1]/.//input")).sendKeys("16/03/2021");
+					driver.findElement(By.xpath("//fieldset/div[2]/.//tr[5]/td[2]/.//input")).sendKeys("17/03/2021");
+					//myLP.backButtonClick();
 					Thread.sleep(3000);
-				}
+					String parentHandle = driver.getWindowHandle();//Get current window
+					driver.findElement(By.xpath("//span[text() = 'Submit']")).click();
+					System.out.println("Submit clicked");
+					Thread.sleep(5000);
+					if(driver.getWindowHandles().size()>1)
+					{
+						for( String winhandle : driver.getWindowHandles())
+						{
+							driver.switchTo().window(winhandle);//new window that opens up
+							Thread.sleep(6000);
+						}
+						System.out.println ("Switching to parent window: "+parentHandle);//old window
+						driver.switchTo().window(parentHandle);
+						
+							String reportText = driver.findElement(By.xpath("//div[contains(text(),'successful.')]")).getText();
+							System.out.println ("Report Generated: "+ reportText);
+								softAssert.assertTrue(true, "Report genearted succdessfully");
+						}
+						else {
+							System.out.println("Not able to print the report");
+							softAssert.assertTrue(false,"Not able to Print the report! New window is not created");	
+						}
+					}
 				else
 				{
 					System.out.println("Not able to fetch Request Stats Report Form");
 					softAssert.assertTrue(false,"Not able to fetch Request Stats Report Form");
 				}
+				}
 				
-			}
-			else {
+			else{ 
 				System.out.println("Failed to click Request Stats Report Action");
 				softAssert.assertTrue(false,"Failed to click Request Stats Report Action");
 			}
-			
-			Thread.sleep(2000);
+				
+			Thread.sleep(4000);
 
 			//Order Blank Cert Action
 			if(uxRTORequest.orderBlankCertClick()){
 				Thread.sleep(3000);
 				if(uxRTORequest.getheaderOnOrderCert()) {
 					System.out.println("Order Blank Cert Form is displayed");
+				// Need to write code for ordering blank certificate , at present it displays only form 
 					Thread.sleep(3000);
-					myLP.backButtonClick();
+					myLP.backButtonClick();// not ordering 
 					Thread.sleep(3000);
 				}
 				else
@@ -353,15 +293,44 @@ import lib.ReadProperties;
 			}
 			
 			Thread.sleep(2000);
+				 }
+			catch (Exception e) {
+					e.printStackTrace();
+				}
+				}
+			
 			
 			
 			//Cancel Authorisation Action
+		//	@Test
+			
+			public void cancelAuthorisation() {
+				try {
+
+					WebDriver driver = LocalDriverManager.getDriver();
+					url = ReadProperties.getObject("config","UX");
+					username = ReadProperties.getObject("config","external_User_Deb_Syd");
+					password = ReadProperties.getObject("config","external_pwd");
+
+					driver.get(url);
+					LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+					loginPage.LoginToUX(username, password);
+					SelectSubject subject = PageFactory.initElements(driver, SelectSubject.class);
+					subject.selectSubject("My Authorisation");
+					Thread.sleep(2000);
+					//Select RTO
+					MyAuthorisation myAuth = PageFactory.initElements(driver, MyAuthorisation.class);
+					myAuth.multipleAuthorisation_select_RTO();	
+		UX_BKR_Lic_Permission_RTO myLP = PageFactory.initElements(driver, UX_BKR_Lic_Permission_RTO.class);
+
+			Thread.sleep(3000);
+			
 			if(myLP.clickCancelAuthorisation()) {
 				Thread.sleep(3000);
 				if(myLP.headerOnCancelAuth()) {
 					System.out.println("Cancel Authorisation Form is Displayed");
 					Thread.sleep(2000);
-					myLP.clickCancelButton();			
+					myLP.clickCancelButton();	// Need to write code for cancelling , at present it displays only cancel Auth form 		
 					Thread.sleep(2000);
 				}
 				else
@@ -375,10 +344,14 @@ import lib.ReadProperties;
 				softAssert.assertTrue(false,"Failed to click cancel Authorisation Action");
 			}
 			Thread.sleep(2000);
-			// Need to write for trainer Management
+			// Need to write code for trainer Management
 			softAssert.assertAll();
 			driver.close();
-		}	
+			} 
+			catch (Exception e) {
+			e.printStackTrace();
+		}
+		}
 		
 	}
-	
+		
