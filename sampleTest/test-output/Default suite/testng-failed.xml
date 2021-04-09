@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.au.byteUX.Test.Package.UX_SubmitPayment_Bee_Renewal">
+      <class name="com.au.byteUX.ProductionIssue.PrintReport">
         <methods>
-          <include name="verifyRenewal"/>
+          <include name="main"/>
         </methods>
-      </class> <!-- com.au.byteUX.Test.Package.UX_SubmitPayment_Bee_Renewal -->
+      </class> <!-- com.au.byteUX.ProductionIssue.PrintReport -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
