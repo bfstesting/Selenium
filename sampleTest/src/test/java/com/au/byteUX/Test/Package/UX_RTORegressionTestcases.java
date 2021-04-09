@@ -345,6 +345,7 @@ public class UX_RTORegressionTestcases {
 			}
 			Thread.sleep(2000);
 			// Need to write code for trainer Management
+			// testing code
 			softAssert.assertAll();
 			driver.close();
 			} 
