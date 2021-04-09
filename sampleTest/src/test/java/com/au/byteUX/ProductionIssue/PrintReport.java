@@ -66,6 +66,7 @@ public class PrintReport extends HelperClass{
 				System.out.println("Submit Clicked");
 				Thread.sleep(5000);
 				
+<<<<<<< HEAD
 				if(driver.getWindowHandles().size()> 1)
 				{
 					for (String winHandle : driver.getWindowHandles()) {
@@ -80,6 +81,16 @@ public class PrintReport extends HelperClass{
 					System.out.println ("Report Generated: "+ reportText);
 					//driver.switchTo().window(parentHandle); // switch back to the original window
 					softAssert.assertTrue(true,"Report generated Successfully!!");
+=======
+				String parentHandle = driver.getWindowHandle(); // get the current window handle
+				System.out.println(parentHandle);
+				driver.findElement(By.xpath("//span[(text()='Submit')]")).click();
+				Thread.sleep(3000);
+				for (String winHandle : driver.getWindowHandles()) {
+			    driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
+			    System.out.println(driver.getWindowHandle());
+			    System.out.println("Report Open");
+>>>>>>> branch 'dev' of https://github.com/bfstesting/Selenium.git
 				}
 				else {
 					System.out.println("Not able to print the Report");

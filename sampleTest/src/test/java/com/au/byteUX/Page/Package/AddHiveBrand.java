@@ -28,7 +28,7 @@ public class AddHiveBrand {
 	@FindBy(how = How.XPATH, using = "//fieldset[.//div[text()='Details']]/.//tr[1]/td[1]/.//input")
 	@CacheLookup
 	WebElement hiveBrandNumber;
-	@FindBy(how = How.XPATH, using = "//div[13]/.//a[2]/.//span[text()='']")
+	@FindBy(how = How.XPATH, using = " //div[13]/.//a[2]/.//span[text()='Save']")
 	@CacheLookup
 	WebElement saveForm;
 

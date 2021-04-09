@@ -2,16 +2,40 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="86401" started-at="2020-12-22T16:02:35 AEDT" finished-at="2020-12-22T16:04:02 AEDT">
+  <suite name="Default suite" duration-ms="46584" started-at="2021-03-17T17:04:13 AEDT" finished-at="2021-03-17T17:04:59 AEDT">
     <groups>
     </groups>
-    <test name="Test" duration-ms="86401" started-at="2020-12-22T16:02:35 AEDT" finished-at="2020-12-22T16:04:02 AEDT">
-      <class name="com.au.byteUX.Test.Package.UX_MyAuthorisation_Smoke_Bee_Test">
-        <test-method status="PASS" signature="verifyMyAuthTabClick()[pri:0, instance:com.au.byteUX.Test.Package.UX_MyAuthorisation_Smoke_Bee_Test@76b0bfab]" name="verifyMyAuthTabClick" duration-ms="86332" started-at="2020-12-22T16:02:35 AEDT" finished-at="2020-12-22T16:04:02 AEDT">
+    <test name="Default test" duration-ms="46584" started-at="2021-03-17T17:04:13 AEDT" finished-at="2021-03-17T17:04:59 AEDT">
+      <class name="com.au.byteUX.ProductionIssue.PrintReport">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.au.byteUX.ProductionIssue.PrintReport@2f943d71]" name="beforeSuite" is-config="true" duration-ms="16" started-at="2021-03-17T17:04:13 AEDT" finished-at="2021-03-17T17:04:13 AEDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyMyAuthTabClick -->
-      </class> <!-- com.au.byteUX.Test.Package.UX_MyAuthorisation_Smoke_Bee_Test -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.au.byteUX.ProductionIssue.PrintReport@2f943d71]" name="beforeClass" is-config="true" duration-ms="1" started-at="2021-03-17T17:04:13 AEDT" finished-at="2021-03-17T17:04:13 AEDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.au.byteUX.ProductionIssue.PrintReport@2f943d71]" name="beforeMethod" is-config="true" duration-ms="4193" started-at="2021-03-17T17:04:13 AEDT" finished-at="2021-03-17T17:04:17 AEDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="init()[pri:0, instance:com.au.byteUX.ProductionIssue.PrintReport@2f943d71]" name="init" is-config="true" duration-ms="16406" started-at="2021-03-17T17:04:17 AEDT" finished-at="2021-03-17T17:04:33 AEDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="Print()[pri:0, instance:com.au.byteUX.ProductionIssue.PrintReport@2f943d71]" name="Print" duration-ms="25509" started-at="2021-03-17T17:04:33 AEDT" finished-at="2021-03-17T17:04:59 AEDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Print -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.au.byteUX.ProductionIssue.PrintReport@2f943d71]" name="afterMethod" is-config="true" duration-ms="413" started-at="2021-03-17T17:04:59 AEDT" finished-at="2021-03-17T17:04:59 AEDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.au.byteUX.ProductionIssue.PrintReport@2f943d71]" name="afterSuite" is-config="true" duration-ms="738" started-at="2021-03-17T17:04:59 AEDT" finished-at="2021-03-17T17:05:00 AEDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- com.au.byteUX.ProductionIssue.PrintReport -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
